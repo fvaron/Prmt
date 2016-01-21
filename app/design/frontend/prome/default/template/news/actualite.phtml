@@ -1,0 +1,98 @@
+<?php $_news = $this->getAllNews(); ?>
+
+<?php $action = Mage::app()->getFrontController()->getAction()->getFullActionName();
+if ($action == 'cms_index_index') : ?>
+	<div class="container-fluid sur-news">
+        <div class="news-actu row">
+			<div class="news  col-md-8">
+			    <div class="les-onglets row">
+				    <div class="onglet onglet1  col-sm-3">ACTUALITES</div>
+				    <div class="onglet onglet2  col-sm-3">VIDEOS</div>
+				    <div class="onglet onglet3  col-sm-3">FAQ</div>	
+			    </div>
+
+			    <!-- Les news -->
+			    <div class="les-news row">
+			        <?php $blocks = Mage::getModel('cms/block')->getCollection();
+			    // echo  $this->getLayout()->createBlock('cms/block')->setBlockId('une_news_page-une-news')->toHtml();
+			            $count_actu=0;
+			            $cou=0;
+			            // On détermine le nombre de news
+			            foreach($blocks as $block){ 
+							if(preg_match("/une_news/", $block->identifier) ){
+								$count_actu++;
+							}
+						}
+						// On les affiche
+						foreach($blocks as $block){ 
+							if(preg_match("/une_news/", $block->identifier) ){
+							   $cou++;
+							   $lien_page = str_replace("une_news_", "", $block->identifier);
+						       $content = html_entity_decode($this->getLayout()->createBlock('cms/block')->setBlockId($block->identifier)->toHtml());
+						       if($count_actu == $cou)
+						       	$content = str_replace('EN_SAVOIR_PLUS','EN_SAVOIR_PLUS <div class="see-all-news row col-md-3 col-xs-offset-2 col-sm-offset-2"></div>',$content);
+						       echo str_replace('<img','<img class="img-news col-md-3 "',str_replace('EN_SAVOIR_PLUS','<a href="'.$lien_page.'" target="_blank">...<br/>En savoir plus</a>',$content));
+							}
+						}
+			       ?>
+				</div>
+
+                <!-- Les vidéos -->
+				<div class="les-videos row">
+			        <?php $blocks = Mage::getModel('cms/block')->getCollection();
+			    // echo  $this->getLayout()->createBlock('cms/block')->setBlockId('une_news_page-une-news')->toHtml();
+			            $count_video=0;
+			            $cou=0;
+			            // On détermine le nombre de vidéos
+			            foreach($blocks as $block){ 						
+							if(preg_match("/une_video/", $block->identifier) ){
+								$count_video++;
+							}
+						}
+						// On les affiche
+						foreach($blocks as $block){ 
+							if(preg_match("/une_video/", $block->identifier) ){
+							   $cou++;
+							   $lien_page = str_replace("une_video_", "", $block->identifier);
+						       $content = html_entity_decode($this->getLayout()->createBlock('cms/block')->setBlockId($block->identifier)->toHtml());
+						       if($count_video == $cou)
+						       	$content = str_replace('EN_SAVOIR_PLUS','EN_SAVOIR_PLUS <div class="see-all-news row col-md-3 col-xs-offset-2 col-sm-offset-2"></div>',$content);
+						       echo str_replace("</iframe>","</iframe></div>",str_replace('<iframe ','<div class="embed-responsive embed-responsive-16by9 col-md-3 "><iframe  class="video-news embed-responsive "',str_replace('EN_SAVOIR_PLUS','<a href="'.$lien_page.'" target="_blank">...<br/>En savoir plus</a>',$content)));
+							}
+						}
+			       ?>
+				</div>
+
+				<!-- Les FAQ -->
+				<div class="les-autres row">
+			        <?php $blocks = Mage::getModel('cms/block')->getCollection();
+			    // echo  $this->getLayout()->createBlock('cms/block')->setBlockId('une_news_page-une-news')->toHtml();
+			            $count_faq=0;
+			            $cou=0;
+			            // On détermine le nombre de faq
+			            foreach($blocks as $block){ 	
+							if(preg_match("/une_faq/", $block->identifier) ){
+								$count_faq++;
+							}
+						}
+						// On les affiche
+                        echo '<div class="les-faq row">';
+						foreach($blocks as $block){ 
+							$count_actu++;
+							if(preg_match("/une_faq/", $block->identifier) ){
+							   $cou++;
+							   $lien_page = str_replace("une_faq_", "", $block->identifier);
+						       $content = html_entity_decode($this->getLayout()->createBlock('cms/block')->setBlockId($block->identifier)->toHtml());  
+						       echo'<div class="col-md-12 une-faq">'; 
+						       echo $content; 
+						       echo'</div>';
+							}
+						}
+						echo '</div>';
+			       ?>
+				</div>
+			</div>
+			<?php echo $this->getChildHtml('showroom'); ?>
+		</div>
+	</div>
+<?php endif;?>

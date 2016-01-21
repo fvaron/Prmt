@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Moh_News>
+            <version>0.1.0</version>
+        </Moh_News>
+    </modules>
+    <global>
+        <blocks>
+            <news>
+                <class>Moh_News_Block</class>
+            </news>
+        </blocks>
+    </global>
+    <frontend>
+        <routers>
+            <news> <!-- Nom du module -->
+                <use>standard</use>
+                <args>
+                    <module>Moh_News</module>
+                    <frontName>news</frontName>
+                </args>
+            </news>
+        </routers>
+        <layout> <!-- Déclaration du layout -->
+            <updates>
+                <news> <!-- Nom du module -->
+                    <file>news.xml</file>
+                </news>
+            </updates>
+        </layout>
+    </frontend>
+</config>

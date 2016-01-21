@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>   
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-right.phtml</template>
+            </action>
+        </reference>
+    </default>
+    <menuentete_index_index>
+        <reference name="header">
+            <block type="menuentete/menuEntete" template="menuentete/menuentete.phtml" name="menuentete.menuentete" as="menuentete" />
+        </reference>
+    </menuentete_index_index>
+</layout>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Moh_Showroom>
+            <version>0.1.0</version>
+        </Moh_Showroom>
+    </modules>
+    <global>
+        <blocks>
+            <showroom>
+                <class>Moh_Showroom_Block</class>
+            </showroom>
+        </blocks>
+    </global>
+    <frontend>
+        <routers>
+            <showroom> <!-- Nom du module -->
+                <use>standard</use>
+                <args>
+                    <module>Moh_Showroom</module>
+                    <frontName>showroom</frontName>
+                </args>
+            </showroom>
+        </routers>
+        <layout> <!-- Déclaration du layout -->
+            <updates>
+                <showroom> <!-- Nom du module -->
+                    <file>showroom.xml</file>
+                </showroom>
+            </updates>
+        </layout>
+    </frontend>
+</config>

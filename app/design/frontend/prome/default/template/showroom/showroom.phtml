@@ -1,0 +1,59 @@
+<?php $_slider = $this->getAllNews(); ?>
+
+<?php 
+  $images_rub = array('1' =>'rub-insta.jpg','2' =>'rub-admi.jpg' ,'3' =>'rub-formation.jpg' );
+  $titre_rub  = array('1' =>'Installation et Assistance' ,'2' =>'Garanties et extensions' ,'3' =>'Formation' );
+  $mini_text  = array('1' =>'ProInteractive à vos côtés dans le déploiement de votre solution Prometheance' ,'2' =>'ActivCare et ActivCare Plus : découvrez les garanties Promethean' ,'3' =>'Découvrez nos formations Sequence Plus' );
+  $lien_savoir_plus  = array('1' =>'../installation-et-assistance' ,'2' =>'../garanties-et-extensions' ,'3' =>'../formations' );
+?>
+
+<?php if(! $this->getBlockId()):?><!-- Pour affichage dans la home -->
+<div class="showroom row col-md-4">
+	<!--<img src="skin/frontend/prome/default/images/media/showroom-img.jpg">-->
+	
+	<div class="img-showroom">
+	    <div class="text-showroom">
+	    	<div class="titre-text-shoroom">Showroom</div>
+	    	<div class="text-text-shoroom">
+	    	    Venez nous rencontrer à notre showroom. Bénéficiez de démonstrations gratuites sur les solutions Promethean de votre choix et profitez de l’expertise de nos professionnels.
+	    	</div>
+	    </div>
+		<a href="../Showroom"><div class="visiter-showroom">VISITER NOTRE SHOWROOM</div></a>
+	</div>
+	<div class="les-rubs">
+        <?php foreach ($images_rub as $key => $img):?>
+        	<a href="<?php echo $lien_savoir_plus[$key];?>">
+        	<div class="une-rub row">
+	       	  <img class="img-rub col-md-2" src="skin/frontend/prome/default/images/media/<?php echo $img; ?>">
+	       	  <div class="titre-rub col-md-10"><?php echo $titre_rub[$key];?></div>
+			  <div class="txt-rub col-md-8 col-md-offset-2"><?php echo $mini_text[$key];?></div>
+              <div class="en-savoir-plus col-sm-9 col-xs-8 col-xs-offset-2"></div>
+            </div>
+            </a>
+        <?php endforeach;?>		
+	</div>
+</div>
+<?php else: ?><!-- Pour affichage dans la page catégorie-->
+<div class="showroom-cat row col-md-12">
+	
+	<div class="les-rubs">
+	<div class="img-showroom-page-cat row">
+	  <div class="titre-showroom-cat">Showroom</div>
+	  <div class="text-showroom-cat">
+	      Venez nous rencontrer à notre showroom. Bénéficiez de démonstrations gratuites sur les solutions Promethean de votre choix et profitez de l’expertise de nos professionnels.
+	  </div>
+	  <a href="../Showroom"><div class="visiter-showroom-cat">VISITEZ NOTRE SHOWROOM</div></a>
+	</div>
+	
+        <?php foreach ($images_rub as $key => $img):?>
+        	<a href="<?php echo $lien_savoir_plus[$key];?>">
+        	<div class="une-rub row">
+	       	  <img class="img-rub " src="skin/frontend/prome/default/images/media/<?php echo $img; ?>">
+	       	  <div class="titre-rub col-md-12"><?php echo $titre_rub[$key];?></div>
+              <div class="en-savoir-plus-showroom-cat col-md-8 col-sm-offset-5 col-xs-offset-4 col-md-offset-2"></div>
+            </div>
+            </a>
+        <?php endforeach;?>		
+	</div>
+</div>
+<?php endif;?>

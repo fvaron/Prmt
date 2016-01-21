@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Moh_TroisBloc>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Moh_TroisBloc>
+    </modules>
+</config>

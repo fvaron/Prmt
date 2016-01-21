@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>   
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-right.phtml</template>
+            </action>
+        </reference>
+    </default>
+    <showroom_index_index>
+  
+            <block type="showroom/showroom" template="showroom/showroom.phtml" name="showroom.showroom" as="showroom" />
+
+    </showroom_index_index>
+</layout>

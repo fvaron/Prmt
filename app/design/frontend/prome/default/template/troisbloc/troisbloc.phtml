@@ -1,0 +1,18 @@
+<?php $_troisbloc = $this->getAllNews(); ?>
+<?php $action = Mage::app()->getFrontController()->getAction()->getFullActionName();
+if ($action == 'cms_index_index') : ?>
+
+<div class="sur-trois-blocks container-fluid">
+   <div class="trois-blocks row">
+   	    <a href="../valorisation-de-l-enseignement">
+   	      <div class="block block1 col-md-4 col-sm-6"><div></div></div>
+   	    </a>
+   	    <a href="../developpement-de-la-collaboration">
+   	      <div class="block block2 col-md-4 col-sm-6"><div></div></div>
+   	    </a>
+   	    <a href="../classflow">
+   	      <div class="block block3 col-md-4 col-sm-6"><div></div></div>
+   	    </a>
+   </div>
+</div>
+<?php endif ?>

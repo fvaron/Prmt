@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+ <global>
+  <page>
+   <layouts>
+    <custom_static_page_two>
+     <label>Custom static page 2</label>
+     <template>cms/news.phtml</template>
+    </custom_static_page_two>
+   </layouts>
+  </page>
+ </global>
+</config>

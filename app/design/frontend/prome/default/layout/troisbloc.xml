@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>   
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-right.phtml</template>
+            </action>
+        </reference>
+    </default>
+    <troisbloc_index_index>
+        <reference name="header">
+            <block type="troisbloc/troisBloc" template="troisbloc/troisbloc.phtml" name="troisbloc.troisbloc" as="troisbloc" />
+        </reference>
+    </troisbloc_index_index>
+</layout>

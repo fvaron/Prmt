@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <default>
+
+        <!-- Suprimer callouts  -->
+        <remove name="right.poll"/>
+        <remove name="right.permanent.callout"/>
+        <remove name="left.permanent.callout"/>
+        <remove name="paypal.partner.right.logo"/>
+        <remove name="cart_sidebar"/>
+        <remove name="right.reports.product.viewed"/>
+        <remove name="left.reports.product.viewed"/>
+        <remove name="left.newsletter"/>
+        <remove name="catalog.product.related"/>
+
+        <!-- add the local stylesheet -->
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/local.css</stylesheet></action>
+        </reference>
+
+    </default>
+</layout>

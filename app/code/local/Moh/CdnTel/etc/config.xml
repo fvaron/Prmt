@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Moh_CdnTel>
+            <version>0.1.0</version>
+        </Moh_CdnTel>
+    </modules>
+    <global>
+        <blocks>
+            <cdntel>
+                <class>Moh_CdnTel_Block</class>
+            </cdntel>
+        </blocks>
+    </global>
+    <frontend>
+        <routers>
+            <cdntel> <!-- Nom du module -->
+                <use>standard</use>
+                <args>
+                    <module>Moh_CdnTel</module>
+                    <frontName>cdntel</frontName>
+                </args>
+            </cdntel>
+        </routers>
+        <layout> <!-- Déclaration du layout -->
+            <updates>
+                <cdntel> <!-- Nom du module -->
+                    <file>cdntel.xml</file>
+                </cdntel>
+            </updates>
+        </layout>
+    </frontend>
+</config>
