@@ -203,6 +203,5 @@ pip-log.txt
 .coverage
 .tox
 
-cache/
 logs/
 .htaccess
