@@ -41,8 +41,8 @@
             <default_setup>
                 <connection>
                     <host><![CDATA[localhost]]></host>
-                    <username><![CDATA[promethean]]></username>
-                    <password><![CDATA[GqJ24kRvZd7u]]></password>
+                    <username><![CDATA[root]]></username>
+                    <password><![CDATA[]]></password>
                     <dbname><![CDATA[promethean]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
