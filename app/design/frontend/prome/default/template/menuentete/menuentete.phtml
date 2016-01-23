@@ -1,38 +1,37 @@
-<?php $_menuentete = $this->getAllNews(); ?>
+<?php
+$_menuentete = $this->getAllNews();
+$_cartQty = Mage::helper('checkout/cart')->getItemsQty();
+$_cartTotal = Mage::helper('checkout')->formatPrice(Mage::helper('checkout/cart')->getQuote()->getGrandTotal());
+// @todo à dynamiser lors du dev du devis
+$_devisQty = 0
+?>
 
-	<div class="sur-header">
-	    <nav class="navbar navbar-default top-nav">
-            <div class="container-fluid cf">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
+<div class="sur-header">
+    <nav class="navbar navbar-default top-nav">
+        <div class="container-fluid cf">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <a class="connexion_bis" href="<?php echo $this->getUrl('customer/account'); ?>"><?php echo $this->__('Customer space'); ?></a>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navcollaps" id="bs-example-navbar-collapse-1">
+                <div class="navbar-right">
+                    <a class="connexion" href="<?php echo $this->getUrl('customer/account'); ?>"><?php echo $this->__('Customer space'); ?></a>
+                    <a class="devis"><div class="caqul"></div><span><?php echo $this->__('Estimate for %s article(s)', $_devisQty); ?></span></a>
+                    <a class="panier" href="<?php echo $this->getUrl('checkout/cart'); ?>"><?php echo $this->__('%s article(s)', $_cartQty); ?> - <?php echo $_cartTotal; ?></a>
                 </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navcollaps" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav top-nav-left">
-                    <li><a href="#">Home <span class="bare-top-menu">|</span></a></li>
-                    <li class="limf"><a href="#">About-company <span class="bare-top-menu">|</span></a></li>
-                    <li class="limf"><a href="#">Payment-methods <span class="bare-top-menu">|</span></a></li>
-                    <li class="limf"><a href="#">Contact</a></li>
-                  </ul>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li class="connexion"><a href="/customer/account"><div class="cadenas"></div>Connexion</a></li>
-                    <li class="inscription"><a href="/customer/account/create"><div class="bonhom"></div>Inscription</a></li>
-                    <li class="panier"><div class="caqul"></div><div class="cady"></div><a href="/checkout/cart"></a></li>
-                  </ul>
-                </div><!-- /.navbar-collapse -->                    
-            </div><!-- /.container-fluid -->      
-        </nav>
-	</div>
-    <ul class="navbar-right_bis">
-      <li class="connexion_bis"><a href="/customer/account"><div class="cadenas cadenas_bis"></div>Connexion</a></li>
-      <li class="inscription_bis"><a href="/customer/account/create"><div class="bonhom bonhom_bis"></div>Inscription</a></li>
-      <li class="panier_bis"><div class="caqul"></div><div class="cady"></div><a href="/checkout/cart"></a></li>
-    </ul>
+                <ul class="nav navbar-nav top-nav-left">
+                    <li class="limf"><a href="#"><?php echo $this->__('Why choose Promothean?'); ?></a></li>
+                    <li class="limf"><a href="#"><?php echo $this->__('Sale to the administrations and the companies'); ?></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>
   
