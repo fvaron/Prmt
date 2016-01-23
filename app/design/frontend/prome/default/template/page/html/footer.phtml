@@ -26,94 +26,26 @@
 ?>
 <div class="footer-container">
     <div class="footer container-fluid">
-        <?php //echo $this->getChildHtml() ?>
-        <!--
-        <p class="bugs"><?php echo $this->__('Help Us to Keep Magento Healthy') ?> - <a href="http://www.magentocommerce.com/bug-tracking" onclick="this.target='_blank'">
-	        <strong><?php echo $this->__('Report All Bugs') ?></strong>
-	        </a> <?php echo $this->__('(ver. %s)', Mage::getVersion()) ?>
-        </p>
-        <address><?php echo $this->getCopyright() ?></address>
-        -->
-
-	<div class="row footer-1">
-		<div class="footer-1-titre row"><span>Pro</span>Interactive</div>
-		<div class="footer-1-txt row">
-		     40, rue Baudin - 92400 COURBEVOIE - FRANCE<br/>
-             SARL au capital de 4000 Euros<br/>
-             Entreprise enregistrée au RCS de NANTERRE sous le numéro 753 563 220<br/>
-        </div>
-	</div>
-	<div class="row footer-2">
-
-	   <div class="liens-footer">
-	        <div class="fleche-footer"></div>
-	        <div class="col-md-6 col-sm-12 ">
-			    <div class="col-liens col-md-4 col-sm-3  col-xs-6 col-md-offset-0 col-sm-offset-1">
-			    	<ul>
-			    		<li>ACTIVEBOARD</li>
-			    		<li>Board Only</li>
-			    		<li>Mount System</li>
-			    	</ul>
-			    </div>
-			    <div class="col-liens col-md-4 col-sm-3 col-xs-6 col-md-offset-0 col-sm-offset-1 ">
-			       <ul>
-			    		<li>ACTIVEPANEL</li>
-			    		<li>65 Inch</li>
-			    		<li>70 Inch</li>
-			    	</ul>
-			    </div>
-			    <div class="col-liens col-md-4 col-sm-3 col-xs-6 col-md-offset-0 col-sm-offset-1">
-			    	<ul>
-			    		<li>VISUALISER</li>
-			    		<li>Actiview 324</li>
-
-			    	</ul>
-			    </div>
-		    </div>
-		    <div class="col-md-6 col-sm-12 liens-newsletter-prome">
-			    <div class="">
-				    <div class="col-liens col-md-4 col-md-offset-2 col-sm-3 col-sm-offset-1 col-xs-6">
-				    	<ul>
-				    		<li>INFORMATIONS</li>
-				            <?php
-				        //listing des pages CMS Sauf page 404 (->addFieldToFilter('page_id', array('neq'=>'1')))
-					        $cms_pages = Mage::getModel('cms/page')->getCollection()->addOrder('title', 'ASC')->addFieldToFilter('page_id', array('neq'=>'1'))->addFieldToFilter('page_id', array('neq'=>'5'))->addFieldToFilter('page_id', array('neq'=>'2'))->
-					            addFieldToFilter('root_template', array('neq'=>'custom_static_page_one'));
-							?>
-				            <?php foreach($cms_pages as $_page): 
-                                 $data = $_page->getData();
-                                 $url_page = $this->getUrl($data['identifier']);
-                                 if($url_page == "http://promethean.fr/showroom/") $url_page ="http://promethean.fr/Showroom/";
-				            ?>
-							<li><a href="<?php echo $url_page  ?>"><?php echo $data['title'] ?></a></li>
-							<?php endforeach; ?>
-				    	</ul>
-				    </div>
-				    <div class="col-liens col-md-6 col-sm-6 col-md-offset-0 col-sm-offset-1 ">
-				    	<ul>
-				    		<li>NEWSLETER SIGNUP</li>
-				    	</ul>
-
-				    	<div class="newsletter-footer col-md-12">
-				    	    <div class="ok-news-letter"></div>
-				    		<input type="texte" name="newsletter" class="newsletter" placeholder="votre adresse mail">	    
-				    	</div>
-				    	<a href="<?php echo $this->getUrl('faq') ?>"><div class="footer-help col-md-12"></div></a>
-				    	<div class="footer-logo col-md-12"></div>
-				    </div>
-			    </div>
-			    <div class="row col-md-10 col-md-offset-2 col-sm-12 footer-payment">
-			    	<div class="footer-mastercard col-md-2 col-sm-2 col-md-offset-0 col-sm-offset-1 col-xs-6 col-xs-offset-0"></div>
-			    	<div class="footer-visa col-md-2 col-sm-2 col-xs-6"></div>
-			    	<div class="footer-paypal col-md-3 col-sm-3 col-xs-6"></div>
-			    	<div class="footer-gopay col-md-4 col-sm-3 col-xs-6"></div>
-			    </div>
-		    </div>
+		<div class="row footer-1">
+			<?php echo $this->getChildHtml('footer_adresse') ?>
 		</div>
-
-	</div>
-	<div class="row footer-3"><div class="copyright">Copyright <?php echo date('Y');?></div></div>
-
+		<div class="row footer-2">
+			<div class="liens-footer">
+				<div class="fleche-footer"></div>
+				<div class="footer-row footer-row1">
+					<?php echo $this->getChildHtml('footer_links_cat') ?>
+				</div>
+				<div class="mob-footer-2">
+					<?php echo $this->getChildHtml('footer_links_infos') ?>
+					<div class="footer-row footer-row3">
+						<?php echo $this->getChildHtml('footer_sociaux') ?>
+						<?php echo $this->getChildHtml('ajax.newsletter') ?>
+						<p class="footer-faq"><span><?php echo $this->__('Need help?'); ?></span><a href="<?php echo $this->getUrl('faq'); ?>"><?php echo $this->__('Consult our FAQ'); ?></a></p>
+						<?php echo $this->getChildHtml('footer_payment') ?>
+					</div>
+				</div>
+			</div>
+	   	</div>
+		<div class="footer-3"><div class="copyright">Copyright <?php echo date('Y');?></div></div>
     </div>
-
 </div>

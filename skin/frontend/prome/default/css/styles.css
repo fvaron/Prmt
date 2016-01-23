@@ -285,61 +285,77 @@ ul.navbar-right_bis li a{ color: #777;}
 .footer{width: 100%; margin: 0; padding: 0; margin-top:70px;}
 .footer-1{width: 100%; padding-bottom: 93px; margin-left: 0px; margin-right: 0px; background-color: #fff; box-shadow: 0px 0px 63px #ddd;}
 .footer-1-titre, .footer-1-txt{margin: 0; text-align: center;}
-.footer-1-titre{color: #193340; font-size: 30px; padding-top:54px; padding-bottom:40px; font-weight: 700 }
+.footer-1-titre { color: #193340; font-size: 30px; padding-top:54px; padding-bottom:40px; font-weight: 700 }
 .footer-1-titre > span{color: #566973; font-weight: 500 }
-.footer-1-txt{color: #7296a7; font-weight: 500; font-size: 14px; line-height: 24px; margin: auto; max-width: 1000px; }
-.footer-2{width: 100%; min-height:415px; margin:0; background-color: #18323d;   overflow: visible !important;}
-.newsletter-footer{  width: 100%; min-height: 40px;  background-color: #162d37; 
-	                 border: 1px solid #304751;  padding: 0px; padding-bottom: 0px; }
-.newsletter{  width: 100%;min-height: inherit;height: inherit; background-color: #162d37;
-	          border: none; padding: 5px; color: #a3bfcc;}
-.ok-news-letter{background-image: url("../images/media/ok-news-letter.jpg"); top:9px; right: 13px;
-                position: absolute; width: 24px; height: 24px;}
-
-.footer-help{width: 100%; background-image: url('../images/media/footer-help.jpg'); background-repeat: no-repeat;
-             min-height: 35px;   background-position: 13px 0px;}
-.footer-logo{width: 100%; background-image: url('../images/media/footer-logo.jpg'); background-repeat: no-repeat;
-             min-height: 120px;   background-position: 12px;}
-
+.footer-1-txt {color: #7296a7; font-weight: 500; font-size: 14px; line-height: 24px; margin: auto; max-width: 1000px; }
+.footer-2 { width: 100%; min-height:415px; margin:0; background-color: #18323d; overflow: visible !important; padding-bottom: 10px;}
+.footer-2 .fleche-footer { width:37px; height: 26px; background-image: url("../images/media/fleche-footer.jpg"); margin: -13px auto 0;}
+.footer-2 .liens-footer { width:100%; max-width: 1142px; min-height: inherit; margin: auto;  }
+.footer-2 .footer-row { float: left; width: 183px; margin-top: 40px; }
+.footer-2 .footer-row1 { width: 611px; margin: 0; }
+.footer-2 .footer-menu2 { margin-left: 75px; }
+.footer-2 .footer-row3 { width: 273px; margin-top: 40px; }
+.footer-2 .footer-row  { font-size: 14px; }
+.footer-2 .footer-row .title-footer-menu { color:#d0d5d7; text-transform: uppercase; font-weight: 700; }
+.footer-2 .footer-row ul li a { color: #a0bcc9; line-height: 16px; }
+.footer-2 .footer-row ul { margin: 25px 0 0; padding:0; }
+.footer-2 .footer-menu-item { float: left; width:20%; margin-top: 40px; }
+.footer-2 .footer-menu-item:nth-child(5n+1) { clear: both; }
+.footer-2 .block-subscribe { margin-top: 22px; }
+.footer-2 .block-subscribe .block-content { margin-top: 20px; position: relative; }
+.footer-2 .block-subscribe .input-box {  width: 100%; min-height: 40px;  background-color: #162d37; border: 1px solid #304751;  padding: 0; }
+.footer-2 .block-subscribe #newsletter{  width: 100%; min-height: inherit; height: inherit; background-color: #162d37; border: none; padding: 5px; color: #a3bfcc;}
+.footer-2 .block-subscribe #newsletter.validation-failed { border: 1px solid red;}
+.footer-2 .block-subscribe button { background: none; border: 0; top: 9px; right: 13px; position: absolute; width: 24px; height: 24px;}
+.footer-2 .block-subscribe button span span { color: #f8931f; font-weight: 700; }
+.footer-2 .block-subscribe .validation-advice { display: none !important; }
+.footer-2 .block-subscribe .ajax-newsletter-messages { color: #ffffff; }
+.footer-2 .footer-faq { text-align: right; margin-top: 8px; margin-right: 7px; }
+.footer-2 .footer-faq span { color: #ffffff; padding-right: 5px; }
+.footer-2 .footer-faq a { color: #ffd33d; text-decoration: underline; }
+.footer-2 .footer-faq a:hover { text-decoration: none; }
+.footer-2 .footer-payment { margin-top: 22px; }
+.footer-2 .footer-payment .method-payment{ margin-top: 8px; margin-bottom: 8px; }
+.footer-2 .footer-payment .method-payment img{ padding: 0 1px; }
+.footer-2 .footer-sociaux .title-footer-menu { padding-right: 22px; }
+.footer-2 .footer-sociaux a { padding-right: 10px; }
 .liens-newsletter-prome{margin-right: 0px; padding-right: 0px }
-
-.footer-payment{min-height: 40px; padding: 0px;}
-.fleche-footer{width:37px; height: 26px; background-image: url("../images/media/fleche-footer.jpg"); margin: auto;
-               margin-top: -13px;}
-.liens-footer{width:100%; max-width: 1142px; min-height: inherit; margin: auto;  }
 .col-liens{min-height: inherit; color:#fff; padding: 0px;}
 .col-liens ul{list-style: none; padding: 0px; padding-top:45px;}
 .col-liens ul li:nth-child(1){color: #d0d5d7; font-size: 14px; font-weight: 700; padding-bottom: 15px;}
 .col-liens ul li {color: #a0bcc9; font-size: 14px; font-weight: 50;}
 .col-liens ul li a{color: #a0bcc9; font-size: 14px; font-weight: 50;}
-.footer-mastercard, .footer-visa, .footer-paypal, .footer-gopay{ min-height: 40px; background-repeat: no-repeat;}
-.footer-mastercard{background-image: url("../images/media/mastercard.jpg"); margin-right: 20px;}
-.footer-visa{background-image: url("../images/media/visa.jpg"); margin-right: 12px;}
-.footer-paypal{background-image: url("../images/media/paypal.jpg");}
-.footer-gopay{background-image: url("../images/media/gopay.jpg");}
-
-
-.footer-3{width: 100%; min-height:60px; margin-left: 0; background-color: #1c1c1c; text-align: center; }
-.copyright{color:616161; font-size: 15px; font-weight: 700; padding-top: 10px;}
+.footer-3 { width: 100%; min-height:60px; margin-left: 0; background-color: #1c1c1c; text-align: center; }
+.footer-3 .copyright { color:#616161; font-size: 15px; font-weight: 700; padding-top: 10px; }
 
 @media only screen and (max-width: 1149px){
     .wrapper{padding-left: 5px; padding-right: 5px;}
- .sur-news, .footer, .footer-1,.footer-2, .sur-slider{ padding-left: 5px; overflow: hidden;}
- .liens-newsletter-prome{/margin-right: 5px; padding-right: 5px }
- .footer-payment{margin: 4px; margin-left: 0px; margin-right: 0px;}
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1160px){
- .footer-help{ background-position: -32px;}
-}
-@media only screen and (max-width: 992px){
- .footer-mastercard, .footer-visa, .footer-paypal, .footer-gopay{margin-right: 0px; margin-bottom: 10px; }
- .footer-payment{margin: 0px; padding: 0px}
+    .sur-news, .sur-slider{ padding-left: 5px; overflow: hidden;}
 }
 @media only screen and (max-width: 1063px){
  .appel{  background-size: 100% auto}
 }
-
+@media only screen and (max-width: 1024px){
+    .footer-2 .footer-row1 { width: 98%; margin-left: 2%; }
+    .footer-2 .footer-menu-item { width: 14%; }
+    .footer-2 .footer-menu-item:nth-child(5n+1) { clear: none; }
+    .footer-2 .mob-footer-2 { margin: 0 auto; width: 55%; clear: both; overflow: hidden; }
+}
+@media only screen and (max-width: 960px){
+    .footer-2 .mob-footer-2 {  width: 100%; }
+    .footer-2 .footer-menu-item { width: 25%; }
+    .footer-2 .footer-menu-item:nth-child(4n+1) { clear: both; }
+}
+@media only screen and (max-width: 480px){
+    .footer-2 .footer-menu-item { width: 24%; margin-right: 1%; }
+    .footer-2 .footer-menu2 { margin-left: 10px; width: 172px; }
+}
+@media only screen and (max-width: 320px){
+    .footer-2 .footer-menu-item:nth-child(4n+1) { clear: none; }
+    .footer-2 .footer-menu-item:nth-child(2n+1) { clear: both; }
+    .footer-2 .footer-menu-item { width: 49%; }
+    .footer-2 .footer-row3 { margin-left: 10px; }
+}
 
 /* -----------------------------   La page catégories  --------------------------  */
 /*.main-container {margin: auto; max-width: 1142px;}*/

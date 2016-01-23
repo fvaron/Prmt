@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-    <modules>
-        <Moh_MenuEntete>
-            <active>true</active>
-            <codePool>local</codePool>
-        </Moh_MenuEntete>
-    </modules>
-</config>

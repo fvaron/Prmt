@@ -1,0 +1,18 @@
+<?php /* @var $this Promethean_AjaxNewsletter_Block_Subscribe */ ?>
+
+<div class="block-subscribe">
+    <span class="title-footer-menu"><?php echo $this->__('Sign up for our newsletter') ?></span>
+    <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
+        <div class="block-content">
+            <div class="input-box">
+               <input type="text" name="email" id="newsletter" placeholder="<?php echo $this->__('Your email address') ?>" title="<?php echo $this->__('Your email address') ?>" class="input-text required-entry validate-email" />
+            </div>
+            <button type="submit" title="<?php echo $this->__('OK') ?>" class="button"><span><span><?php echo $this->__('OK') ?></span></span></button>
+        </div>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var newsletterSubscriberFormDetail = new ajaxNewsletter('newsletter-validate-detail');
+    //]]>
+    </script>
+</div>
