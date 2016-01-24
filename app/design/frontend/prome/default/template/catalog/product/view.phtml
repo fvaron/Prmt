@@ -52,7 +52,7 @@
                 <div class="nom-nom-produit col-md-8">
                    <?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
                 </div>
-                <div class="demo-fiche-prod-top"></div>
+                <div class="demo-fiche-prod-top"><a href="<?php echo $this->getUrl('demo')."?product1=".rawurlencode($_helper->productAttribute($_product, $_product->getName(), 'name')); ?>"><img src="<?php echo $this->getSkinUrl('images/media/demo.jpg'); ?>" /></a></div>
             </div>
             <div class="fiche-produit row">
                 <div class="photos col-md-6">

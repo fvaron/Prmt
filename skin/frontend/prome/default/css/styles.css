@@ -45,8 +45,7 @@ ul.navbar-right_bis li a{ color: #777;}
 
 .appel{ padding-left: 15px; padding-right: 15px; }
 
-.demo{ background-image: url("../images/media/demo.jpg"); margin-right: 10px;
-          background-repeat: no-repeat; background-size: 100% auto}
+.demo{ margin-right: 10px; }
 .recherche-loop{ background-image: url("../images/media/loupe.jpg");top: 0px; right: 0px;
                  position: absolute; width: 50px; height: 40px;background-repeat: no-repeat;
                  background-position: 10px 2px; background-color: #f7f7fb;border: 1px solid #e7e7e7;
@@ -444,8 +443,7 @@ ul.products-grid li {list-style: none;}
 .nom-produit,.fiche-produit {min-height:50px;  max-width: 1142px; margin: auto}
 .fiche-produit {border:1px solid #e8e8ea; background-color: #fff}
 .nom-nom-produit{  min-height: 50px; color:#1D3849; font-size: 34px; font-family: arial, sans-serif; padding-left: 0px;}
-.demo-fiche-prod-top{ min-height: 70px; background-image: url('../images/media/demo.jpg');
-              background-repeat: no-repeat; min-width: 173px; float: right;}
+.demo-fiche-prod-top { float: right; }
 .photos, .desc-et-options{ min-height: 300px}
 .photos{padding: 70px 60px 55px; }
 .photos > p >img{width: 100%; height: auto }
@@ -516,15 +514,15 @@ ul.products-grid li {list-style: none;}
 ul.checkout-types li {list-style-type: none; text-align: right;}
 .totals{ width:100%;}
 
-/** Phone reminder **/
-.phonereminder ul { list-style-type: none; padding: 0; max-width: 500px;}
-.phonereminder .form-list li { margin-top: 10px; }
-.phonereminder .form-list .input-text { width: 95%; max-width: 300px; }
-.phonereminder .form-list textarea.input-text { width: 100%; max-width: 100%; }
-.phonereminder .form-list em { padding-right: 5px; }
-.phonereminder .form-list .validation-advice {  color: #ff5d78;  padding-top: 5px; }
-.phonereminder .buttons-set { clear: both; overflow: hidden; max-width: 500px; }
-.phonereminder .buttons-set .required { text-align: right; color:#777; }
-.phonereminder .buttons-set button { float: right; }
-.phonereminder .messages .success-msg { color: #3bc375; }
-.phonereminder .messages .error-msg { color: #ff5d78; }
+/** Formulaires custom **/
+.form-custom ul { list-style-type: none; padding: 0; max-width: 500px;}
+.form-custom .form-list li { margin-top: 10px; }
+.form-custom .form-list .input-text { width: 95%; max-width: 300px; }
+.form-custom .form-list textarea.input-text { width: 100%; max-width: 100%; }
+.form-custom .form-list em { padding-right: 5px; }
+.form-custom .form-list .validation-advice {  color: #ff5d78;  padding-top: 5px; }
+.form-custom .buttons-set { clear: both; overflow: hidden; max-width: 500px; }
+.form-custom .buttons-set .required { text-align: right; color:#777; }
+.form-custom .buttons-set button { float: right; }
+.form-custom .messages .success-msg { color: #3bc375; }
+.form-custom .messages .error-msg { color: #ff5d78; }
