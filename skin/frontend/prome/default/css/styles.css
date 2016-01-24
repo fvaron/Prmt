@@ -43,8 +43,7 @@ ul.navbar-right_bis li a{ color: #777;}
 .div-logo{/border:1px dotted #aaa; padding-left: 0px; margin-right: 50px}
 .div-logo > a > img{width: 100%}
 
-.appel{ background-image: url("../images/media/appel2.jpg");  padding-left: 15px; padding-right: 15px;
-       background-repeat: no-repeat; }
+.appel{ padding-left: 15px; padding-right: 15px; }
 
 .demo{ background-image: url("../images/media/demo.jpg"); margin-right: 10px;
           background-repeat: no-repeat; background-size: 100% auto}
@@ -516,3 +515,16 @@ ul.products-grid li {list-style: none;}
 .cart{width:100%; max-width: 1142px;   padding: 0;}
 ul.checkout-types li {list-style-type: none; text-align: right;}
 .totals{ width:100%;}
+
+/** Phone reminder **/
+.phonereminder ul { list-style-type: none; padding: 0; max-width: 500px;}
+.phonereminder .form-list li { margin-top: 10px; }
+.phonereminder .form-list .input-text { width: 95%; max-width: 300px; }
+.phonereminder .form-list textarea.input-text { width: 100%; max-width: 100%; }
+.phonereminder .form-list em { padding-right: 5px; }
+.phonereminder .form-list .validation-advice {  color: #ff5d78;  padding-top: 5px; }
+.phonereminder .buttons-set { clear: both; overflow: hidden; max-width: 500px; }
+.phonereminder .buttons-set .required { text-align: right; color:#777; }
+.phonereminder .buttons-set button { float: right; }
+.phonereminder .messages .success-msg { color: #3bc375; }
+.phonereminder .messages .error-msg { color: #ff5d78; }
