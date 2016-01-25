@@ -56,10 +56,6 @@ class Promethean_Phonereminder_IndexController extends Mage_Core_Controller_Fron
                     $error = true;
                 }
 
-                if (!Zend_Validate::is(trim($post['email']), 'EmailAddress')) {
-                    $error = true;
-                }
-
                 if (Zend_Validate::is(trim($post['hideit']), 'NotEmpty')) {
                     $error = true;
                 }
