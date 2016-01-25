@@ -3,14 +3,14 @@ body{margin: 0; padding: 0;}
 .sur-header{ width: 100%; margin: 0; padding: 0;}
 .header{background-color:#fff}
 .limf{margin-left: -15px;}
-.top-nav-left a, .navbar-right a {text-transform: uppercase; text-decoration: underline; }
+.top-nav-left a, .navbar-right a {text-transform: uppercase; }
 .top-nav ul li {min-height: 38px; height: 38px;}
 .top-nav  {min-height: 30px; font-size: 11px;}
 .bare-top-menu{margin-left: 10px;}
 .navcollaps{padding-left: 0px;}
 .connexion_bis {display: none;}
 .navbar-nav>li>a{padding-top: 10px}
-.navbar-right a { display: block; height: 35px; text-transform: uppercase; text-decoration: underline; color:#FFF; line-height: 35px; background-color: #1c3440; border-bottom:1px solid #B8F9E8;}
+.navbar-right a { display: block; height: 35px; text-transform: uppercase; color:#FFF; line-height: 35px; background-color: #1c3440; border-bottom:1px solid #B8F9E8;}
 .navbar-right .connexion, .connexion_bis {background: url("../images/media/ico_cadenas.gif") no-repeat left center; line-height: 40px; float:left; padding-left: 26px; color: #777; font-size: 11px; border: 0; margin-right: 10px;}
 .navbar-right .connexion:hover, .connexion_bis:hover{ color:#333; text-decoration: none; }
 .navbar-right .devis { background: url('../images/media/ico_devis.gif') #1c3440 no-repeat 32px center; width: 235px; float:left; }
