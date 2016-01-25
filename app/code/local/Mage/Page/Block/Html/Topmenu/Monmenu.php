@@ -86,7 +86,7 @@ class Mage_Page_Block_Html_Topmenu_Monmenu extends Mage_Page_Block_Html_Topmenu{
                 $nom = '& Accessoires';
                 break;
             case 'SERVICES':
-                $nom = 'Garantie-Installation Formation';
+                $nom = 'Installation-Formation';
                 break;
             
             default:
