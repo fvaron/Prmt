@@ -7,11 +7,13 @@
         <remove name="right.permanent.callout"/>
         <remove name="left.permanent.callout"/>
         <remove name="paypal.partner.right.logo"/>
+        <remove name="topCart.extra_actions"/>
         <remove name="cart_sidebar"/>
         <remove name="right.reports.product.viewed"/>
         <remove name="left.reports.product.viewed"/>
         <remove name="left.newsletter"/>
         <remove name="catalog.product.related"/>
+        <remove name="footer_links"/>
 
         <!-- add the local stylesheet -->
         <reference name="head">

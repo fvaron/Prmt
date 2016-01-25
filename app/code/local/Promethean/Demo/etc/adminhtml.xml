@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * This file is part of Promethean_Demo for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Demo
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <demo translate="title" module="demo">
+                                        <title>Demo form</title>
+                                    </demo>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

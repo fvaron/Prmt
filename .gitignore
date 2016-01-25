@@ -31,6 +31,13 @@ local.properties
 .buildpath
 
 
+# IDE files #
+#############
+.project
+.idea/*
+.buildpath
+.settings
+
 #################
 ## Visual Studio
 #################

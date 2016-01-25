@@ -1,0 +1,70 @@
+<div class="content-custom-cms-page form-custom">
+    <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+    <div class="page-title">
+        <h1><?php echo Mage::helper('demo')->__('Ask for your demo') ?></h1>
+    </div>
+    <form action="<?php echo $this->getFormAction(); ?>" id="demoForm" method="post">
+        <div class="fieldset">
+            <ul class="form-list">
+                <li class="fields">
+                    <label for="societe" class="required"><?php echo Mage::helper('demo')->__('Name of the société/of the establishment') ?> :</label>
+                    <div class="input-box">
+                        <input name="societe" id="societe" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('demo')->__('Name of the société/of the establishment')) ?>" value="" class="input-text form-control" type="text" />
+                    </div>
+                </li>
+                <li class="fields">
+                    <label for="lastname" class="required"><em>*</em><?php echo Mage::helper('demo')->__('Last name') ?> :</label>
+                    <div class="input-box">
+                        <input name="lastname" id="lastname" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('demo')->__('Last name')) ?>" value="<?php echo $this->escapeHtml($this->helper('demo')->getLastName()) ?>" class="input-text form-control required-entry" type="text" />
+                    </div>
+                </li>
+                <li class="fields">
+                    <label for="firstname" class="required"><em>*</em><?php echo Mage::helper('demo')->__('First name') ?> :</label>
+                    <div class="input-box">
+                        <input name="firstname" id="firstname" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('demo')->__('First name')) ?>" value="<?php echo $this->escapeHtml($this->helper('demo')->getFirstName()) ?>" class="input-text form-control required-entry" type="text" />
+                    </div>
+                </li>
+                <li>
+                    <label for="telephone"><em>*</em><?php echo Mage::helper('demo')->__('Telephone') ?> :</label>
+                    <div class="input-box">
+                        <input name="telephone" id="telephone" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('demo')->__('Telephone')) ?>" value="" class="input-text form-control required-entry" type="text" />
+                    </div>
+                </li>
+                <li>
+                    <label for="email"><?php echo Mage::helper('demo')->__('Email address') ?> :</label>
+                    <div class="input-box">
+                        <input name="email" id="email" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('demo')->__('Email address')) ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserEmail()) ?>" class="input-text form-control validate-email" type="text" />
+                    </div>
+                </li>
+                <li>
+                    <label for="product1"><?php echo Mage::helper('demo')->__('Product %s for which you wish a demonstration', 1) ?> :</label>
+                    <div class="input-box">
+                        <input name="product1" id="product1" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('demo')->__('Product %s for which you wish a demonstration', 1)) ?>" value="<?php if($this->getRequest()->getParam('product1')): echo $this->getRequest()->getParam('product1'); endif; ?>" class="input-text form-control" type="text" />
+                    </div>
+                </li>
+                <li>
+                    <label for="product2"><?php echo Mage::helper('demo')->__('Product %s for which you wish a demonstration', 2) ?> :</label>
+                    <div class="input-box">
+                        <input name="product2" id="product2" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('demo')->__('Product %s for which you wish a demonstration', 2)) ?>" value="" class="input-text form-control" type="text" />
+                    </div>
+                </li>
+                <li class="wide">
+                    <label for="comment"><?php echo Mage::helper('demo')->__('Comment') ?> :</label>
+                    <div class="input-box">
+                        <textarea name="comment" id="comment" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('demo')->__('Comment')) ?>" class="form-control input-text" cols="5" rows="3"></textarea>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="buttons-set">
+            <p class="required"><?php echo Mage::helper('demo')->__('* Required informations') ?></p>
+            <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+            <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('demo')->__('Send the request of demonstration')) ?>" class="button btn btn-success""><span><span><?php echo Mage::helper('demo')->__('Send the request of demonstration') ?></span></span></button>
+        </div>
+    </form>
+    <script type="text/javascript">
+        //<![CDATA[
+        var demoForm = new VarienForm('demoForm', true);
+        //]]>
+    </script>
+</div>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of Promethean_Cms for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Cms
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<config>
+    <modules>
+        <Promethean_Cms>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Cms/>
+            </depends>
+        </Promethean_Cms>
+    </modules>
+</config>

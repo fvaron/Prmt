@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * This file is part of Promethean_Phonereminder for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Phonereminder
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<config>
+    <modules>
+        <Promethean_Phonereminder>
+            <version>0.1.0</version>
+        </Promethean_Phonereminder>
+    </modules>
+    <global>
+        <helpers>
+            <phonereminder>
+                <class>Promethean_Phonereminder_Helper</class>
+            </phonereminder>
+        </helpers>
+        <template>
+            <email>
+                <phonereminder_email_email_template translate="label" module="phonereminder">
+                    <label>We remind to you</label>
+                    <file>phonereminder_form.html</file>
+                    <type>text</type>
+                </phonereminder_email_email_template>
+            </email>
+        </template>
+    </global>
+    <frontend>
+        <routers>
+            <phonereminder>
+                <use>standard</use>
+                <args>
+                    <module>Promethean_Phonereminder</module>
+                    <frontName>phonereminder</frontName>
+                </args>
+            </phonereminder>
+        </routers>
+        <layout>
+            <updates>
+                <phonereminder module="phonereminder">
+                    <file>promethean_phonereminder.xml</file>
+                </phonereminder>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Promethean_Phonereminder>
+                    <files>
+                        <default>Promethean_Phonereminder.csv</default>
+                    </files>
+                </Promethean_Phonereminder>
+            </modules>
+        </translate>
+    </frontend>
+</config>

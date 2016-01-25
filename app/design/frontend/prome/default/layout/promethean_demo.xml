@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of Promethean_Phonereminder for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Phonereminder
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="header">
+            <block type="core/template" template="demo/header.phtml" name="demo" as="demo" />
+        </reference>
+    </default>
+
+    <demo_index_index translate="label">
+        <label>Ask for your demo</label>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="demo"><title>Ask for your demo</title></action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+            <action method="setHeaderTitle" translate="title" module="demo"><title>Ask for your demo</title></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="demoForm" template="demo/form.phtml"/>
+        </reference>
+    </demo_index_index>
+</layout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * This file is part of Promethean_AjaxNewsletter for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_AjaxNewsletter
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<config>
+    <modules>
+        <Promethean_AjaxNewsletter>
+            <version>1.0.2</version>
+        </Promethean_AjaxNewsletter>
+    </modules>
+    <frontend>
+        <routers>
+            <newsletter>
+                <args>
+                    <modules>
+                        <promethean_ajaxnewsletter before="Mage_Newsletter">Promethean_AjaxNewsletter</promethean_ajaxnewsletter>
+                    </modules>
+                </args>
+            </newsletter>
+        </routers>
+        <layout>
+            <updates>
+                <promethean_ajaxnewsletter module="Promethean_AjaxNewsletter">
+                    <file>promethean_ajaxnewsletter.xml</file>
+                </promethean_ajaxnewsletter>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <promethean_ajaxnewsletter>
+                <class>Promethean_AjaxNewsletter_Block</class>
+            </promethean_ajaxnewsletter>
+        </blocks>
+    </global>
+</config>
