@@ -20,7 +20,7 @@ try {
 <div class="footer-1-txt row">
      40, rue Baudin - 92400 COURBEVOIE - FRANCE<br/>
      SARL au capital de 4000 Euros<br/>
-     Entreprise enregistrée au RCS de NANTERRE sous le numéro 753 563 220<br/>
+     Entreprise enregistrée au RCS de NANTERRE sous le numéro 788 573 475<br/>
 </div>
 HTML;
 
