@@ -153,8 +153,8 @@
         <?php else:?><!-- prosuits simples pas configurables -->
             <li class="un-produit-cat col-sm-4 item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
               <div class="le-produit-cat col-md-12">
-                <div class="livraison-gratuite-cat"></div>
-                <div class="france"></div>
+                <div class="livraison-gratuite-cat"><div class="france"></div></div>
+                
                 <div class="img-prod-cat">
                     <div class="une-img-produit-cat">
                         <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
