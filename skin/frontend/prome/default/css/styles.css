@@ -408,7 +408,7 @@ ul.products-grid li {list-style: none;}
 .livraison-gratuite-cat{background-image: url("../images/media/livraison-gratuite-cat.jpg");background-repeat: no-repeat;
                          min-height: 27px; width: 134px; margin:-10px 0 0 -10px;}
 .france{background-image: url("../images/media/france.png");background-repeat: no-repeat; background-size: 100% auto;
-                         min-height: 44px; width: 42px; top:0px; right: 0px; position: absolute;}
+                         min-height: 44px; width: 26px; top:0px; margin-right: -20px; float: right; /position: absolute;}
 .img-prod-cat{width: 100%; text-align: center}
 .product-name a{color: #384b59; font-size: 22px;}
 .short-desc-produit-cat{color: #5c8798}
