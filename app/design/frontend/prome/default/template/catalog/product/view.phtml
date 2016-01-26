@@ -62,9 +62,25 @@
                     <!--<div class="title-desc-fiche-prod">Summary</div>-->
                     <div class="desc-fiche-prod">
                      <?php echo $this->getChildHtml('description') ?>
+                        <?php 
+                           $pdfs = $_product->getPdf();
+                           $pdfs = explode(";", $pdfs); 
+
+                           $el_pdf0 = explode("**", $pdfs[0] );
+                           $pdf0 = $el_pdf0[0]; 
+                           $liens_pdf0 = $el_pdf0[1]; 
+                           
+                           $el_pdf1 = explode("**", $pdfs[1] );
+                           $pdf1 = $el_pdf1[0]; 
+                           $liens_pdf1 = $el_pdf1[1];
+                        ?>
                         <div class="stock-liv row">
-                          <div class="stock-fiche-prod col-md-4">8 PRODUIT(S) EN STOCK</div>
-                          <div class="liv-grat-fiche-prod col-md-7"> LIVRAISON GRATUITE (en France métropolitaine)</div>
+                          <?php if(!empty($pdf0)):?>
+                          <div class="stock-fiche-prod col-md-4"><a href="<?php echo $liens_pdf0?>"><?php echo $pdf0;?></a></div>
+                          <?php endif?>
+                          <?php if(!empty($pdf1)):?>
+                          <div class="liv-grat-fiche-prod col-md-7"><a href="<?php echo $liens_pdf1?>"><?php echo $pdf1;?></a></div>
+                          <?php endif?>
                         </div>
                         <div class="prix-devis-acheter row">
                             <div class="prix-fiche-prod col-sm-4">
