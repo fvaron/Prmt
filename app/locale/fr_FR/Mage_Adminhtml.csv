@@ -271,7 +271,11 @@
 "Delete %s","Supprimer %s"
 "Delete %s '%s'","Supprimer %s '%s'"
 "Delete File","Supprimer le fichier"
+<<<<<<< HEAD
 "Delete Image","Effacer l'image"
+=======
+"Delete Image","Effacer l\'image"
+>>>>>>> d68d11c6a423696a11867b9a4b7119da8ed2031b
 "Delete Profile","Effacer le profil"
 "Delete Role","Supprimer le rôle"
 "Delete Store","Supprimer le magasin"

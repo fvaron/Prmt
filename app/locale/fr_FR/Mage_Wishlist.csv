@@ -10,8 +10,13 @@
 "An error occurred while adding item to wishlist: %s","Erreur lors de l'ajout de produit à la liste d'envies : %s."
 "An error occurred while deleting the item from wishlist.","Erreur lors de la suppression de produit à votre liste d'envies."
 "An error occurred while deleting the item from wishlist: %s","Erreur lors de la suppression de produit à la liste d'envies : %s."
+<<<<<<< HEAD
 "Are you sure you want to remove this product from your wishlist?","Êtes-vous sûr(e) de vouloir enlever ce produit de votre liste d'envies ?"
 "Are you sure you would like to remove this item from the wishlist?","Êtes-vous sûr(e) de vouloir enlever cet article de votre liste d'envies ?"
+=======
+"Are you sure you want to remove this product from your wishlist?","Êtes-vous sûr(e) de vouloir enlever ce produit de votre liste d\'envies ?"
+"Are you sure you would like to remove this item from the wishlist?","Êtes-vous sûr(e) de vouloir enlever cet article de votre liste d\'envies ?"
+>>>>>>> d68d11c6a423696a11867b9a4b7119da8ed2031b
 "Back","Retour"
 "Can\'t save description %s","Impossible de sauvegarder la description %s"
 "Can\'t update wishlist","Impossible de mettre à jour la liste d'envies."
