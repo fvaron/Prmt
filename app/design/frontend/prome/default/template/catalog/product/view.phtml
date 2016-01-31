@@ -62,16 +62,16 @@
                     <!--<div class="title-desc-fiche-prod">Summary</div>-->
                     <div class="desc-fiche-prod">
                      <?php echo $this->getChildHtml('description') ?>
-                        <?php 
+                        <?php
                            $pdfs = $_product->getPdf();
-                           $pdfs = explode(";", $pdfs); 
+                           $pdfs = explode(";", $pdfs);
 
                            $el_pdf0 = explode("**", $pdfs[0] );
-                           $pdf0 = $el_pdf0[0]; 
-                           $liens_pdf0 = $el_pdf0[1]; 
-                           
+                           $pdf0 = $el_pdf0[0];
+                           $liens_pdf0 = $el_pdf0[1];
+
                            $el_pdf1 = explode("**", $pdfs[1] );
-                           $pdf1 = $el_pdf1[0]; 
+                           $pdf1 = $el_pdf1[0];
                            $liens_pdf1 = $el_pdf1[1];
                         ?>
                         <div class="stock-liv row">
@@ -96,12 +96,11 @@
                                         <?php endif; ?>
 
                                 <?php elseif (!$_product->isSaleable()): ?>
-                                    
+
                                     <?php echo $this->getChildHtml('addto') ?>
-                                    
+
                                 <?php endif; ?>
                                 <!--</div>-->
-                                <div class="demande-devis-perso col-sm-12">DEMANDER UN DEVIS PERSONNALIS&Eacute;</div>
                             </div>
                         </div>
                     </div>
@@ -128,11 +127,11 @@
                 <div class="wrap-vid-fiche-prod col-md-12">
                   <div class="vid2-fiche-prod vid-fiche-prod embed-responsive embed-responsive-16by9 col-md-12"><iframe class="embed-responsive-item" src="<?php echo $video ;?>" frameborder="0" allowfullscreen></iframe></div>
                   <div class="marge_top">&nbsp;</div>
-                  
+
                 </div>
             </div>
-            <?php endforeach;?>     
-            <?php endif;?>     
+            <?php endforeach;?>
+            <?php endif;?>
         </div>
     </div>
     <!--

@@ -1,0 +1,273 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Shopping cart template
+ *
+ * @see Mage_Checkout_Block_Cart
+ */
+?>
+<?php
+/**
+ * @var $this ITwebexperts_Request4quote_Block_Cart
+ */
+$_customer = $this->getCustomer();
+$_address = $this->getShippingAddress();
+?>
+<div class="cart container-fluid form-custom r4q-global">
+<div class="page-title title-buttons">
+    <h1><?php echo $this->__('Request for Quote') ?></h1>
+</div>
+<p class="entete"><?php echo $this->__('p_devis', $this->getUrl('')); ?></p>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php echo $this->getChildHtml('form_before') ?>
+    <fieldset>
+        <div class="table-responsive">
+            <table id="shopping-cart-table" class="data-table cart-table table table-bordered table-striped">
+                <col width="1" />
+                <col />
+                <col width="1" />
+                <col />
+                <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
+                    <col width="1" />
+                <?php endif ?>
+                <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                    <col width="1" />
+                <?php endif; ?>
+                <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                    <col width="1" />
+                <?php endif; ?>
+                <col width="1" />
+                <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                    <col width="1" />
+                <?php endif; ?>
+                <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                    <col width="1" />
+                <?php endif; ?>
+                <col width="1" />
+
+                <?php $mergedCells = ($this->helper('tax')->displayCartBothPrices() ? 2 : 1); ?>
+                <thead>
+                <tr>
+                    <th rowspan="<?php echo $mergedCells; ?>">&nbsp;</th>
+                    <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Product Name') ?></span></th>
+                    <th rowspan="<?php echo $mergedCells; ?>"></th>
+                    <th rowspan="<?php echo $mergedCells; ?>"><?php echo $this->__('Remarks with product') ?></th>
+                    <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
+                        <th rowspan="<?php echo $mergedCells; ?>" class="a-center"><span class="nobr"><?php echo $this->__('Move to Wishlist') ?></span></th>
+                    <?php endif ?>
+                    <th class="a-center" colspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Unit Price') ?></span></th>
+                    <th rowspan="<?php echo $mergedCells; ?>" class="a-center"><?php echo $this->__('Qty') ?></th>
+                    <th class="a-center" colspan="<?php echo $mergedCells; ?>"><?php echo $this->__('Subtotal') ?></th>
+                    <th rowspan="<?php echo $mergedCells; ?>" class="a-center">&nbsp;</th>
+                </tr>
+                <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+                    <tr>
+                        <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                        <th><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                        <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                        <th><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                    </tr>
+                <?php endif; ?>
+                </thead>
+                <tfoot>
+                <tr>
+                    <td colspan="50" class="a-right">
+                        <?php if($this->getContinueShoppingUrl()): ?>
+                            <button type="button" title="<?php echo $this->__('Pursue your purchases') ?>" class="button btn-continue btn btn-yellow" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')"><span><span><?php echo $this->__('Pursue your purchases') ?></span></span></button>
+                        <?php endif; ?>
+                        <button onclick="r4qForm.submit(this);" name="update_cart_action" value="update_qty" title="<?php echo $this->__('Update'); ?>" class="button btn-update btn btn-blue"><span><span><?php echo $this->__('Update'); ?></span></span></button>
+                        <button onclick="r4qForm.submit(this);" name="update_cart_action" value="empty_cart" title="<?php echo $this->__('Clear All'); ?>" class="button btn-empty btn btn-orange" id="empty_cart_button"><span><span><?php echo $this->__('Clear All'); ?></span></span></button>
+                        <input type="hidden" id="update_cart_action_container" />
+                        <input type="hidden" name="isrfq" value="1"/>
+                    </td>
+                </tr>
+                </tfoot>
+                <tbody>
+                <?php foreach($this->getItems() as $_item): ?>
+                    <?php echo $this->getItemHtml($_item) ?>
+                <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript">decorateTable('shopping-cart-table')</script>
+    </fieldset>
+    <div style="width: 100%;">
+
+        <div class="cart-collaterals r4q-collaterals" style="margin: auto !important;">
+            <form action="<?php echo $this->getUrl('request4quote_front/quote/send') ?>" method="post" id="r4qQuoteForm">
+            <?php if(!Mage::getSingleton("customer/session")->isLoggedIn()): ?>
+                <p><strong><?php echo $this->__('Complete the form to obtain your personalized estimate'); ?></strong></p>
+                <div class="cart-rf4-details">
+                    <ul class="form-list">
+                        <li>
+                            <label for="r4qBillingCompany"><?php echo $this->__('Company') ?></label>
+                            <div class="input-box"><input type="text" class="input-text form-control" name="r4q[billing][company]" id="r4qBillingCompany" value="<?php if ($_address) echo $_address->getCompany() ?>" /></div>
+                        </li>
+                        <li>
+                            <label class="required" for="r4qDetailsFirstname"><?php echo $this->__('First Name') ?><em>*</em></label>
+                            <div class="input-box"><input type="text" class="input-text form-control required-entry" name="r4q[details][firstname]" id="r4qDetailsFirstname" value="<?php if ($_address) echo $_address->getFirstname() ?>" /></div>
+                        </li>
+                        <li>
+                            <label class="required" for="r4qDetailsLastname"><?php echo $this->__('Last Name') ?><em>*</em></label>
+                            <div class="input-box"><input type="text" class="input-text form-control required-entry" name="r4q[details][lastname]" id="r4qDetailsLastname" value="<?php if ($_address) echo $_address->getLastname() ?>" /></div>
+                        </li>
+                        <li>
+                            <label class="required" for="r4qDetailsTelephone"><?php echo $this->__('Telephone') ?><em>*</em></label>
+                            <div class="input-box"><input type="text" class="input-text form-control required-entry" name="r4q[details][telephone]" id="r4qDetailsTelephone" value="<?php if ($_address) echo $_address->getTelephone() ?>" /></div>
+                        </li>
+                        <li>
+                            <label class="required" for="r4qDetailsEmail"><?php echo $this->__('Email address') ?><em>*</em></label>
+                            <div class="input-box"><input type="text" class="input-text form-control validate-email required-entry" name="r4q[details][email]" id="r4qDetailsEmail" value="<?php if ($_customer) echo $_customer->getEmail() ?>" /></div>
+                        </li>
+                        <input type="hidden" value="<?php echo (int) $this->isBillingAddressRequired(); ?>" name="r4q[billing][is_required]" />
+                        <input type="hidden" value="<?php echo (int) $this->isShippingAddressRequired(); ?>" name="r4q[shipping][is_required]" />
+                        <?php if ($this->canShowShippingAddress()): ?>
+                            <input type="hidden" id="shipping_same_as_billing" name="r4q[billing][shipping_same_as_billing]" value="1" />
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            </form>
+                <?php echo $this->getChildHtml('r4quote_customer_login_form'); ?>
+            <?php else: ?>
+                <?php $defaultBillingAddress = $this->getCustomer()->getDefaultBillingAddress(); ?>
+                <?php $billingRequiredSign = $this->isBillingAddressRequired() ? '<em>*</em>' : ''; ?>
+                <?php if($defaultBillingAddress): ?>
+                    <div class="coordonnees" id="coordonnees">
+                        <p class="titre"><?php echo $this->__('Your coordinates'); ?></p>
+                        <ul>
+                            <li>
+                                <span class="labelgris"><?php echo $this->__('Company') ?> :</span>
+                                <span><?php echo $defaultBillingAddress->getCompany(); ?></span>
+                            </li>
+                            <li>
+                                <span class="labelgris"><?php echo $this->__('Address') ?> :</span>
+                                <span><?php foreach($defaultBillingAddress->getStreet() as $street): echo $street; endforeach; echo " - ".$defaultBillingAddress->getPostcode(). " ".$defaultBillingAddress->getCity(). " - ".$defaultBillingAddress->getCountry(); ?></span>
+                            </li>
+                            <li>
+                                <span class="labelgris"><?php echo $this->__('First name') ?> :</span>
+                                <span><?php echo $defaultBillingAddress->getFirstname(); ?></span>
+                            </li>
+                            <li>
+                                <span class="labelgris"><?php echo $this->__('Last name') ?> :</span>
+                                <span><?php echo $defaultBillingAddress->getLastname(); ?></span>
+                            </li>
+                            <li>
+                                <span class="labelgris"><?php echo $this->__('Telephone') ?> :</span>
+                                <span><?php if($defaultBillingAddress->getTelephone()): echo $defaultBillingAddress->getTelephone(); else: echo $defaultBillingAddress->getMobile(); endif; ?></span>
+                            </li>
+                            <li>
+                                <span class="labelgris"><?php echo $this->__('Email Address') ?> :</span>
+                                <span><?php echo $this->getCustomer()->getEmail(); ?></span>
+                            </li>
+                        </ul>
+                        <a href="javascript:void(0);" id="modifybilling"><?php echo $this->__('Modify'); ?></a>
+                    </div>
+                <?php endif; ?>
+                <ul id="billingform" class="form-list <?php if($defaultBillingAddress): echo "no-display"; endif; ?>">
+                    <li>
+                        <label for="r4qBillingCompany"><?php echo $this->__('Company') ?></label>
+                        <div class="input-box"><input type="text" class="input-text form-control" name="r4q[billing][company]" id="r4qBillingCompany" value="<?php if ($_address) echo $_address->getCompany() ?>" /></div>
+                    </li>
+                    <li>
+                        <label class="<?php echo $this->getBillingRequiredClass(); ?>" for="r4qBillingAddress"><?php echo $this->__('Address') ?><?php echo $billingRequiredSign; ?></label>
+                        <div class="input-box"><input type="text" class="input-text form-control<?php echo $this->getBillingRequiredEntryClass(); ?>" name="r4q[billing][address]" id="r4qBillingAddress" value="<?php if ($_address) echo $_address->getStreetFull() ?>" /></div>
+                    </li>
+                    <li>
+                        <label class="<?php echo $this->getBillingRequiredClass(); ?>" for="r4qBillingPostcode"><?php echo $this->__('Zip/Postal Code') ?><?php echo $billingRequiredSign; ?></label>
+                        <div class="input-box"><input type="text" class="input-text form-control<?php echo $this->getBillingRequiredEntryClass(); ?>" name="r4q[billing][postcode]" id="r4qBillingPostcode" value="<?php if ($_address) echo $_address->getPostcode() ?>" /></div>
+                    </li>
+                    <li>
+                        <label class="<?php echo $this->getBillingRequiredClass(); ?>" for="r4qBillingCity"><?php echo $this->__('City') ?><?php echo $billingRequiredSign; ?></label>
+                        <div class="input-box"><input type="text" class="input-text form-control<?php echo $this->getBillingRequiredEntryClass(); ?>" name="r4q[billing][city]" id="r4qBillingCity" value="<?php if ($_address) echo $_address->getCity() ?>" /></div>
+                    </li>
+                    <li>
+                        <label class="<?php echo $this->getBillingRequiredClass(); ?>" for="r4qBillingCountry"><?php echo $this->__('Country') ?><?php echo $billingRequiredSign; ?></label>
+                        <div class="input-box"><?php echo Mage::getBlockSingleton('directory/data')->getCountryHtmlSelect($this->getEstimateCountryId(), 'r4q[billing][country]', 'r4qBillingCountry') ?></div>
+                    </li>
+                    <li>
+                        <label class="required" for="r4qDetailsTelephone"><?php echo $this->__('Telephone') ?><em>*</em></label>
+                        <div class="input-box"><input type="text" class="input-text form-control required-entry" name="r4q[details][telephone]" id="r4qDetailsTelephone" value="<?php if($_address->getTelephone()): echo $_address->getTelephone(); else: echo $_address->getMobile(); endif; ?>" /></div>
+                    </li>
+                    <input type="hidden" class="input-text form-control required-entry" name="r4q[details][firstname]" id="r4qDetailsFirstname" value="<?php if ($_address) echo $_address->getFirstname() ?>" />
+                    <input type="hidden" class="input-text form-control required-entry" name="r4q[details][lastname]" id="r4qDetailsLastname" value="<?php if ($_address) echo $_address->getLastname() ?>" />
+                    <input type="hidden" value="<?php echo (int) $this->isBillingAddressRequired(); ?>" name="r4q[billing][is_required]" />
+                    <input type="hidden" value="<?php echo (int) $this->isShippingAddressRequired(); ?>" name="r4q[shipping][is_required]" />
+                    <?php if ($this->canShowShippingAddress()): ?>
+                        <input type="hidden" id="shipping_same_as_billing" name="r4q[billing][shipping_same_as_billing]" value="1" />
+                    <?php endif; ?>
+                </ul>
+                <div class="billingcomment">
+                    <label id="history_comment"><?php echo $this->__('Comment'); ?> :</label>
+                    <div class="input-box"><textarea name="r4q[details][remark]" id="r4qDetailsRemark" style="height:150px;" class="r4q-remark"></textarea></div>
+                </div>
+            </form>
+            <?php endif; ?>
+            <div class="r4q-actions buttons-set">
+                <button type="button" value="proceed" title="<?php echo $this->__('Submit Quote Request') ?>" class="button btn-right btn-proceed-checkout btn-checkout btn-success btn btn-primary" onclick="r4qForm.submit(this);"><span><span><?php echo $this->__('Submit Quote Request') ?></span></span></button>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    //<![CDATA[
+    Event.observe('modifybilling', 'click', function() {
+        $('coordonnees').addClassName('no-display');
+        $('billingform').removeClassName('no-display');
+    });
+    //]]>
+</script>
+
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var r4qForm = new VarienForm('r4qQuoteForm');
+    r4qForm.submit = function(button) {
+        if(button.readAttribute('value') == 'proceed'){
+            if(this.validator && this.validator.validate()){
+                this.form.submit();
+            }else{
+                return false;
+            }
+        }else if(button.readAttribute('value') != 'proceed'){
+            $$('.required-entry').each(function(e){
+                e.toggleClassName('required-entry');
+            });
+            $$('.avalidate-select').each(function(e){
+                e.toggleClassName('avalidate-select');
+            });
+            $cartActionContainer = $('update_cart_action_container');
+            $cartActionContainer.setAttribute('name', 'update_cart_action');
+            $cartActionContainer.setValue(button.readAttribute('value'));
+            this.form.submit();
+        }else{
+            return false;
+        }
+        return false;
+    }.bind(r4qForm);
+    //]]>
+</script>

@@ -2,8 +2,10 @@
 $_menuentete = $this->getAllNews();
 $_cartQty = Mage::helper('checkout/cart')->getItemsQty();
 $_cartTotal = Mage::helper('checkout')->formatPrice(Mage::helper('checkout/cart')->getQuote()->getGrandTotal());
-// @todo à dynamiser lors du dev du devis
-$_devisQty = 0
+$_devisQty = Mage::getSingleton('request4quote/cart')->getSummaryQty();
+if(empty($_devisQty)) {
+    $_devisQty = 0;
+}
 ?>
 
 <div class="sur-header">
@@ -23,7 +25,7 @@ $_devisQty = 0
             <div class="collapse navbar-collapse navcollaps" id="bs-example-navbar-collapse-1">
                 <div class="navbar-right">
                     <a class="connexion" href="<?php echo $this->getUrl('customer/account'); ?>"><?php echo $this->__('Customer space'); ?></a>
-                    <a class="devis"><div class="caqul"></div><span><?php echo $this->__('Estimate for %s article(s)', $_devisQty); ?></span></a>
+                    <a class="devis" href="<?php echo Mage::helper('request4quote/cart')->getCartUrl(); ?>"><div class="caqul"></div><span><?php echo $this->__('Estimate for %s article(s)', $_devisQty); ?></span></a>
                     <a class="panier" href="<?php echo $this->getUrl('checkout/cart'); ?>"><?php echo $this->__('%s article(s)', $_cartQty); ?> - <?php echo $_cartTotal; ?></a>
                 </div>
                 <ul class="nav navbar-nav top-nav-left">

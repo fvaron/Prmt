@@ -13,7 +13,7 @@
 <config>
     <modules>
         <Promethean_AjaxNewsletter>
-            <active>true</active>
+            <active>false</active>
             <codePool>local</codePool>
             <depends>
                 <Mage_Newsletter/>

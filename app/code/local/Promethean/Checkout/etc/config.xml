@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * This file is part of Promethean_Checkout for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Checkout
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<config>
+    <modules>
+        <Promethean_Checkout>
+            <version>0.1.0</version>
+        </Promethean_Checkout>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <promethean_checkout module="Promethean_Checkout">
+                    <file>promethean_checkout.xml</file>
+                </promethean_checkout>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <fieldsets>
+            <customer_dataflow>
+                <telephone_mobile><billing>1</billing><shipping>1</shipping></telephone_mobile>
+            </customer_dataflow>
+        </fieldsets>
+    </admin>
+    <global>
+        <blocks>
+            <promethean_checkout>
+                <class>Promethean_Checkout_Block</class>
+            </promethean_checkout>
+            <checkout>
+                <rewrite>
+                    <onepage>Promethean_Checkout_Block_Onepage</onepage>
+                </rewrite>
+            </checkout>
+        </blocks>
+        <resources>
+            <promethean_checkout_setup>
+                <setup>
+                    <module>Promethean_Checkout</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </promethean_checkout_setup>
+        </resources>
+        <fieldsets>
+            <sales_copy_order_billing_address>
+                <mobile>
+                    <to_order>*</to_order>
+                </mobile>
+            </sales_copy_order_billing_address>
+            <sales_copy_order_shipping_address>
+                <mobile>
+                    <to_order>*</to_order>
+                </mobile>
+            </sales_copy_order_shipping_address>
+            <sales_convert_quote_address>
+                <mobile>
+                    <to_order_address>*</to_order_address>
+                    <to_customer_address>*</to_customer_address>
+                </mobile>
+            </sales_convert_quote_address>
+            <sales_convert_order_address>
+                <mobile>
+                    <to_quote_address>*</to_quote_address>
+                </mobile>
+            </sales_convert_order_address>
+            <customer_address>
+                <mobile>
+                    <to_quote_address>*</to_quote_address>
+                </mobile>
+            </customer_address>
+            <checkout_onepage_billing>
+                <mobile>
+                    <to_customer_address>*</to_customer_address>
+                </mobile>
+            </checkout_onepage_billing>
+        </fieldsets>
+    </global>
+</config>

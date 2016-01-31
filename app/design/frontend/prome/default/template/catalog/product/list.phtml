@@ -145,8 +145,8 @@
                 </div>-->
               </div>
               <div class="ajout-panier-devis-cat col-md-12">
-                 <a href="#p"><span class="add-to-cart-prod-cat col-xs-9" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">AJOUTER AU PANIER</span></a>
-                 <a href="#q"><span class="devis-prod-cat col-xs-3">DEVIS</span></a>
+                  <button class="add-to-cart-prod-cat col-xs-9" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span>AJOUTER AU PANIER</span></button>
+                  <button class="devis-prod-cat col-xs-3 button btn-r4q" type="button" title="<?php echo $this->__('DEVIS') ?>" onclick="window.location.href='<?php echo $this->getUrl('request4quote_front/quote/add') ?>product/<?php echo $_product->getId();?>/from_listing/1';"><span><span><?php echo $this->__('DEVIS') ?></span></span></button>
               </div>
             </li>  
             <?php endforeach ?>
@@ -192,8 +192,8 @@
                 </div>-->
               </div>
               <div class="ajout-panier-devis-cat col-md-12">
-                 <a href="#p"><span class="add-to-cart-prod-cat col-xs-9" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">AJOUTER AU PANIER</span></a>
-                 <a href="#q"><span class="devis-prod-cat col-xs-3">DEVIS</span></a>
+                  <button class="add-to-cart-prod-cat col-xs-9" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span>AJOUTER AU PANIER</span></button>
+                  <button class="devis-prod-cat col-xs-3 button btn-r4q" type="button" title="<?php echo $this->__('DEVIS') ?>" onclick="window.location.href='<?php echo $this->getUrl('request4quote_front/quote/add') ?>product/<?php echo $_product->getId();?>/from_listing/1';"><span><span><?php echo $this->__('DEVIS') ?></span></span></button>
               </div>
             </li>
         <?php endif ?>

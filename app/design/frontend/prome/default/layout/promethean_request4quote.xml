@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of Promethean_Request4quote for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Request4quote
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<layout version="0.1.0">
+
+    <default>
+        <remove name="miniquote_head"/>
+    </default>
+
+    <request4quote_front_quote_index>
+        <reference name="content">
+            <remove name="r4q.navigation"/>
+        </reference>
+        <reference name="checkout.cart">
+            <block type="customer/form_login" name="r4quote_customer_login_form" as="r4quote_customer_login_form" template="customer/form/mini-login.phtml"/>
+        </reference>
+    </request4quote_front_quote_index>
+
+    <checkout_cart_index>
+        <reference name="content">
+            <remove name="r4q.navigation"/>
+        </reference>
+    </checkout_cart_index>
+</layout>

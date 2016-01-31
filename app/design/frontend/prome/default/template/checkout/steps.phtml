@@ -1,0 +1,11 @@
+<?php $_steps = $this->getSteps() ?>
+<?php if ($_steps->count()): $i = 0; ?>
+    <ul id="checkout_steps">
+        <?php foreach ($_steps as $_step): $i++; ?>
+            <li class="<?php echo $_step->getCss() ?>" data-checkout-step-code="<?php echo $_step->getCode() ?>"><?php echo $i.". ".$_step->getLabel() ?></li>
+        <?php endforeach ?>
+    </ul>
+    <script type="text/javascript">
+        var sfscStepsConfig = <?php echo $this->getStepsJson() ?>;
+    </script>
+<?php endif ?>

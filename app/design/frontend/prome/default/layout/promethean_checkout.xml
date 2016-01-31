@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of Promethean_Checkout for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Checkout
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<layout version="0.1.0">
+    <checkout_cart_index>
+        <reference name="content">
+            <block type="promethean_checkout/steps" name="checkout.steps" as="checkout_steps"
+                   template="checkout/steps.phtml" before="-">
+                <action method="addStep" translate="label">
+                    <code>summary</code>
+                    <label>Summary</label>
+                    <position>1</position>
+                </action>
+                <action method="addStep" translate="label">
+                    <code>login</code>
+                    <label>Login</label>
+                    <position>2</position>
+                    <back_allowed>0</back_allowed>
+                </action>
+                <action method="addStep" translate="label">
+                    <code>billing</code>
+                    <label>Address</label>
+                    <position>3</position>
+                </action>
+                <action method="addStep" translate="label">
+                    <code>shipping_method</code>
+                    <label>Shipping</label>
+                    <position>4</position>
+                </action>
+                <action method="addStep" translate="label">
+                    <code>payment</code>
+                    <label>Payment</label>
+                    <position>5</position>
+                </action>
+                <action method="setActiveStep">
+                    <step>summary</step>
+                </action>
+            </block>
+        </reference>
+    </checkout_cart_index>
+    <checkout_onepage_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <remove name="checkout.progress.wrapper"/>
+        <reference name="checkout.onepage">
+            <block type="promethean_checkout/steps" name="checkout.steps" as="checkout_steps"
+                   template="checkout/steps.phtml" before="-">
+                <action method="addStep" translate="label">
+                    <code>summary</code>
+                    <label>Summary</label>
+                    <position>1</position>
+                </action>
+                <action method="addStep" translate="label">
+                    <code>login</code>
+                    <label>Login</label>
+                    <position>2</position>
+                    <back_allowed>0</back_allowed>
+                </action>
+                <action method="addStep" translate="label">
+                    <code>billing</code>
+                    <label>Address</label>
+                    <position>3</position>
+                </action>
+                <action method="addStep" translate="label">
+                    <code>shipping_method</code>
+                    <label>Shipping</label>
+                    <position>4</position>
+                </action>
+                <action method="addStep" translate="label">
+                    <code>payment</code>
+                    <label>Payment</label>
+                    <position>5</position>
+                </action>
+                <action method="setActiveStep">
+                    <step>login</step>
+                </action>
+            </block>
+        </reference>
+        <reference name="checkout.onepage.payment">
+            <block type="checkout/agreements" name="checkout.onepage.agreements" as="agreements" template="checkout/onepage/agreements.phtml"/>
+        </reference>>
+    </checkout_onepage_index>
+
+    <checkout_onepage_success>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </checkout_onepage_success>
+
+</layout>

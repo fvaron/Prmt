@@ -836,7 +836,28 @@ Validation.addAllThese([
              return false;
          }
          return true;
-     }]
+     }],
+    ['telmob', '** You have to register at least a phone number', function(v,elm) {
+        if($('telephone').value == "" && $('mobile').value == "")
+        {
+            return false;
+        }
+        return true;
+    }],
+    ['telmob2', '** You have to register at least a phone number', function(v,elm) {
+        if($('billing:telephone').value == "" && $('billing:mobile').value == "")
+        {
+            return false;
+        }
+        return true;
+    }],
+    ['telmob3', '** You have to register at least a phone number', function(v,elm) {
+        if($('shipping:telephone').value == "" && $('shipping:mobile').value == "")
+        {
+            return false;
+        }
+        return true;
+    }]
 ]);
 
 function removeDelimiters (v) {

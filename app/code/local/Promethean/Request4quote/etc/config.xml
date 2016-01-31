@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * This file is part of Promethean_Request4quote for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Request4quote
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<config>
+    <modules>
+        <Promethean_Request4quote>
+            <version>0.1.0</version>
+        </Promethean_Request4quote>
+    </modules>
+    <global>
+        <blocks>
+            <promethean_request4quote>
+                <class>Promethean_Request4quote_Block</class>
+            </promethean_request4quote>
+            <catalog>
+                <rewrite>
+                    <product_view_type_grouped>Promethean_Request4quote_Block_Catalog_Product_View_Type_Grouped
+                    </product_view_type_grouped>
+                    <product_view_type_simple>Promethean_Request4quote_Block_Catalog_Product_View_Type_Simple
+                    </product_view_type_simple>
+                    <product_view_type_configurable>
+                        Promethean_Request4quote_Block_Catalog_Product_View_Type_Configurable
+                    </product_view_type_configurable>
+                    <product_view_type_virtual>Promethean_Request4quote_Block_Catalog_Product_View_Type_Virtual
+                    </product_view_type_virtual>
+                </rewrite>
+            </catalog>
+        </blocks>
+        <helpers>
+            <request4quote>
+                <rewrite>
+                    <data>Promethean_Request4quote_Helper_Data</data>
+                </rewrite>
+            </request4quote>
+        </helpers>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <promethean_request4quote module="Promethean_Request4quote">
+                    <file>promethean_request4quote.xml</file>
+                </promethean_request4quote>
+            </updates>
+        </layout>
+    </frontend>
+</config>
