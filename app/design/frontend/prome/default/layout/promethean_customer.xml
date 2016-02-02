@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of Promethean_Customer for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Customer
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<layout version="0.1.0">
+
+    <customer_account>
+        <action method="unsetChild">
+            <name>customer_account_navigation</name>
+        </action>
+        <block type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
+            <action method="addLink" translate="label" module="customer"><name>account</name><path>customer/account/</path><label>Account Dashboard</label></action>
+            <action method="addLink" translate="label" module="customer"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
+            <action method="addLink" translate="label" module="customer"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
+            <action method="addLink" translate="label" module="sales"><name>orders</name><path>sales/order/history/</path><label>My Orders</label></action>
+            <action method="addLink" translate="label" module="sales"><name>quotes</name><path>request4quote_front/customer_quote/history</path><label>My Quotes</label></action>
+            <action method="addLink" translate="label" module="customer"><name>account_logout</name><path>customer/account/logout/</path><label>Log Out</label></action>
+        </block>
+    </customer_account>
+
+</layout>

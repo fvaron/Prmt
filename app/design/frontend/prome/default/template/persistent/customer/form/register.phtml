@@ -47,7 +47,7 @@
                 <ul class="form-list">
                     <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
                     <li>
-                        <label for="email_address" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
+                        <label for="email_address" class="required"><?php echo $this->__('Email Address') ?><em>*</em></label>
                         <div class="input-box">
                             <input type="text" name="email" id="email_address" value="<?php echo $this->escapeHtml($this->getRequest()->getParam('email')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Email Address')) ?>" class="input-text form-control validate-email required-entry" />
                         </div>
@@ -151,13 +151,13 @@
                 <h2 class="legend"><?php echo $this->__('Login Information') ?></h2>
                 <ul class="form-list">
                     <li class="fields">
-                        <label for="password" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
+                        <label for="password" class="required"><?php echo $this->__('Password') ?><em>*</em></label>
                         <div class="input-box">
                             <input type="password" name="password" id="password" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Password')) ?>" class="input-text form-control required-entry validate-password" />
                         </div>
                     </li>
                     <li>
-                        <label for="confirmation" class="required"><em>*</em><?php echo $this->__('Confirm Password') ?></label>
+                        <label for="confirmation" class="required"><?php echo $this->__('Confirm Password') ?><em>*</em></label>
                         <div class="input-box">
                             <input type="password" name="confirmation" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Confirm Password')) ?>" id="confirmation" class="input-text form-control required-entry validate-cpassword" />
                         </div>
@@ -170,7 +170,7 @@
             <div class="buttons-set">
                 <p class="required"><?php echo $this->__('* Required information') ?></p>
                 <button class="btn btn-blue back-link" onclick="window.location='<?php echo $this->escapeUrl($this->getBackUrl()) ?>'"><span><span><?php echo $this->__('Back') ?></span></span></button>
-                <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Submit')) ?>" class="btn btn-blue btn-right"><span><span><?php echo $this->__('Submit') ?></span></span></button>
+                <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Submit')) ?>" class="btn btn-success btn-right"><span><span><?php echo $this->__('Submit') ?></span></span></button>
             </div>
             <?php if (Mage::helper('checkout')->isContextCheckout()): ?>
                 <input name="context" type="hidden" value="checkout" />

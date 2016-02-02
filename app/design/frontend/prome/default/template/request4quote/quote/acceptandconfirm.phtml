@@ -1,0 +1,11 @@
+<?php  $_quote = $this->getQuote() ?>
+<div class="col1-set order-info-box">
+    <?php if (Mage::helper('request4quote')->showPricesandConfirm($_quote->getR4qStatus())) : ?>
+        <div class="r4q-accept-reject">
+            <button onclick="window.location.href = '<?php echo $this->getUrl('request4quote_front/quote/order', array('quote_id' => $_quote->getId())) ?>';" type="button" class="button btn-update btn-blue btn"><span><span><?php echo $this->__('Accept and Checkout') ?></span></span></button>
+        </div>
+    <?php elseif(Mage::helper('request4quote')->showPricesandConfirm($_quote->getR4qStatus()) == false) : ?>
+        <br />
+        <?php echo $this->__('Your quote request is being processed. You will receive an email with pricing shortly.'); ?>
+    <?php endif ?>
+</div>

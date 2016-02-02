@@ -1,0 +1,94 @@
+<!--@subject Votre devis Promethean @-->
+<head>
+    <style>
+        .tcellheader{
+            font-size:14px;
+        }
+        body{
+            background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px;
+        }
+        .a-right{
+            text-align:right;
+        }
+        .shipbill{
+            font-size:10px;
+            border-left:1px solid #EAEAEA;
+            border-bottom:1px solid #EAEAEA;
+            border-right:1px solid #EAEAEA;
+        }
+    </style>
+</head>
+<body>
+<div style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+    <table bgcolor="#FFFFFF" cellspacing="0" cellpadding="10" border="0" width="100%" >
+        <!-- [ middle starts here] -->
+        <tr>
+            <td valign="top">
+                <img width="300" height="100" src="{{var logo_url}}" alt="{{var logo_alt}}" style="margin-bottom:10px;" border="0"/>
+            </td>
+            <td align="right">
+                <p><span style="font-size:36px;color:orange;">DEVIS</span><br />
+                    <span style="font-size:11px;">N°{{var request_number}}</span><br />
+                    <span style="font-size:11px;">Date : {{var quote.getCreatedAtFormated(}}</span><br />
+                    <span style="font-size:11px;color:orange;">N° Client : {{var quote.getCustomerId(}}</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" colspan="2">{{var quote.getBillingAddress().format('html')}}</td>
+        </tr>
+        <tr>
+            <td align="right" colspan="2" style="font-size:12px;">Devis valable jusqu’au {{var quote.getValideDate()}}</td>
+        </tr>
+    </table>
+    <br /><br />
+    <table width="100%">
+        <tr>
+            <td>
+                <table width="100%">
+                    <tr>
+                        <td>
+                            {{layout handle=$handler order=$quote}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="font-size:12px;"><br /><br />Si ce devis vous convient, veuillez nous le retourner signé avec cachet précédé de la mention:<br /><br />
+                                "BON POUR ACCORD"<br /><br />
+                                Date : {{var quote.getCreatedAtFormated(}}<br /><br />
+                                Signature :
+                                <br /><br />
+                                <br /><br />
+                                <br /><br />
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="font-size:12px;">Conditions de paiement : 30 JOURS NETS<br />
+                                Moyen de paiement : carte de crédit, chèque, virement, mandat administratif<br />
+                                Libellé du chèque : TSR INFORMATIQUE<br />
+                                Coordonnées bancaires : 	Domiciliation : BPRIVES PARIS-LAMARCK<br />
+                                TSR INFORMATIQUE SARL<br />
+                                IBAN : FR76 1020 7002 0321 2156 2109 178<br />
+                                BIC : CCBPFRPPMTG<br /><br />
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <p style="font-size:11px;font-style:italic;color:grey;">TSR INFORMATIQUE se réserve la propriété des produits vendus jusqu'au paiement intégral de leur prix en principal et accessoire. Tout retard de paiement donnera lieu à l'application des frais plafonnés à 15 euros ainsi que des intérêts au taux égal à 3 fois le taux d'intérêt légal en vigueur.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <p style="font-size:12px;color:orange;">PROINTERACTIVE - 40, rue Baudin - 92400 COURBEVOIE - www.promethean.fr<br />
+                                Tél. 01 70 79 07 66 - Fax : 09 72 22 99 25 –<br />
+                                SIRET : 788 573 475 00019 - INTRACOM : FR47788573475</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>

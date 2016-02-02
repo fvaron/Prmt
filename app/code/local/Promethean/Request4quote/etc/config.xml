@@ -23,15 +23,10 @@
             </promethean_request4quote>
             <catalog>
                 <rewrite>
-                    <product_view_type_grouped>Promethean_Request4quote_Block_Catalog_Product_View_Type_Grouped
-                    </product_view_type_grouped>
-                    <product_view_type_simple>Promethean_Request4quote_Block_Catalog_Product_View_Type_Simple
-                    </product_view_type_simple>
-                    <product_view_type_configurable>
-                        Promethean_Request4quote_Block_Catalog_Product_View_Type_Configurable
-                    </product_view_type_configurable>
-                    <product_view_type_virtual>Promethean_Request4quote_Block_Catalog_Product_View_Type_Virtual
-                    </product_view_type_virtual>
+                    <product_view_type_grouped>Promethean_Request4quote_Block_Catalog_Product_View_Type_Grouped</product_view_type_grouped>
+                    <product_view_type_simple>Promethean_Request4quote_Block_Catalog_Product_View_Type_Simple</product_view_type_simple>
+                    <product_view_type_configurable>Promethean_Request4quote_Block_Catalog_Product_View_Type_Configurable</product_view_type_configurable>
+                    <product_view_type_virtual>Promethean_Request4quote_Block_Catalog_Product_View_Type_Virtual</product_view_type_virtual>
                 </rewrite>
             </catalog>
         </blocks>
@@ -39,9 +34,26 @@
             <request4quote>
                 <rewrite>
                     <data>Promethean_Request4quote_Helper_Data</data>
+                    <email>Promethean_Request4quote_Helper_Email</email>
                 </rewrite>
             </request4quote>
         </helpers>
+        <template>
+            <email>
+                <request4quote_emails_quote_pdf module="Promethean_Request4quote">
+                    <label>Quote request pdf</label>
+                    <file>rfq/quote_request_processed_pdf.html</file>
+                    <type>html</type>
+                </request4quote_emails_quote_pdf>
+            </email>
+        </template>
+        <models>
+            <request4quote>
+                <rewrite>
+                    <quote>Promethean_Request4quote_Model_Quote</quote>
+                </rewrite>
+            </request4quote>
+        </models>
     </global>
     <frontend>
         <layout>
@@ -51,5 +63,21 @@
                 </promethean_request4quote>
             </updates>
         </layout>
+        <routers>
+            <request4quote_front>
+                <args>
+                    <modules>
+                        <promethean_request4quote before="ITwebexperts_Request4quote">Promethean_Request4quote</promethean_request4quote>
+                    </modules>
+                </args>
+            </request4quote_front>
+        </routers>
     </frontend>
+    <default>
+        <request4quote>
+            <pdf>
+                <quote>request4quote_emails_quote_pdf</quote>
+            </pdf>
+        </request4quote>
+    </default>
 </config>

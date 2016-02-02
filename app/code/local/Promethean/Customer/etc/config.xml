@@ -13,7 +13,7 @@
 <config>
     <modules>
         <Promethean_Customer>
-            <version>0.3.0</version>
+            <version>0.4.0</version>
         </Promethean_Customer>
     </modules>
     <global>
@@ -36,4 +36,13 @@
             </customer>
         </models>
     </global>
+    <frontend>
+        <layout>
+            <updates>
+                <promethean_customer module="Promethean_Customer">
+                    <file>promethean_customer.xml</file>
+                </promethean_customer>
+            </updates>
+        </layout>
+    </frontend>
 </config>

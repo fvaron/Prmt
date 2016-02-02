@@ -576,8 +576,8 @@ ul.products-grid li {list-style: none;}
 .form-custom .form-list em { padding-right: 5px; }
 .validation-advice {  color: #ff5d78;  padding-top: 5px; }
 .form-custom .buttons-set .required { text-align: right; color:#777; }
-.form-custom .messages .success-msg { color: #3bc375; }
-.form-custom .messages .error-msg { color: #ff5d78; }
+.form-custom .messages .success-msg, .request4quote-front-customer-quote-view .messages .success-msg { color: #3bc375; }
+.form-custom .messages .error-msg, .request4quote-front-customer-quote-view .messages .error-msg { color: #ff5d78; }
 .form-custom .control .radio, .form-custom .control .checkbox { display: inline-block; margin-right: 5px; }
 .form-custom .col2-set { display:table; border-collapse:separate; border-spacing: 40px 0; margin: 0 auto; width: 100%; }
 .form-custom .col2-set .col-1, .form-custom .col2-set .col-2 { display: table-cell; width: 47.634408602%;/*443px*/ border: 1px solid #e6e6e6; padding: 23px; }
@@ -586,9 +586,41 @@ ul.products-grid li {list-style: none;}
 
 .phonereminder-index-index .form-custom .buttons-set button, .demo-index-index .form-custom .buttons-set button { float: right; }
 
+.col2-left-layout .main { width:100%; max-width: 1142px; margin:0 auto; overflow: auto; clear: both; }
+.col2-left-layout .main .col-main { width: 75%; float: right; }
+.col2-left-layout .main .col-left { width: 20%; float: left; margin-right: 5%; }
+.block-account div { min-height: auto; }
+.block-account .block-title { border-bottom: 1px solid #e6e6e6; margin-bottom: 20px; font-size: 36px; }
+.block-account ul { list-style: none; padding: 0; }
+.block-account ul li { margin-bottom: 10px; }
+.block-account ul li.current strong { border-bottom: 1px solid #000000; }
+.block-account ul li a { color: #000000; }
+.block-account ul li a:hover { font-weight: bold; }
+.account .box-head h2 { font-size: 25px; }
+.my-account .englobe-btn { text-align: center; margin-bottom: 20px; }
+.my-account .englobe-btn .btn  { text-transform: uppercase; min-height: 50px; padding: 0 40px;  }
+.addresses-list, .sales-order-view .col2-set, .sales-order-print .col2-set, .sales-order-printinvoice .col2-set, .sales-order-invoice .col2-set, .sales-order-shipment .col2-set, .request4quote-front-customer-quote-view .col2-set, .dashboard .col2-set { border-spacing: 10px 0 !important; }
+.addresses-list ol { list-style: none; padding: 0; }
+.addresses-list h3 { font-size: 20px; }
+.address-book .buttons-set { margin-top: 20px; padding-left: 10px; }
+.address-book .col2-set h2 {font-size: 22px;}
+.address-edit .buttons-set { max-width: none; }
+.sales-order-view .col2-set, .sales-order-print .col2-set, .sales-order-invoice .col2-set, .sales-order-shipment .col2-set { margin-bottom: 10px; }
+.sales-order-view #order-info-tabs { max-width: none; }
+.sales-order-view #order-info-tabs li { display: inline-block; width: auto}
+.sales-order-print .form-custom, .sales-order-printinvoice .form-custom {width: 80%; margin: 0 auto; }
+.sales-order-print .table-responsive, .sales-order-printinvoice .table-responsive { margin: 0 10px; }
+.sales-order-invoice .btn-right, .sales-order-shipment .btn-right, .request4quote-front-customer-quote-view .btn-right { float: right; }
+.dashboard .box-address .box-title { margin-bottom: 10px; }
+.dashboard .box-address .col2-set a { float: right; margin-top: 10px; }
+
 .btn-blue { background: #559bd9; border-color: #559bd9; color: #ffffff; }
+.btn-blue:hover { background: #2678bd;  color: #ffffff; }
 .btn-yellow { background: #fdc82e; border-color: #fdc82e; color: #ffffff; }
+.btn-yellow:hover { background: #eeb916; color: #ffffff; }
 .btn-orange { background: #f57c2b; border-color: #f57c2b; color: #ffffff; }
+.btn-orange:hover { background: #ef701c; color: #ffffff; }
 .btn-grey { background: #a9abab; border-color: #a9abab; color: #ffffff; }
+.btn-grey:hover { background: #6e7272; color: #ffffff; }
 .media-middle { vertical-align: middle !important;}
 .no-display { display: none; }

@@ -14,6 +14,7 @@
         <remove name="left.newsletter"/>
         <remove name="catalog.product.related"/>
         <remove name="footer_links"/>
+        <remove name="sale.reorder.sidebar"/>
 
         <!-- add the local stylesheet -->
         <reference name="head">

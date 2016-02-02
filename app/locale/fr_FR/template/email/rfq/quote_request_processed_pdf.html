@@ -1,0 +1,57 @@
+<!--@subject Votre devis Promethean @-->
+<head>
+    <style>
+        .tcellheader{
+            font-size:14px;
+        }
+        body{
+            background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px;
+        }
+        .a-right{
+            text-align:right;
+        }
+        .shipbill{
+            font-size:10px;
+            border-left:1px solid #EAEAEA;
+            border-bottom:1px solid #EAEAEA;
+            border-right:1px solid #EAEAEA;
+        }
+    </style>
+</head>
+<body>
+<div style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+    <table bgcolor="#FFFFFF" cellspacing="0" cellpadding="10" border="0" width="100%" >
+        <!-- [ middle starts here] -->
+        <tr>
+            <td valign="top">
+                <a href="{{store url=''}}"><img src="{{var logo_url}}" alt="{{var logo_alt}}" style="margin-bottom:10px;" border="0"/></a></td>
+        </tr>
+        <tr>
+            <td valign="top">
+                Bonjour, {{var customer_prefix}} {{htmlescape var=$customer_name}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Veuillez trouver ci-joint votre devis au format PDF.</p>
+                <p>Si celui-ci vous convient, merci de nous le retourner signé avec cachet précédé de la mention « BON POUR ACCORD ».</p>
+                <p>Merci.<br />Bien cordialement,</p>
+            </td>
+        </tr>
+        <tr>
+            <td>-- <br />
+                L'Equipe ProInteractive<br /><br />
+                http://promethean.fr/<br /><br />
+                ProInteractive<br />
+                40 rue Baudin<br />
+                92400 Courbevoie – France<br />
+                Tel : +33(0)1 70 79 07 66<br />
+                Fax : +33(0)9 72 22 99 25<br />
+            </td>
+        </tr>
+    </table>
+    </td>
+    </tr>
+    </table>
+</div>
+</body>
