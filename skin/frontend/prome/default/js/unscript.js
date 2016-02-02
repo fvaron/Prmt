@@ -1,4 +1,29 @@
 $j(document).ready(function(){ 
+  //----------------------------------FICHE PRODUIT---------------------------------------------
+  //--------------------------------------------------------------------------------------------
+  
+  // LES OPTIONS
+  var les_options=0;
+  $j(".product-custom-option").addClass("form-control");
+  $j(".product-custom-option").change(function(){
+     $j(".regular-price span.price").html($j(".regular-price span.price").html().replace(",00",""));
+  });
+  $j(".options-personnalisables-des-produit .wrap-options:first").css({"padding-right":"10px"});
+
+  // Compter les options du produit pour ajuster l'affichage
+  $j(".wrap-options").each(function(i){ 
+    les_options++;
+  })
+  if(les_options == 1){
+    $j(".options-personnalisables-des-produit .wrap-options")
+    .removeClass("col-md-6").addClass("col-md-12").css({"padding-right":"0px"});
+
+  }
+
+  // enlever les décimales du prix
+  price = $j(".regular-price span.price").html();
+  $j(".regular-price span.price").html(price.replace(",00",""));
+   
 	//---------------------------------BAR DE NAVIGATION---------------------------------------------
 	//--
 	//-----------------------------------------------------------------------------------------------

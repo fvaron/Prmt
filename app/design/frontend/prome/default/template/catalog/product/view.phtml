@@ -82,22 +82,31 @@
                           <div class="liv-grat-fiche-prod col-md-7"><a href="<?php echo $liens_pdf1?>" target="_blank"><?php echo $pdf1;?></a></div>
                           <?php endif?>
                         </div>
+                        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                        <div class="options-personnalisables-des-produit">
+                             <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                        </div>
+                        <?php endif;?> 
                         <div class="prix-devis-acheter row">
                             <div class="prix-fiche-prod col-sm-4">
-                                <?php echo strip_tags(str_replace("€","",str_replace(",00", "", $this->getChildHtml('product_type_data')))); ?>
-                                 €<span class="prix-ht-fiche-prod">(HT)</span>
+                                <?php //echo strip_tags(str_replace("€","",str_replace(",00", "", $this->getChildHtml('product_type_data')))); ?>
+                                <!-- €<span class="prix-ht-fiche-prod">(HT)</span>-->
+                                 <div class="prix-produit-cacher">
+                                 <?php echo $this->getChildHtml('product_type_data');?>
+                                 <span class="prix-ht-fiche-prod">(HT)</span>
+                                 </div>
                             </div>
                             <div class="achat-devis col-sm-7 col-sm-offset-1 row">
                                 <!--<div class="acheter-fiche-prod col-sm-12">-->
-                                <?php if (!$this->hasOptions()):?>
+                                <?php //if (!$this->hasOptions()):?>
 
                                         <?php if($_product->isSaleable()): ?>
                                             <?php echo $this->getChildHtml('addtocart') ?>
                                         <?php endif; ?>
 
-                                <?php elseif (!$_product->isSaleable()): ?>
-
-                                    <?php echo $this->getChildHtml('addto') ?>
+                                <?php if (!$_product->isSaleable()): ?>
+                                    
+                                    <?php //echo $this->getChildHtml('addto') ?>
 
                                 <?php endif; ?>
                                 <!--</div>-->
@@ -108,7 +117,7 @@
             </div>
             <div class="clearer"></div>
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+                <?php //echo $this->getChildChildHtml('container1', '', true, true) ?>
             <?php endif;?>
         </form>
     </div>

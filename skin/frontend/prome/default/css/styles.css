@@ -498,6 +498,12 @@ ul.products-grid li {list-style: none;}
 .div-milieu-vid{margin: 0px; padding-left:7px; padding-right: 0px; }
 .sous-vid-fiche-prod{ font-size: 21px;  padding-left: 10px; padding-bottom: 15px; border-bottom: 3px solid #f8931d;
                       font-family: 'Pontano Sans', sans-serif; color:#1D3849;}
+                      
+.input-box .validation-advice{color: red}
+.wrap-options, .wrap-options .input-box{padding: 0px}
+
+.prix-fiche-prod .price-box{float: left;}
+.wrap-options{padding-bottom: 20px}
 
 @media only screen and (max-width: 992px){
   .liv-grat-fiche-prod {float: left; width:100%;}
