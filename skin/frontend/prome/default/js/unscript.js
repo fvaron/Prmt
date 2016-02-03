@@ -20,9 +20,11 @@ $j(document).ready(function(){
 
   }
 
-  // enlever les décimales du prix
-  price = $j(".regular-price span.price").html();
-  $j(".regular-price span.price").html(price.replace(",00",""));
+  // Enlever les décimales du prix
+  if($j(".regular-price span.price").html() != undefined){
+     price = $j(".regular-price span.price").html();
+     $j(".regular-price span.price").html(price.replace(",00",""));
+  }
    
 	//---------------------------------BAR DE NAVIGATION---------------------------------------------
 	//--
