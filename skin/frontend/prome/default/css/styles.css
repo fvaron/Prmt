@@ -242,11 +242,11 @@ ul.navbar-right_bis li a{ color: #777;}
 .showroom-cat {text-align: center }
 
 .showroom-cat .une-rub{   width: auto; border: none; }
-.img-showroom{background-image: url("../images/media/showroom-img.png"); background-repeat: no-repeat; background-size: 100% auto;
+.img-showroom{background-image: url("../images/media/showroom-img.jpg"); background-repeat: no-repeat; background-size: 100% auto;
                min-height: 470px; padding-top: 162px; padding-left: 50px; padding-right: 50px;
              }
 
-.img-showroom-page-cat{background-image: url("../images/media/showroom-page-cat.png"); 
+.img-showroom-page-cat{background-image: url("../images/media/showroom-page-cat.jpg"); 
                        background-size: 100% auto; margin-left: 0px;  background-repeat: no-repeat; 
                        height: auto; min-height: 300px;  padding:20px; }
 .titre-showroom-cat{font-size: 36px; padding: 55px 0px 10px; color: #fff}
