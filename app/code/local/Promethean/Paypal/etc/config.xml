@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of Promethean_Paypal for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Paypal
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<config>
+    <modules>
+        <Promethean_Paypal>
+            <version>0.1.0</version>
+        </Promethean_Paypal>
+    </modules>
+    <global>
+        <models>
+            <promethean_paypal>
+                <class>Promethean_Paypal_Model</class>
+            </promethean_paypal>
+            <paypal>
+                <rewrite>
+                    <config>Promethean_Paypal_Model_Config</config>
+                </rewrite>
+            </paypal>
+        </models>
+        <events>
+            <controller_action_predispatch_paypal_express_review>
+                <observers>
+                    <promethean_removepaypalexpressreviewstep>
+                        <type>singleton</type>
+                        <class>promethean_paypal/observer</class>
+                        <method>controllerActionPredispatchPaypalExpressReview</method>
+                    </promethean_removepaypalexpressreviewstep>
+                </observers>
+            </controller_action_predispatch_paypal_express_review>
+            <controller_action_predispatch_paypal_express_placeOrder>
+                <observers>
+                    <promethean_removepaypalexpressreviewstep>
+                        <type>singleton</type>
+                        <class>promethean_paypal/observer</class>
+                        <method>controllerActionPredispatchPaypalExpressPlaceOrder</method>
+                    </promethean_removepaypalexpressreviewstep>
+                </observers>
+            </controller_action_predispatch_paypal_express_placeOrder>
+        </events>
+    </global>
+</config>

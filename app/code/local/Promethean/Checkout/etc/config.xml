@@ -24,6 +24,15 @@
                 </promethean_checkout>
             </updates>
         </layout>
+        <routers>
+            <checkout>
+                <args>
+                    <modules>
+                        <promethean_checkout before="Mage_Checkout">Promethean_Checkout</promethean_checkout>
+                    </modules>
+                </args>
+            </checkout>
+        </routers>
     </frontend>
     <admin>
         <fieldsets>

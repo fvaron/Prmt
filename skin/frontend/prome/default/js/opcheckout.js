@@ -726,14 +726,34 @@ Payment.prototype = {
     afterInitFunc:$H({}),
     beforeValidateFunc:$H({}),
     afterValidateFunc:$H({}),
-    initialize: function(form, saveUrl, saveUrl2, successUrl, agreementsForm){
+    initialize: function(form, saveUrl){
         this.form = form;
         this.saveUrl = saveUrl;
-        this.saveUrl2 = saveUrl2;
-        this.successUrl = successUrl;
-        this.agreementsForm = agreementsForm;
+        this.paymentSaveSuccessCallback = undefined;
         this.onSave = this.nextStep.bindAsEventListener(this);
         this.onComplete = this.resetLoadWaiting.bindAsEventListener(this);
+    },
+
+    validateAgreements: function(alertText) {
+
+        var validationResult = true;
+
+        jQuery('input[name^="agreement"]').each(function(index, value) {
+            if (!jQuery(value).prop('checked')) {
+                validationResult = false;
+
+                /**
+                 * Break the loop earlier
+                 */
+                return false;
+            }
+        });
+
+        if (!validationResult) {
+            alert(alertText);
+        }
+
+        return validationResult;
     },
 
     addBeforeInitFunction : function(code, func) {
@@ -894,26 +914,13 @@ Payment.prototype = {
                 this.saveUrl,
                 {
                     method:'post',
+                    onComplete: this.onComplete,
+                    onSuccess: this.onSave,
                     onFailure: checkout.ajaxFailure.bind(checkout),
                     parameters: Form.serialize(this.form)
                 }
             );
         }
-        var params = Form.serialize(payment.form);
-        if (this.agreementsForm) {
-            params += '&'+Form.serialize(this.agreementsForm);
-        }
-        params.save = true;
-        var request = new Ajax.Request(
-            this.saveUrl2,
-            {
-                method:'post',
-                parameters:params,
-                onComplete: this.onComplete,
-                onSuccess: this.onSave,
-                onFailure: checkout.ajaxFailure.bind(checkout)
-            }
-        );
     },
 
     resetLoadWaiting: function(){
@@ -928,16 +935,61 @@ Payment.prototype = {
             catch (e) {
                 response = {};
             }
-            if (response.redirect) {
-                this.isSuccess = true;
-                location.href = response.redirect;
+        }
+
+        /**
+         * Added redirect management for order save
+         */
+        if (response.redirect) {
+            this.isSuccess = true;
+
+            if (this.paymentSaveSuccessCallback) {
+                this.paymentSaveSuccessCallback();
+            }
+            else {
+                /**
+                 * @see app/design/frontend/base/default/template/soon_fourstepscheckout/onepage/payment.phtml
+                 */
+                window.location.href = response.redirect;
+            }
+
+            return;
+        }
+        if (response.success) {
+            this.isSuccess = true;
+
+            if (this.paymentSaveSuccessCallback) {
+                this.paymentSaveSuccessCallback();
+            }
+            else {
+                /**
+                 * @see app/design/frontend/base/default/template/soon_fourstepscheckout/onepage/payment.phtml
+                 */
+                window.location.href = this.successUrl;
+            }
+
+            return;
+        }
+
+        /**
+         * If there is an error in payment, need to show error message
+         */
+        if (response.error) {
+            if (response.fields) {
+                var fields = response.fields.split(',');
+                for (var i=0;i<fields.length;i++) {
+                    var field = null;
+                    if (field = $(fields[i])) {
+                        Validation.ajaxError(field, response.error);
+                    }
+                }
                 return;
             }
-            if (response.success) {
-                this.isSuccess = true;
-                window.location=this.successUrl;
-            }
-            else{
+
+            /**
+             * If there are error messages coming from order save, we display them
+             */
+            if(response.error_messages) {
                 var msg = response.error_messages;
                 if (typeof(msg)=='object') {
                     msg = msg.join("\n");
@@ -947,14 +999,16 @@ Payment.prototype = {
                 }
             }
 
-            if (response.update_section) {
-                $('checkout-'+response.update_section.name+'-load').update(response.update_section.html);
+            /**
+             * Otherwise we display standard Payment error
+             */
+            else {
+                alert(response.error);
             }
-
-            if (response.goto_section) {
-                checkout.gotoSection(response.goto_section, true);
-            }
+            return;
         }
+
+        checkout.setStepResponse(response);
     },
 
     initWhatIsCvvListeners: function(){
