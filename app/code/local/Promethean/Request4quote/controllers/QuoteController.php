@@ -15,6 +15,47 @@ class Promethean_Request4quote_QuoteController extends ITwebexperts_Request4quot
 {
     /**
      * OVERRIDE
+     */
+    public function indexAction()
+    {
+        // Add redirect to quote
+        Mage::getSingleton('customer/session')->setBeforeAuthUrl(Mage::getUrl('*/*/*', array('_secure' => true)));
+
+        $cart = $this->_getCart();
+        if ($cart->getQuote()->getItemsCount()) {
+            $cart->init();
+            $cart->save();
+        }
+
+        // Compose array of messages to add
+        $messages = array();
+        foreach ($cart->getQuote()->getMessages() as $message) {
+            if ($message) {
+                // Escape HTML entities in quote message to prevent XSS
+                $message->setCode(Mage::helper('core')->escapeHtml($message->getCode()));
+                $messages[] = $message;
+            }
+        }
+        $cart->getCheckoutSession()->addUniqueMessages($messages);
+
+        /**
+         * if customer enteres shopping cart we should mark quote
+         * as modified bc he can has checkout page in another window.
+         */
+        $this->_getSession()->setCartWasUpdated(true);
+
+        Varien_Profiler::start(__METHOD__ . 'r4q_display');
+        $this
+            ->loadLayout()
+            ->_initLayoutMessages('request4quote/session')
+            ->_initLayoutMessages('catalog/session')
+            ->getLayout()->getBlock('head')->setTitle($this->__('Request for Quote'));
+        $this->renderLayout();
+        Varien_Profiler::stop(__METHOD__ . 'r4q_display');
+    }
+
+    /**
+     * OVERRIDE
      * Processes billing/shipping addresses as well as the other parameters.
      * @param $quote
      */
