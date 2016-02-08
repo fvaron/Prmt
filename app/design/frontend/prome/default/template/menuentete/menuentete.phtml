@@ -24,7 +24,13 @@ if(empty($_devisQty)) {
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navcollaps" id="bs-example-navbar-collapse-1">
                 <div class="navbar-right">
-                    <a class="connexion" href="<?php echo $this->getUrl('customer/account'); ?>"><?php echo $this->__('Customer space'); ?></a>
+                    <a class="connexion" href="<?php echo $this->getUrl('customer/account'); ?>">
+                        <?php if(Mage::getSingleton('customer/session')->isLoggedIn()):
+                            echo $this->__('Connexion %s', Mage::helper('customer')->getCustomer()->getFirstname());
+                        else:
+                            echo $this->__('Connexion');
+                        endif; ?>
+                    </a>
                     <a class="devis" href="<?php echo Mage::helper('request4quote/cart')->getCartUrl(); ?>"><div class="caqul"></div><span><?php echo $this->__('Estimate for %s article(s)', $_devisQty); ?></span></a>
                     <a class="panier" href="<?php echo $this->getUrl('checkout/cart'); ?>"><?php echo $this->__('%s article(s)', $_cartQty); ?> - <?php echo $_cartTotal; ?></a>
                 </div>
