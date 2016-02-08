@@ -1,10 +1,13 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: caroline
- * Date: 02/02/16
- * Time: 23:28
- */ 
+ * This file is part of Promethean_Request4quote for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Request4quote
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
 class Promethean_Request4quote_Model_Quote extends ITwebexperts_Request4quote_Model_Quote
 {
     /**
