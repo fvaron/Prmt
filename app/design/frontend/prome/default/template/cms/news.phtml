@@ -53,6 +53,10 @@
 				?>
 				<?php if ($content) :?>
 				<div class="content-custom-cms-page">
+                    <div class="fil-d-ariane-custom-cms-page">
+                        <?php echo $this->getBlockHtml('breadcrumbs') ?>
+                        <?php  //echo $this->getLayout()->getBlock("breadcrumbs")->toHtml() ?>
+                    </div>
 					<h1>    
 					<?php echo  html_entity_decode($title);?>
 					</h1>

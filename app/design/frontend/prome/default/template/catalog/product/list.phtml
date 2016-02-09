@@ -94,7 +94,7 @@
     <?php $_collectionSize = $_productCollection->count() ?>
     <?php $_columnCount = $this->getColumnCount(); ?>
     <?php ?>
-    <?php $i=0; foreach ($_productCollection as $_product): $_prodParent = $_product;?>
+    <?php $i=0; $jj=1; foreach ($_productCollection as $_product): $_prodParent = $_product;?>
         <?php if ($i++%$_columnCount==0): ?>
         <ul class="products-grid container-fluid">
         <?php endif ?>
@@ -195,7 +195,7 @@
                   <button class="add-to-cart-prod-cat col-xs-9" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span>AJOUTER AU PANIER</span></button>
                   <button class="devis-prod-cat col-xs-3 button btn-r4q" type="button" title="<?php echo $this->__('DEVIS') ?>" onclick="window.location.href='<?php echo $this->getUrl('request4quote_front/quote/add') ?>product/<?php echo $_product->getId();?>/from_listing/1';"><span><span><?php echo $this->__('DEVIS') ?></span></span></button>
               </div>
-            </li>
+            </li><?php if($jj%3 == 0):?><div class="saut-de-ligne"></div><?php endif; $jj++;?>
         <?php endif ?>
         <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
         </ul><br/><br/>
