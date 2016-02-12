@@ -57,11 +57,44 @@
                         <?php echo $this->getBlockHtml('breadcrumbs') ?>
                         <?php  //echo $this->getLayout()->getBlock("breadcrumbs")->toHtml() ?>
                     </div>
-					<h1>    
-					<?php echo  html_entity_decode($title);?>
-					</h1>
-					<?php echo  html_entity_decode($content);?>
-					    
+
+                    <?php 
+                      $images_rub = array('1' =>'rub-insta.jpg','2' =>'rub-admi.jpg' ,'3' =>'rub-formation.jpg' );
+                      $titre_rub  = array('1' =>'Installation et Assistance' ,'2' =>'Garanties et extensions' ,'3' =>'Formation' );
+                      $mini_text  = array('1' =>'ProInteractive à vos côtés dans le déploiement de votre solution Prometheance' ,'2' =>'ActivCare et ActivCare Plus : découvrez les garanties Promethean' ,'3' =>'Découvrez nos formations Sequence Plus' );
+                      $lien_savoir_plus  = array('1' =>'../installation-et-assistance' ,'2' =>'../garanties-et-extensions' ,'3' =>'../formations' );
+                    ?>
+                    <div class="row">
+                        <div class="col-md-4 kcms-showroom">
+                        <div class="showroom-cat row col-md-12">  
+                            <div class="les-rubs">
+                            <div class="img-showroom-page-cat row">
+                              <div class="titre-showroom-cat">Showroom</div>
+                              <div class="text-showroom-cat">
+                                  Venez nous rencontrer à notre showroom. Bénéficiez de démonstrations gratuites sur les solutions Promethean de votre choix et profitez de l’expertise de nos professionnels.
+                              </div>
+                              <a href="../Showroom"><div class="visiter-showroom-cat">VISITEZ NOTRE SHOWROOM</div></a>
+                            </div>
+                            
+                                <?php foreach ($images_rub as $key => $img):?>
+                                    <a href="<?php echo $lien_savoir_plus[$key];?>">
+                                    <div class="une-rub row">
+                                      <img class="img-rub " src="../skin/frontend/prome/default/images/media/<?php echo $img; ?>">
+                                      <div class="titre-rub col-md-12"><?php echo $titre_rub[$key];?></div>
+                                      <div class="en-savoir-plus-showroom-cat col-md-8 col-sm-offset-5 col-xs-offset-4 col-md-offset-2"></div>
+                                    </div>
+                                    </a>
+                                <?php endforeach;?>     
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-8">
+                        <h1 class="titre-page-cms">
+                          <?php echo  html_entity_decode($title);?>
+                        </h1>
+                        <?php echo  html_entity_decode($content);?>
+                        </div>
+                    </div>     
 				</div>
 				<?php endif;?>
             </div>
