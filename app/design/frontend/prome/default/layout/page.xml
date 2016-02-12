@@ -105,12 +105,6 @@ Default layout, loads most of the pages
 
             <block type="core/text_list" name="content" as="content" translate="label">
                 <label>Main Content Area</label>
-                <block type="slider/slider" template="slider/slider.phtml" name="slider.slider" as="slider" /> 
-                <block type="troisbloc/troisBloc" template="troisbloc/troisbloc.phtml" name="troisbloc.troisbloc" as="troisbloc" />
-                <block type="news/news" template="news/actualite.phtml" name="news.actualite" as="news">
-                    <block type="showroom/showroom" template="showroom/showroom.phtml" name="showroom.showroom" as="showroom" />
-                </block>
-
             </block>
 
             <block type="core/text_list" name="right" as="right" translate="label">

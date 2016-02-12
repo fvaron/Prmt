@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of Promethean_Faq for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Faq
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<config>
+    <menu>
+        <cms>
+            <children>
+                <faq translate="title" module="faq">
+                    <title>FAQ</title>
+                    <sort_order>1000</sort_order>
+                    <children>
+                        <faq_cat_edit translate="title" module="faq">
+                            <title>Manage themes</title>
+                            <sort_order>0</sort_order>
+                            <action>adminhtml/faq_cat</action>
+                        </faq_cat_edit>
+                        <faq_edit translate="title" module="faq">
+                            <title>Manage questions</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/faq_faq</action>
+                        </faq_edit>
+                        <order translate="title" module="faq">
+                            <title>Questions sorting</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/faq_order</action>
+                        </order>
+                    </children>
+                </faq>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <faq translate="title" module="faq">
+                                <title>FAQ</title>
+                                <sort_order>100</sort_order>
+                            </faq>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

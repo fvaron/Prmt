@@ -13,7 +13,7 @@
 <config>
     <modules>
         <Promethean_Cms>
-            <version>0.2.0</version>
+            <version>0.4.0</version>
         </Promethean_Cms>
     </modules>
     <global>

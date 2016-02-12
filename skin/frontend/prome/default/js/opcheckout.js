@@ -947,9 +947,6 @@ Payment.prototype = {
                 this.paymentSaveSuccessCallback();
             }
             else {
-                /**
-                 * @see app/design/frontend/base/default/template/soon_fourstepscheckout/onepage/payment.phtml
-                 */
                 window.location.href = response.redirect;
             }
 
@@ -962,9 +959,6 @@ Payment.prototype = {
                 this.paymentSaveSuccessCallback();
             }
             else {
-                /**
-                 * @see app/design/frontend/base/default/template/soon_fourstepscheckout/onepage/payment.phtml
-                 */
                 window.location.href = this.successUrl;
             }
 

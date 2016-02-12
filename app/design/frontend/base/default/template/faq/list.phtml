@@ -1,0 +1,42 @@
+<?php
+/**
+ * This file is part of Promethean_Faq for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Faq
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+?>
+
+<?php
+$_itemArray = $this->getItemArrayByCategory();
+$_categories = $this->getCategoryCollection();
+$_helper = $this->helper('faq');
+?>
+
+<div class="faq">
+    <div class="block block-faq">
+        <div class="block-title">
+            <strong>
+                <span><?php echo $_helper->__('F.A.Q') ?></span>
+            </strong>
+        </div>
+        <div class="block-content">
+            <?php foreach ($_categories as $_category): ?>
+                <?php if (isset($_itemArray[$_category->getId()])) :?>
+                    <h3><?php echo $_category->getName() ?></h3>
+                    <ul>
+                        <?php foreach ($_itemArray[$_category->getId()] as $_itemId => $_item): ?>
+                            <li>
+                                <h4><?php echo $_item->getQuestion() ?></h4>
+                                <div><?php echo $_item->getResponse() ?></div>
+                            </li>
+                        <?php endforeach ?>
+                    </ul>
+                <?php endif; ?>
+            <?php endforeach ?>
+        </div>
+    </div>
+</div>

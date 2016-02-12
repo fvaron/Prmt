@@ -1,0 +1,72 @@
+<div class="container-fluid sur-news">
+	<div class="news-actu row">
+		<div class="news  col-md-8">
+			<div class="les-onglets row">
+				<div class="onglet onglet1  col-sm-3">ACTUALITES</div>
+				<div class="onglet onglet2  col-sm-3">VIDEOS</div>
+				<div class="onglet onglet3  col-sm-3">FAQ</div>
+			</div>
+
+			<!-- Les news -->
+			<div class="les-news row">
+				<?php $blocks = Mage::getModel('cms/block')->getCollection();
+					$count_actu=0;
+					$cou=0;
+					// On détermine le nombre de news
+					foreach($blocks as $block){
+						if(preg_match("/une_news/", $block->identifier) ){
+							$count_actu++;
+						}
+					}
+					// On les affiche
+					foreach($blocks as $block){
+						if(preg_match("/une_news/", $block->identifier) ){
+						   $cou++;
+						   $lien_page = str_replace("une_news_", "", $block->identifier);
+						   $content = html_entity_decode($this->getLayout()->createBlock('cms/block')->setBlockId($block->identifier)->toHtml());
+						   if($count_actu == $cou)
+							$content = str_replace('EN_SAVOIR_PLUS','EN_SAVOIR_PLUS <div class="see-all-news row col-md-3 col-xs-offset-2 col-sm-offset-2"></div>',$content);
+						   echo str_replace('<img','<img class="img-news col-md-3 "',str_replace('EN_SAVOIR_PLUS','<a href="'.$lien_page.'" target="_blank">...<br/>En savoir plus</a>',$content));
+						}
+					}
+			   ?>
+			</div>
+
+			<!-- Les vidéos -->
+			<div class="les-videos row">
+				<?php $blocks = Mage::getModel('cms/block')->getCollection();
+			// echo  $this->getLayout()->createBlock('cms/block')->setBlockId('une_news_page-une-news')->toHtml();
+					$count_video=0;
+					$cou=0;
+					// On détermine le nombre de vidéos
+					foreach($blocks as $block){
+						if(preg_match("/une_video/", $block->identifier) ){
+							$count_video++;
+						}
+					}
+					// On les affiche
+					foreach($blocks as $block){
+
+						if(preg_match("/une_video/", $block->identifier) ){
+						   $cou++;
+						   $lien_page = str_replace("une_video_", "", $block->identifier);
+						   $content = html_entity_decode($this->getLayout()->createBlock('cms/block')->setBlockId($block->identifier)->toHtml());
+						   if($count_video == $cou)
+							$content = str_replace('EN_SAVOIR_PLUS','EN_SAVOIR_PLUS <div class="see-all-news row col-md-3 col-xs-offset-2 col-sm-offset-2"></div>',$content);
+
+						   $content = str_replace("</iframe>","</iframe></div>",str_replace('<iframe ','<div class="embed-responsive embed-responsive-16by9 col-md-3 "><iframe  class="video-news embed-responsive "',str_replace('EN_SAVOIR_PLUS','<a href="'.$lien_page.'" target="_blank">...<br/>En savoir plus</a>',$content)));
+						   echo  $content = str_replace("iframe", "kiframe", $content);
+						}
+
+					}
+			   ?>
+			</div>
+
+			<!-- Les FAQ -->
+			<div class="les-autres row">
+				<?php echo $this->getLayout()->createBlock('faq/faq_frequentlyAskedQuestion')->setTemplate('faq/list_frequently.phtml')->toHtml(); ?>
+			</div>
+		</div>
+		<?php echo $this->getLayout()->createBlock('core/template')->setTemplate('homepage/showroom.phtml')->toHtml(); ?>
+	</div>
+</div>

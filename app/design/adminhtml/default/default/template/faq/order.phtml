@@ -1,0 +1,80 @@
+<?php
+/**
+ * This file is part of Promethean_Faq for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Faq
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+?>
+<?php
+$model = Mage::getModel('faq/faq')->getCollection()->setOrder('sort', 'asc');
+?>
+
+<style>
+    #test-list {
+        list-style: none;
+    }
+
+    #test-list li {
+        display: block;
+        padding: 5px 10px;
+        margin-bottom: 3px;
+        background-color: #efefef;
+    }
+
+    #test-list li img.handle {
+        margin-right: 20px;
+        cursor: move;
+    }
+</style>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(function () {
+            $("#contentLeft ul").sortable({
+                opacity: 0.6,
+                cursor: 'move',
+                update: function () {
+                    $("#messages").hide();
+                    var order = $(this).sortable("serialize") + '&action=updateRecordsListings&form_key=<?php echo Mage::getSingleton('core/session')->getFormKey() ?>';
+
+                    $.post("<?php echo Mage::helper('adminhtml')->getUrl('adminhtml/faq_updateOrder'); ?>?is_ajax=true", order, function (Response) {
+                        console.log(Response);
+
+                        $("#messages").show();
+                        $("#messages").html(Response);
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+<div id="messages"></div>
+
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody>
+        <tr>
+            <td><h3 class="icon-head head-cms-page"><?php echo $this->__("Questions Sorting"); ?></h3></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<p class="switcher"><?php echo $this->__("Drag n' Drop in order to change sorting") ?></p>
+
+<div id="contentWrap">
+    <div id="contentLeft">
+        <ul id="test-list">
+            <?php foreach ($model as $_model) : ?>
+                <li id="recordsArray_<?php echo $_model->getId() ?>">
+                    <img src="<?php echo $this->getSkinUrl('images/arrow.png') ?>" alt="move" width="16" height="16" class="handle"/>
+                    <?php echo $_model->getQuestion() ?>
+                </li>
+            <?php endforeach ?>
+        </ul>
+    </div>
+</div>

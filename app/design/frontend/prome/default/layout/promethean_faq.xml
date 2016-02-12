@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * This file is part of Promethean_Faq for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Faq
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<layout version="0.1.0">
+    <faq_index_index>
+        <update handle="page_one_column"/>
+        <reference name="root">
+            <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+        </reference>
+
+        <reference name="head">
+            <action method="addJs">
+                <script>promethean/faq.js</script>
+            </action>
+        </reference>
+
+        <!-- Breadcrumbs -->
+        <reference name="breadcrumbs">
+            <action method="addCrumb" translate="info.label info.title">
+                <name>home</name>
+                <info>
+                    <label>Home</label>
+                    <title>Go to Home Page</title>
+                    <link>{{baseSecureUrl}}</link>
+                    <first>1</first>
+                    <last>0</last>
+                </info>
+            </action>
+            <action method="addCrumb" translate="info.label info.title">
+                <name>cms_page</name>
+                <info>
+                    <label>F.A.Q</label>
+                    <title>F.A.Q</title>
+                    <link />
+                    <first>0</first>
+                    <last>1</last>
+                </info>
+            </action>
+        </reference>
+
+        <reference name="content">
+            <block type="faq/faq" name="faq.list" template="faq/list.phtml"/>
+        </reference>
+    </faq_index_index>
+</layout> 

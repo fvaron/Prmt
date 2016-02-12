@@ -201,10 +201,6 @@ ul.navbar-right_bis li a{ color: #777;}
 .block1{padding-right: 3px;}
 .block2{padding-left: 2px; padding-right: 2px}
 .block3{padding-left: 4px;}
-.block1 > div{background-image: url("../images/media/valoriser.jpg"); background-repeat: no-repeat;background-size: 100% auto; }
-.block2 > div{background-image: url("../images/media/developper.jpg");background-repeat: no-repeat;background-size: 100% auto; }
-.block3 > div{background-image: url("../images/media/classflow.jpg"); background-repeat: no-repeat;background-size: 100% auto; }
-
 
 /*------News et showroom--------*/
 /*------------------------------*/
@@ -623,6 +619,42 @@ ul.products-grid li {list-style: none;}
 .sales-order-invoice .btn-right, .sales-order-shipment .btn-right, .request4quote-front-customer-quote-view .btn-right { float: right; }
 .dashboard .box-address .box-title { margin-bottom: 10px; }
 .dashboard .box-address .col2-set a { float: right; margin-top: 10px; }
+
+/** faq **/
+.faq-index-index .main { width:100%; max-width: 1142px; margin:0 auto; }
+.faq-index-index .cadre-apres-oblique { border: 0; }
+.faq .block-title { margin: 40px 0; font-size: 36px; text-transform: uppercase; }
+.faq .block-content { margin: 0 0 83px; }
+.faq .block-content ul { list-style: none; padding: 0; margin: 0; }
+.faq .block-content .list-item .item {
+    border:  1px solid #d9d9d9;
+    margin:  0 0 12px;
+    padding: 0 25px;
+}
+.faq .block-content .question {
+    color: #000000;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 58px;
+    min-height: 58px;
+    position: relative;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+.faq .block-content .question span {
+    display: inline-block;
+    font-size:    22px;
+    margin:  0 23px 0 0;
+}
+
+.faq .block-content .answer {
+    color:   #000000;
+    display: none;
+    font-size:    16px;
+    margin:  0 0 16px 0;
+}
+.les-faq ul { list-style: none; padding: 0; margin: 0; }
+.les-faq ul li { margin-bottom: 10px; }
 
 .btn-blue { background: #559bd9; border-color: #559bd9; color: #ffffff; }
 .btn-blue:hover { background: #2678bd;  color: #ffffff; }
