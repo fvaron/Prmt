@@ -25,6 +25,10 @@ $j(document).ready(function(){
      price = $j(".regular-price span.price").html();
      $j(".regular-price span.price").html(price.replace(",00",""));
   }
+
+  // Message de choix des options si on vient de ("achetez ou devis")
+  $j("#messages_product_view").animate({"top":"300"}).hide(4000);
+
    
 	//---------------------------------BAR DE NAVIGATION---------------------------------------------
 	//--

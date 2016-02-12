@@ -436,6 +436,7 @@ ul.products-grid li {list-style: none;}
 /*------------ Les custom page cms --------------- */
 .content-custom-cms-page{ max-width: 1142px; margin: auto;}
 .fil-d-ariane-custom-cms-page .cadre-apres-oblique{ border:none;}
+.titre-page-cms{margin-top: 0px; margin-bottom: 0px;}
 
 /*-----------------------------------LA FICHE PRODUIT-----------------------------------*/
 /*--------------------------------------------------------------------------------------*/
@@ -513,6 +514,13 @@ ul.products-grid li {list-style: none;}
 @media only screen and (max-width: 596px){
   .fleche-r{margin-top: -71px;}
 }
+
+#messages_product_view li  {list-style: none;  color: #36570D; font-size: 32px;}
+
+.box-up-sell, .les-upsell{max-width: 1142px; width: 100%; margin: auto; padding-left: 0px;}
+.box-up-sell ul, .les-upsell ul{padding-top: 30px;}
+.box-up-sell ul li, .les-upsell ul li{float: left; padding: 0px; padding: 10px; /border:1px solid #aaa;}
+.les-upsell h2.upsell-associes{font-size: 32px;font-family: arial,sans-serif;color: #1D3849;padding-left: 0px; margin-top: 40px;}
 
 /*-----------------------------------------checkout cart--------------------------------*/
 /*---------------------------------------------------------------------------------------*/
