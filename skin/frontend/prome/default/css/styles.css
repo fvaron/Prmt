@@ -358,7 +358,7 @@ ul.navbar-right_bis li a{ color: #777;}
 .catalog-category-view { background-image: url('../images/media/fond-cat.jpg');}
 .cat-title-desc{position: absolute; margin-top: -274px; /*margin-top: -290px;*/}
 .breadcrumbs{ border-bottom:1px solid #e8e8e8; margin:auto; font-size: 13px;
-              background-color: #fff; margin-bottom: 30px; margin-top: 200px;/*mmm*/}
+              background-color: #fff; margin-bottom: 30px; /*mmm*/}
 .cadre-ob{margin-top: -43px; float: right; }
 .cadre-oblique{border-color: transparent transparent #fff; border-style: solid;
                float: right;border-width: 1px 0px 71px 40px; width:41px ;}
@@ -438,7 +438,7 @@ ul.products-grid li {list-style: none;}
 /*------------ Les custom page cms --------------- */
 .content-custom-cms-page{ max-width: 1142px; margin: auto;}
 .fil-d-ariane-custom-cms-page .cadre-apres-oblique{ border:none;}
-.fil-d-ariane-custom-cms-page .breadcrumbs{ margin-top: 0px !important;}
+.catalog-category-view .breadcrumbs{ margin-top: 200px; }
 .titre-page-cms{margin-top: 0px; margin-bottom: 0px;}
 
 /*-----------------------------------LA FICHE PRODUIT-----------------------------------*/
