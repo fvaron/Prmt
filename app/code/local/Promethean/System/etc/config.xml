@@ -28,5 +28,10 @@
                 </connection>
             </promethean_system_setup>
         </resources>
+        <helpers>
+            <promethean_system>
+                <class>Promethean_System_Helper</class>
+            </promethean_system>
+        </helpers>
     </global>
 </config>

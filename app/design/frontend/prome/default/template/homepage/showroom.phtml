@@ -5,52 +5,52 @@
   $lien_savoir_plus  = array('1' =>'../installation-et-assistance' ,'2' =>'../garanties-et-extensions' ,'3' =>'../formations' );
 ?>
 
-<?php if(! $this->getBlockId()):?><!-- Pour affichage dans la home -->
-<div class="showroom row col-md-4">
-	
-	<div class="img-showroom">
-	    <div class="text-showroom">
-	    	<div class="titre-text-shoroom">Showroom</div>
-	    	<div class="text-text-shoroom">
-				<?php echo $this->__("Venez nous rencontrer à notre showroom. Bénéficiez de démonstrations gratuites sur les solutions Promethean de votre choix et profitez de l’expertise de nos professionnels."); ?>'
-	    	</div>
-	    </div>
-		<a href="<?php echo $this->getUrl('Showroom'); ?>"><div class="visiter-showroom"><?php echo $this->__('VISITER NOTRE SHOWROOM'); ?></div></a>
+<?php if(Mage::helper('promethean_system')->getIsHomePage()):?><!-- Pour affichage dans la home -->
+	<div class="showroom row col-md-4">
+
+		<div class="img-showroom">
+			<div class="text-showroom">
+				<div class="titre-text-shoroom">Showroom</div>
+				<div class="text-text-shoroom">
+					<?php echo $this->__("Venez nous rencontrer à notre showroom. Bénéficiez de démonstrations gratuites sur les solutions Promethean de votre choix et profitez de l’expertise de nos professionnels."); ?>'
+				</div>
+			</div>
+			<a href="<?php echo $this->getUrl('Showroom'); ?>"><div class="visiter-showroom"><?php echo $this->__('VISITER NOTRE SHOWROOM'); ?></div></a>
+		</div>
+		<div class="les-rubs">
+			<?php foreach ($images_rub as $key => $img):?>
+				<a href="<?php echo $lien_savoir_plus[$key];?>">
+				<div class="une-rub row">
+					<img class="img-rub " src="<?php echo $this->getSkinUrl('images/media/'.$img); ?>">
+				  <div class="titre-rub col-md-10"><?php echo $titre_rub[$key];?></div>
+				  <div class="txt-rub col-md-8 col-md-offset-2"><?php echo $mini_text[$key];?></div>
+				  <div class="en-savoir-plus col-sm-9 col-xs-8 col-xs-offset-2"></div>
+				</div>
+				</a>
+			<?php endforeach;?>
+		</div>
 	</div>
-	<div class="les-rubs">
-        <?php foreach ($images_rub as $key => $img):?>
-        	<a href="<?php echo $lien_savoir_plus[$key];?>">
-        	<div class="une-rub row">
-				<img class="img-rub " src="<?php echo $this->getSkinUrl('images/media/'.$img); ?>">
-	       	  <div class="titre-rub col-md-10"><?php echo $titre_rub[$key];?></div>
-			  <div class="txt-rub col-md-8 col-md-offset-2"><?php echo $mini_text[$key];?></div>
-              <div class="en-savoir-plus col-sm-9 col-xs-8 col-xs-offset-2"></div>
-            </div>
-            </a>
-        <?php endforeach;?>		
-	</div>
-</div>
 <?php else: ?><!-- Pour affichage dans la page catégorie-->
-<div class="showroom-cat row col-md-12">
-	
-	<div class="les-rubs">
-	<div class="img-showroom-page-cat row">
-	  <div class="titre-showroom-cat">Showroom</div>
-	  <div class="text-showroom-cat">
-		  <?php echo $this->__("Venez nous rencontrer à notre showroom. Bénéficiez de démonstrations gratuites sur les solutions Promethean de votre choix et profitez de l’expertise de nos professionnels."); ?>
-	  </div>
-	  <a href="<?php echo $this->getUrl('Showroom'); ?>"><div class="visiter-showroom-cat"><?php echo $this->__('VISITER NOTRE SHOWROOM'); ?></div></a>
+	<div class="showroom-cat row col-md-12">
+
+		<div class="les-rubs">
+		<div class="img-showroom-page-cat row">
+		  <div class="titre-showroom-cat">Showroom</div>
+		  <div class="text-showroom-cat">
+			  <?php echo $this->__("Venez nous rencontrer à notre showroom. Bénéficiez de démonstrations gratuites sur les solutions Promethean de votre choix et profitez de l’expertise de nos professionnels."); ?>
+		  </div>
+		  <a href="<?php echo $this->getUrl('Showroom'); ?>"><div class="visiter-showroom-cat"><?php echo $this->__('VISITER NOTRE SHOWROOM'); ?></div></a>
+		</div>
+
+			<?php foreach ($images_rub as $key => $img):?>
+				<a href="<?php echo $lien_savoir_plus[$key];?>">
+				<div class="une-rub row">
+				  <img class="img-rub " src="<?php echo $this->getSkinUrl('images/media/'.$img); ?>">
+				  <div class="titre-rub col-md-12"><?php echo $titre_rub[$key];?></div>
+				  <div class="en-savoir-plus-showroom-cat col-md-8 col-sm-offset-5 col-xs-offset-4 col-md-offset-2"></div>
+				</div>
+				</a>
+			<?php endforeach;?>
+		</div>
 	</div>
-	
-        <?php foreach ($images_rub as $key => $img):?>
-        	<a href="<?php echo $lien_savoir_plus[$key];?>">
-        	<div class="une-rub row">
-	       	  <img class="img-rub " src="<?php echo $this->getSkinUrl('images/media/'.$img); ?>">
-	       	  <div class="titre-rub col-md-12"><?php echo $titre_rub[$key];?></div>
-              <div class="en-savoir-plus-showroom-cat col-md-8 col-sm-offset-5 col-xs-offset-4 col-md-offset-2"></div>
-            </div>
-            </a>
-        <?php endforeach;?>		
-	</div>
-</div>
 <?php endif;?>
