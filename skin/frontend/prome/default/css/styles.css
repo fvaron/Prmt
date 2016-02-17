@@ -353,10 +353,12 @@ ul.navbar-right_bis li a{ color: #777;}
 
 /* -----------------------------   La page catégories  --------------------------  */
 /*.main-container {margin: auto; max-width: 1142px;}*/
+.pdf-icone{background-image: url('../images/media/pdf-icone.jpg'); width: 30px; height: 30px;}
+.cat-image img{background-size: 100% auto;width: 100%;min-height: 221px; margin-top: -291px; position: absolute; z-index: -1}
 .catalog-category-view { background-image: url('../images/media/fond-cat.jpg');}
-.cat-title-desc{position: absolute; margin-top: -271px; /*margin-top: -290px;*/}
+.cat-title-desc{position: absolute; margin-top: -274px; /*margin-top: -290px;*/}
 .breadcrumbs{ border-bottom:1px solid #e8e8e8; margin:auto; font-size: 13px;
-              background-color: #fff; margin-bottom: 30px;}
+              background-color: #fff; margin-bottom: 30px; margin-top: 200px;/*mmm*/}
 .cadre-ob{margin-top: -43px; float: right; }
 .cadre-oblique{border-color: transparent transparent #fff; border-style: solid;
                float: right;border-width: 1px 0px 71px 40px; width:41px ;}
@@ -436,6 +438,7 @@ ul.products-grid li {list-style: none;}
 /*------------ Les custom page cms --------------- */
 .content-custom-cms-page{ max-width: 1142px; margin: auto;}
 .fil-d-ariane-custom-cms-page .cadre-apres-oblique{ border:none;}
+.fil-d-ariane-custom-cms-page .breadcrumbs{ margin-top: 0px !important;}
 .titre-page-cms{margin-top: 0px; margin-bottom: 0px;}
 
 /*-----------------------------------LA FICHE PRODUIT-----------------------------------*/
@@ -552,7 +555,7 @@ ul.products-grid li {list-style: none;}
 #checkoutSteps .checkout-agreements { text-align:right; }
 
 .form-control.validation-failed { box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 2px red; }
-.col-main .page-title { border-bottom: 1px solid #e6e6e6; padding: 8px; margin-bottom: 20px; }
+.col-main .page-title { /border-bottom: 1px solid #e6e6e6; padding: 8px; margin-bottom: 20px; }
 .col-main .page-title h1 { width:100%; max-width: 1142px; margin: 0 auto; }
 .col-main .content { width:100%; max-width: 1142px; margin:0 auto; }
 .account .form-list { list-style: none; padding: 0; }

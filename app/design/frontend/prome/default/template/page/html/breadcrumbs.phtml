@@ -44,7 +44,19 @@
         <?php endforeach; ?> 
         </div>
         <div class="cadre-ob">
-            <div class="cadre-apres-oblique"></div>
+            <div class="cadre-apres-oblique">
+                <?php  $category = Mage::registry('current_category');?>
+                    <?php if ($category):
+                      $value = $category->getData('GUIDE_UTILISATEUR');
+                      $value = explode("**", $value);
+                      $guide_pdf = $value[0];
+                      $lien_pdf = $value[1];
+                    ?>
+                      <a href="<?php echo $lien_pdf; ?>" target="_blank">
+                        <?php echo $guide_pdf?>
+                      </a>
+                   <?php endif?>
+            </div>
             <div class="cadre-oblique"></div>
         </div>
 

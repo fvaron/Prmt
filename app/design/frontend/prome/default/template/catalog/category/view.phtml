@@ -36,10 +36,14 @@
     $_category  = $this->getCurrentCategory();
     $_imgHtml   = '';
     if ($_imgUrl = $_category->getImageUrl()) {
-        $_imgHtml = '<p class="category-image"><img src="'.$_imgUrl.'" alt="'.$this->escapeHtml($_category->getName()).'" title="'.$this->escapeHtml($_category->getName()).'" /></p>';
+        $_imgHtml = '<div class="cat-image"><img src="'.$_imgUrl.'" alt="'.$this->escapeHtml($_category->getName()).'" title="'.$this->escapeHtml($_category->getName()).'" /></div>';
         $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
     }
 ?>
+            <?php if($_imgUrl): ?>
+                <?php echo $_imgHtml ?>
+            <?php endif; ?>
+    <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('30')->toHtml() ?>
 <div class="content-categorie container-fluid"><!--avm -->
     <div class="row cat-title-desc">
         <div class="page-title category-title">
@@ -49,9 +53,7 @@
             <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
             <?php echo $this->getMessagesBlock()->toHtml() ?>
 
-            <?php if($_imgUrl): ?>
-                <?php echo $_imgHtml ?>
-            <?php endif; ?>
+
 
             <?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
                 <div class="category-description std">
