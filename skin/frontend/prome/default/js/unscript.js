@@ -200,4 +200,10 @@ $j(document).ready(function(){
     	$j(this).remove();
     });
 
+    //Décalage ie11
+    if(navigator.userAgent.match(/Trident.*rv:11\./)) {
+      $j('.espace').addClass('espace2');
+    }
+
+
 })

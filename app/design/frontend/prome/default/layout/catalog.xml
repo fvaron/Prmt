@@ -77,9 +77,11 @@ Category default layout
         </reference>
         <reference name="content"><!-- block static ordi_flou -->
             <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+            <!--
             <block type="cms/block" name="cms_ordi_flou" before="breadcrumbs" >
                <action method="setBlockId"><block_id>ordi_flou</block_id></action>
             </block>
+            -->
         </reference>
         <reference name="content">
             <block type="catalog/category_maView" name="category.products" template="catalog/category/view.phtml">

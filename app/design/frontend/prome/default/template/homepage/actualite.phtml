@@ -9,7 +9,7 @@
 
 			<!-- Les news -->
 			<div class="les-news row">
-				<?php $blocks = Mage::getModel('cms/block')->getCollection();
+				<?php $blocks = Mage::getModel('cms/block')->getCollection()->setOrder('block_id', 'DESC');
 					$count_actu=0;
 					$cou=0;
 					// On détermine le nombre de news
@@ -34,7 +34,7 @@
 
 			<!-- Les vidéos -->
 			<div class="les-videos row">
-				<?php $blocks = Mage::getModel('cms/block')->getCollection();
+				<?php $blocks = Mage::getModel('cms/block')->getCollection()->setOrder('block_id', 'DESC');
 			// echo  $this->getLayout()->createBlock('cms/block')->setBlockId('une_news_page-une-news')->toHtml();
 					$count_video=0;
 					$cou=0;
