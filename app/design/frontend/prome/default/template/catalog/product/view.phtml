@@ -88,6 +88,7 @@
                         </div>
                         <?php endif;?> 
                         <div class="prix-devis-acheter row">
+                            <?php if($_product->r4q_hide_price == 0): ?>
                             <div class="prix-fiche-prod col-sm-4">
                                 <?php //echo strip_tags(str_replace("€","",str_replace(",00", "", $this->getChildHtml('product_type_data')))); ?>
                                 <!-- €<span class="prix-ht-fiche-prod">(HT)</span>-->
@@ -96,6 +97,7 @@
                                  <span class="prix-ht-fiche-prod">(HT)</span>
                                  </div>
                             </div>
+                            <?php endif;?>
                             <div class="achat-devis col-sm-7 col-sm-offset-1 row">
                                 <!--<div class="acheter-fiche-prod col-sm-12">-->
                                 <?php //if (!$this->hasOptions()):?>
