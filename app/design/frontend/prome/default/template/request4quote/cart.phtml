@@ -211,7 +211,7 @@ $_address = $this->getShippingAddress();
                     </li>
                     <li>
                         <label class="required" for="r4qDetailsTelephone"><?php echo $this->__('Telephone') ?><em>*</em></label>
-                        <div class="input-box"><input type="text" class="input-text form-control required-entry" name="r4q[details][telephone]" id="r4qDetailsTelephone" value="<?php if($_address->getTelephone()): echo $_address->getTelephone(); else: echo $_address->getMobile(); endif; ?>" /></div>
+                        <div class="input-box"><input type="text" class="input-text form-control required-entry" name="r4q[details][telephone]" id="r4qDetailsTelephone" value="<?php if($_address): if($_address->getTelephone()): echo $_address->getTelephone(); else: echo $_address->getMobile(); endif; endif; ?>" /></div>
                     </li>
                     <input type="hidden" class="input-text form-control required-entry" name="r4q[details][firstname]" id="r4qDetailsFirstname" value="<?php if ($_address) echo $_address->getFirstname() ?>" />
                     <input type="hidden" class="input-text form-control required-entry" name="r4q[details][lastname]" id="r4qDetailsLastname" value="<?php if ($_address) echo $_address->getLastname() ?>" />

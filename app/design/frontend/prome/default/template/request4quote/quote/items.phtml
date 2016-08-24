@@ -38,12 +38,9 @@
             <?php if(Mage::getStoreConfig('request4quote/quote_settings/show_pictures_email') == 1):?>
                 <th align="left" style="font-size:13px;"><?php echo $this->__('Image') ?></th>
             <?php endif; ?>
-            <th><?php echo $this->__('SKU') ?></th>
-            <th><?php echo $this->__('Remark') ?></th>
             <?php if(Mage::helper('request4quote')->enabledShowRegularPrice()):?>
                 <th><?php echo $this->__('Regular Price')?></th>
             <?php endif; ?>
-            <th class="a-right"><?php echo $this->__('Price Proposal') ?></th>
             <th class="a-center"><?php echo $this->__('Qty') ?></th>
             <th class="a-right"><?php echo $this->__('Subtotal') ?></th>
         </tr>

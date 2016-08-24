@@ -42,8 +42,8 @@
                 <connection>
                     <host><![CDATA[localhost]]></host>
                     <username><![CDATA[root]]></username>
-                    <password><![CDATA[mamour34]]></password>
-                    <dbname><![CDATA[promethean]]></dbname>
+                    <password><![CDATA[Felouchon62]]></password>
+                    <dbname><![CDATA[promeactive]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>

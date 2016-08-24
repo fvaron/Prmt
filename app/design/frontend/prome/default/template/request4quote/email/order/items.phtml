@@ -40,10 +40,15 @@
     </thead>
 
     <?php $i=0; foreach ($_order->getAllItems() as $_item): ?>
-    <?php if($_item->getParentItem()) continue; else $i++; ?>
-    <tbody<?php echo $i%2 ? ' bgcolor="#F6F6F6"' : '' ?>>
+        <?php if($_item->getParentItem()) continue; else $i++; ?>
+        <tbody<?php echo $i%2 ? ' bgcolor="#F6F6F6"' : '' ?>>
         <?php echo $this->getItemHtml($_item) ?>
-    </tbody>
+        </tbody>
     <?php endforeach; ?>
+    <tfoot>
+    <?php if(Mage::helper('request4quote')->showPricesandConfirm($_order->getR4qStatus())) : ?>
+        <?php echo $this->getChildHtml('totals') ?>
+    <?php endif ?>
+    </tfoot>
 </table>
 <?php endif; ?>
