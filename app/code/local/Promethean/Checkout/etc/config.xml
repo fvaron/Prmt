@@ -24,15 +24,18 @@
                 </promethean_checkout>
             </updates>
         </layout>
-        <routers>
-            <checkout>
-                <args>
-                    <modules>
-                        <promethean_checkout before="Mage_Checkout">Promethean_Checkout</promethean_checkout>
-                    </modules>
-                </args>
-            </checkout>
-        </routers>
+        <events>
+            <controller_action_postdispatch_checkout_onepage_savePayment>
+                <observers>
+                    <controller_action_postdispatch_checkout_onepage_savePayment_handler>
+                        <type>model</type>
+                        <class>promethean_checkout/observer</class>
+                        <method>saveOrder</method>
+                        <args></args>
+                    </controller_action_postdispatch_checkout_onepage_savePayment_handler>
+                </observers>
+            </controller_action_postdispatch_checkout_onepage_savePayment>
+        </events>
     </frontend>
     <admin>
         <fieldsets>
@@ -46,12 +49,12 @@
             <promethean_checkout>
                 <class>Promethean_Checkout_Block</class>
             </promethean_checkout>
-            <checkout>
-                <rewrite>
-                    <onepage>Promethean_Checkout_Block_Onepage</onepage>
-                </rewrite>
-            </checkout>
         </blocks>
+        <models>
+            <promethean_checkout>
+                <class>Promethean_Checkout_Model</class>
+            </promethean_checkout>
+        </models>
         <resources>
             <promethean_checkout_setup>
                 <setup>
