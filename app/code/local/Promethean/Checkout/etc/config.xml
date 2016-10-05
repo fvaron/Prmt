@@ -24,18 +24,6 @@
                 </promethean_checkout>
             </updates>
         </layout>
-        <events>
-            <controller_action_postdispatch_checkout_onepage_savePayment>
-                <observers>
-                    <controller_action_postdispatch_checkout_onepage_savePayment_handler>
-                        <type>model</type>
-                        <class>promethean_checkout/observer</class>
-                        <method>saveOrder</method>
-                        <args></args>
-                    </controller_action_postdispatch_checkout_onepage_savePayment_handler>
-                </observers>
-            </controller_action_postdispatch_checkout_onepage_savePayment>
-        </events>
     </frontend>
     <admin>
         <fieldsets>

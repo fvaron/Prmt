@@ -539,7 +539,7 @@ ul.products-grid li {list-style: none;}
 .discount-form .form-control { width: 200px; }
 .discount-form .buttons-set { margin-top: 10px; }
 #checkout_steps { width:100%; max-width: 1142px; margin: 0 auto 50px; list-style: none; padding: 0; clear:both; overflow: hidden; }
-#checkout_steps li { margin-right: -1px; border: 2px solid #929292; position: relative; float:left; width: 19%; text-align: center; font-size: 18px; color: #ffffff; font-weight: 700; height: 45px; line-height: 45px; background: #a0a0a0; }
+#checkout_steps li { margin-right: -1px; border: 2px solid #929292; position: relative; float:left; width: 16%; text-align: center; font-size: 18px; color: #ffffff; font-weight: 700; height: 45px; line-height: 45px; background: #a0a0a0; }
 #checkout_steps li:after, #checkout_steps li:before { left: 100%; top: 50%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; z-index: 99; }
 #checkout_steps li:after { border-color: rgba(160, 160, 160, 0); border-left-color: #a0a0a0; border-width: 23px; margin-top: -23px; }
 #checkout_steps li:before { border-color: rgba(146, 146, 146, 0); border-left-color: #929292; border-width: 26px; margin-top: -26px; }
@@ -556,6 +556,8 @@ ul.products-grid li {list-style: none;}
 #checkoutSteps .sp-methods dd ul { margin-bottom: 10px; }
 #checkoutSteps ol { list-style: none; }
 #checkoutSteps .checkout-agreements { text-align:right; }
+#checkoutSteps .checkout-agreements .checkbox { display: inline-block; margin-right: 5px; vertical-align: sub; }
+#checkoutSteps .btn-right { float: right; }
 
 .form-control.validation-failed { box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 2px red; }
 .col-main .page-title { /border-bottom: 1px solid #e6e6e6; padding: 8px; margin-bottom: 20px; }

@@ -17,7 +17,7 @@
                    template="checkout/steps.phtml" before="-">
                 <action method="addStep" translate="label">
                     <code>summary</code>
-                    <label>Summary</label>
+                    <label>Shopping Cart</label>
                     <position>1</position>
                 </action>
                 <action method="addStep" translate="label">
@@ -40,6 +40,11 @@
                     <code>payment</code>
                     <label>Payment</label>
                     <position>5</position>
+                </action>
+                <action method="addStep" translate="label">
+                    <code>review</code>
+                    <label>Review</label>
+                    <position>6</position>
                 </action>
                 <action method="setActiveStep">
                     <step>summary</step>
@@ -59,7 +64,7 @@
                    template="checkout/steps.phtml" before="-">
                 <action method="addStep" translate="label">
                     <code>summary</code>
-                    <label>Summary</label>
+                    <label>Shopping Cart</label>
                     <position>1</position>
                 </action>
                 <action method="addStep" translate="label">
@@ -83,14 +88,16 @@
                     <label>Payment</label>
                     <position>5</position>
                 </action>
+                <action method="addStep" translate="label">
+                    <code>review</code>
+                    <label>Summary</label>
+                    <position>6</position>
+                </action>
                 <action method="setActiveStep">
                     <step>login</step>
                 </action>
             </block>
         </reference>
-        <reference name="checkout.onepage.payment">
-            <block type="checkout/agreements" name="checkout.onepage.agreements" as="agreements" template="checkout/onepage/agreements.phtml"/>
-        </reference>>
     </checkout_onepage_index>
 
     <checkout_onepage_success>
