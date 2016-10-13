@@ -356,6 +356,7 @@ ul.navbar-right_bis li a{ color: #777;}
 .pdf-icone{background-image: url('../images/media/pdf-icone.jpg'); width: 30px; height: 30px;}
 .cat-image img{background-size: 100% auto;width: 100%;min-height: 221px; margin-top: -291px; position: absolute; z-index: -1}
 .catalog-category-view { background-image: url('../images/media/fond-cat.jpg');}
+.catalog-category-view .products-grid li.item .le-produit-cat { min-height: 324px;}
 .cat-title-desc{position: absolute; margin-top: -274px; /*margin-top: -290px;*/}
 .breadcrumbs{ border-bottom:1px solid #e8e8e8; margin:auto; font-size: 13px;
               background-color: #fff; margin-bottom: 30px; /*mmm*/}

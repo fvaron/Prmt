@@ -88,6 +88,9 @@ class Mage_Page_Block_Html_Topmenu_Monmenu extends Mage_Page_Block_Html_Topmenu{
             case 'SERVICES':
                 $nom = 'Installation-Formation';
                 break;
+            case 'ACTIVTABLE':
+                $nom = 'Table interactive';
+                break;
             
             default:
                 break;
