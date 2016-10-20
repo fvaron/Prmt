@@ -96,17 +96,25 @@ $_address = $this->getShippingAddress();
                 <?php endif; ?>
                 </thead>
                 <tfoot>
-                <tr>
-                    <td colspan="50" class="a-right">
-                        <?php if($this->getContinueShoppingUrl()): ?>
-                            <button type="button" title="<?php echo $this->__('Pursue your purchases') ?>" class="button btn-continue btn btn-yellow" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')"><span><span><?php echo $this->__('Pursue your purchases') ?></span></span></button>
-                        <?php endif; ?>
-                        <button onclick="r4qForm.submit(this);" name="update_cart_action" value="update_qty" title="<?php echo $this->__('Update'); ?>" class="button btn-update btn btn-blue"><span><span><?php echo $this->__('Update'); ?></span></span></button>
-                        <button onclick="r4qForm.submit(this);" name="update_cart_action" value="empty_cart" title="<?php echo $this->__('Clear All'); ?>" class="button btn-empty btn btn-orange" id="empty_cart_button"><span><span><?php echo $this->__('Clear All'); ?></span></span></button>
-                        <input type="hidden" id="update_cart_action_container" />
-                        <input type="hidden" name="isrfq" value="1"/>
-                    </td>
-                </tr>
+                    <tr>
+                        <td colspan="50" class="a-right">
+                            <?php if($this->getContinueShoppingUrl()): ?>
+                                <button type="button" title="<?php echo $this->__('Pursue your purchases') ?>" class="button btn-continue btn btn-yellow" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')"><span><span><?php echo $this->__('Pursue your purchases') ?></span></span></button>
+                            <?php endif; ?>
+                            <button onclick="r4qForm.submit(this);" name="update_cart_action" value="update_qty" title="<?php echo $this->__('Update'); ?>" class="button btn-update btn btn-blue"><span><span><?php echo $this->__('Update'); ?></span></span></button>
+                            <button onclick="r4qForm.submit(this);" name="update_cart_action" value="empty_cart" title="<?php echo $this->__('Clear All'); ?>" class="button btn-empty btn btn-orange" id="empty_cart_button"><span><span><?php echo $this->__('Clear All'); ?></span></span></button>
+                            <input type="hidden" id="update_cart_action_container" />
+                            <input type="hidden" name="isrfq" value="1"/>
+                        </td>
+                    </tr>
+                    <tr class="cart-total">
+                        <td colspan="4"></td>
+                        <td colspan="5">
+                            <div class="totals">
+                                <?php echo $this->getChildHtml('totals'); ?>
+                            </div>
+                        </td>
+                    </tr>
                 </tfoot>
                 <tbody>
                 <?php foreach($this->getItems() as $_item): ?>
@@ -217,6 +225,7 @@ $_address = $this->getShippingAddress();
                     <input type="hidden" class="input-text form-control required-entry" name="r4q[details][lastname]" id="r4qDetailsLastname" value="<?php if ($_address) echo $_address->getLastname() ?>" />
                     <input type="hidden" value="<?php echo (int) $this->isBillingAddressRequired(); ?>" name="r4q[billing][is_required]" />
                     <input type="hidden" value="<?php echo (int) $this->isShippingAddressRequired(); ?>" name="r4q[shipping][is_required]" />
+                    <input type="hidden" value="<?php echo $_customer->getEmail(); ?>" name="r4q[details][email]" />
                     <?php if ($this->canShowShippingAddress()): ?>
                         <input type="hidden" id="shipping_same_as_billing" name="r4q[billing][shipping_same_as_billing]" value="1" />
                     <?php endif; ?>

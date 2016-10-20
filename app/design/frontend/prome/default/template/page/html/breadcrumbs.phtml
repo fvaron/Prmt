@@ -28,39 +28,44 @@
 <div class="breadcrumbs">
     <ul class="ariane-breadcrumbs">
         <div class="items-ariane">
-        <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
-            <li class="<?php echo $_crumbName ?>">
-            <?php if($_crumbInfo['link']): ?>
-                <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->escapeHtml($_crumbInfo['title']) ?>"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></a>
-            <?php elseif($_crumbInfo['last']): ?> 
-                <strong class="moh-last-ariane"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></strong>
-            <?php else: ?>
-                <?php echo $this->escapeHtml($_crumbInfo['label']) ?>
-            <?php endif; ?>
-            <?php if(!$_crumbInfo['last']): ?>
-                <span class="fleche-ariane"> &raquo;</span>
-            <?php endif; ?>
-            </li>
-        <?php endforeach; ?> 
+            <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
+                <li class="<?php echo $_crumbName ?>">
+                <?php if($_crumbInfo['link']): ?>
+                    <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->escapeHtml($_crumbInfo['title']) ?>"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></a>
+                <?php elseif($_crumbInfo['last']): ?>
+                    <strong class="moh-last-ariane"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></strong>
+                <?php else: ?>
+                    <?php echo $this->escapeHtml($_crumbInfo['label']) ?>
+                <?php endif; ?>
+                <?php if(!$_crumbInfo['last']): ?>
+                    <span class="fleche-ariane"> &raquo;</span>
+                <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
         </div>
-        <div class="cadre-ob">
-            <div class="cadre-apres-oblique">
-                <?php  $category = Mage::registry('current_category');?>
-                    <?php if ($category):
-                      $value = $category->getData('GUIDE_UTILISATEUR');
-                      $value = explode("**", $value);
-                      $guide_pdf = $value[0];
-                      $lien_pdf = $value[1];
+        <?php
+        $category = Mage::registry('current_category');
+        if ($category):
+            $value = $category->getData('GUIDE_UTILISATEUR');
+            if($value) {
+                $value = explode("**", $value);
+                if(isset($value[0]) && isset($value[1])) {
+                    $guide_pdf = $value[0];
+                    $lien_pdf = $value[1];
                     ?>
-                      <a href="<?php echo $lien_pdf; ?>" target="_blank">
-                        <?php echo $guide_pdf?>
-                      </a>
-                   <?php endif?>
-            </div>
-            <div class="cadre-oblique"></div>
-        </div>
-
+                    <div class="cadre-ob">
+                        <div class="cadre-apres-oblique">
+                            <a href="<?php echo $lien_pdf; ?>" target="_blank">
+                                <?php echo $guide_pdf?>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cadre-oblique"></div>
+                    <?php
+                }
+            }
+            ?>
+       <?php endif?>
     </ul>
-
 </div>
 <?php endif; ?>

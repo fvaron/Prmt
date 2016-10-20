@@ -1,0 +1,17 @@
+<div class="top_cat" style="background:url('<?php echo Mage::getBaseUrl("media")."clnews/fond_actualite.jpg"; ?>');">
+    <div class="content-categorie">
+        <h1><?php echo $this->__(Mage::getStoreConfig('clnews/news/title')) ?>
+            <?php if (Mage::getStoreConfig('clnews/rss/enable')): ?>
+                <?php if ($this->getCurrentCategory()): ?>
+                    <?php $categoryId = $this->getCurrentCategory()->getId() ?>
+                <?php endif ?>
+                <a href="<?php echo Mage::Helper('clnews')->getRssLink(isset($categoryId)?$categoryId:null) ?>">
+                    <img src="<?php echo $this->getSkinUrl('css/clnews/images/rss.gif') ?>">
+                </a>
+            <?php endif ?>
+        </h1>
+        <div class="description">
+            <?php echo Mage::getStoreConfig('clnews/news/metadescription'); ?>
+        </div>
+    </div>
+</div>
