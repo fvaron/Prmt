@@ -817,6 +817,36 @@ ul.products-grid li {list-style: none;}
     background: #f7931e;
     height: 4px;
 }
+.page-news .pager li {
+    margin-right: -5px;
+}
+.page-news .pager li > a, .page-news .pager li > span {
+    border-radius: 0;
+    color: #c6c6c6;
+    padding: 12px 20px;
+    font-weight: bold;
+}
+.page-news .pager .current span {
+    color: #000000;
+}
+.page-news .pager  .i-next::before {
+    transform: rotate(45deg);
+}
+.page-news .pager  .i-previous::before {
+    transform: rotate(-135deg);
+}
+.page-news .pager  .i-previous::before, .page-news .pager  .i-next::before {
+    border-style: solid;
+    border-width: 3px 3px 0 0;
+    content: "";
+    display: inline-block;
+    height: 9px;
+    left: 0;
+    position: relative;
+    top: 0;
+    vertical-align: middle;
+    width: 9px;
+}
 .slick-prev::before, .slick-next::before {
     border-style: solid;
     border-width: 0.25em 0.25em 0 0;
@@ -826,7 +856,7 @@ ul.products-grid li {list-style: none;}
     left: 0.15em;
     position: relative;
     top: 0.15em;
-    transform: rotate(-45deg);
+    transform: rotate(45deg);
     vertical-align: top;
     width: 14px;
 }

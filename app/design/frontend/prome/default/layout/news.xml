@@ -1,6 +1,24 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
     <default>
+        <reference name="head">
+            <action method="removeItem">
+                <type>js</type>
+                <name>jquery/jquery-1.7.1-min.js</name>
+            </action>
+            <action method="removeItem">
+                <type>js</type>
+                <name>commercelab/noconflict.js</name>
+            </action>
+            <action method="removeItem">
+                <type>js</type>
+                <name>commercelab/treeview/jquery.treeview.pack.js</name>
+            </action>
+            <action method="removeItem">
+                <type>js</type>
+                <name>commercelab/category_tree.js</name>
+            </action>
+        </reference>
         <reference name="right">
             <remove name="right.clnews.menu"/>
             <remove name="right.clnews.latest"/>
