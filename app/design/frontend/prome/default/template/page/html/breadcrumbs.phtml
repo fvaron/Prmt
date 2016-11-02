@@ -45,7 +45,8 @@
         </div>
         <?php
         $category = Mage::registry('current_category');
-        if ($category):
+        $product = Mage::registry('product');
+        if ($category && !$product):
             $value = $category->getData('GUIDE_UTILISATEUR');
             if($value) {
                 $value = explode("**", $value);
