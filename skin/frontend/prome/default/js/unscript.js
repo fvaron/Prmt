@@ -67,7 +67,6 @@ $j(document).ready(function(){
     //------------------------------------------------------------------------------------------------
     //                            Les onglets du bloc News
     //------------------------------------------------------------------------------------------------
-	var okVideo = 0;
 	$j('.onglet').mouseenter(function(){
 		if($j(this).hasClass('onglet1')){
 			$j(".onglet2, .onglet3").css({"background-image":"url('../../skin/frontend/prome/default/images/media/couleur-onglet.jpg')"});
@@ -80,12 +79,6 @@ $j(document).ready(function(){
 			$j(".onglet2").css({"background-image":"url('../../skin/frontend/prome/default/images/media/font_menu1.jpg')"});	
 		  $j(".les-videos").show();
 		  $j(".les-news, .les-autres").hide();
-     
-      obelement = $j(".les-videos > .une-news > .embed-responsive > kiframe");
-      if (okVideo == 0) { 
-        $j("div.les-videos > div.une-news >.embed-responsive").html(($j("div.les-videos > div.une-news > .embed-responsive").html()).replace("kiframe","iframe"));
-      }
-       okVideo = 1;
       
 		}		
 		if($j(this).hasClass('onglet3')){
