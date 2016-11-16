@@ -764,13 +764,15 @@ ul.products-grid li {list-style: none;}
 }
 .page-news ul li {
     width: 360px;
-    margin-top: 30px;
+    margin: 30px 30px 0 0;
+    float: left;
 }
 .page-news ul li:nth-child(3n) {
     margin-right: 0;
 }
 .page-news .actu .news_image {
     position: relative;
+    height: 194px;
 }
 .page-news .actu .date {
     position: absolute;
@@ -800,6 +802,7 @@ ul.products-grid li {list-style: none;}
 }
 .page-news .actu .name {
     line-height: 25px;
+    height: 115px;
 }
 .page-news .actu .name a {
     color: #25363e;
@@ -809,6 +812,14 @@ ul.products-grid li {list-style: none;}
 .page-news .actu .description {
     margin-top: 20px;
     color: #5c8699;
+}
+.page-news .actu .description .short {
+    height: 40px;
+    overflow: hidden;
+}
+.page-news .actu .description .more {
+    margin-top: 10px;
+    display: inline-block;
 }
 .page-news .info {
     padding: 35px 30px;
