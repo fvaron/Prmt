@@ -45,7 +45,7 @@
         </helpers>
         <template>
             <email>
-                <request4quote_emails_quote_pdf module="Promethean_Request4quote">
+                <request4quote_emails_quote_pdf>
                     <label>Quote request pdf</label>
                     <file>rfq/quote_request_processed_pdf.html</file>
                     <type>html</type>
