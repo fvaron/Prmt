@@ -1002,3 +1002,19 @@ ul.products-grid li {list-style: none;}
     width:100%;
     max-width:none
 }
+@media only screen and (max-width: 1024px) {
+    .page-news ul li, .page-news ul li:nth-child(3n) {
+        margin: 30px 30px 0 30px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .page-news ul li, .page-news ul li:nth-child(3n) {
+        margin: 15px 8px 0 8px;
+    }
+}
+@media only screen and (max-width: 680px) {
+    .page-news ul li {
+        margin: 15px auto !important;
+        float: none;
+    }
+}
