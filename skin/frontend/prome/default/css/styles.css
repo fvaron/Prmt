@@ -295,7 +295,7 @@ ul.navbar-right_bis li a{ color: #777;}
 .footer-2 .footer-row ul { margin: 25px 0 0; padding:0; }
 .footer-2 .footer-menu-item { float: left; width:20%; margin-top: 40px; }
 .footer-2 .footer-menu-item:nth-child(5n+1) { clear: both; }
-.footer-2 .block-subscribe { margin-top: 22px; }
+.footer-2 .block-subscribe { margin-bottom: 22px; }
 .footer-2 .block-subscribe .block-content { margin-top: 20px; position: relative; }
 .footer-2 .block-subscribe .input-box {  width: 100%; min-height: 40px;  background-color: #162d37; border: 1px solid #304751;  padding: 0; }
 .footer-2 .block-subscribe #newsletter{  width: 100%; min-height: inherit; height: inherit; background-color: #162d37; border: none; padding: 5px; color: #a3bfcc;}
@@ -576,6 +576,7 @@ ul.products-grid li {list-style: none;}
 
 .r4q-global .entete { color: #7f7e83; padding: 10px 0; font-style: italic; }
 .r4q-global .entete a { color: #7f7e83; text-decoration: underline; }
+.r4q-global .entete2 { color: #7f7e83; padding: 0; font-weight: bold; }
 .r4q-collaterals { border: 1px solid #d0cbc1; padding: 20px; clear: both; overflow: hidden; }
 .r4q-collaterals .cart-rf4-details { width: 65%; background: none; }
 .r4q-collaterals .mini-login { float: right; background: #5b9dda; border-radius: 30px; width: 30%; padding: 30px; }
@@ -599,8 +600,9 @@ ul.products-grid li {list-style: none;}
 .form-custom .form-list em { padding-right: 5px; }
 .validation-advice {  color: #ff5d78;  padding-top: 5px; }
 .form-custom .buttons-set .required { text-align: right; color:#777; }
-.form-custom .messages .success-msg, .request4quote-front-customer-quote-view .messages .success-msg { color: #3bc375; }
-.form-custom .messages .error-msg, .request4quote-front-customer-quote-view .messages .error-msg { color: #ff5d78; }
+.messages, .messages ul { list-style-type: none; padding: 0; }
+.messages .success-msg { color: #3bc375; }
+.messages .error-msg { color: #ff5d78; }
 .form-custom .control .radio, .form-custom .control .checkbox { display: inline-block; margin-right: 5px; }
 .form-custom .col2-set { display:table; border-collapse:separate; border-spacing: 40px 0; margin: 0 auto; width: 100%; }
 .form-custom .col2-set .col-1, .form-custom .col2-set .col-2 { display: table-cell; width: 47.634408602%;/*443px*/ border: 1px solid #e6e6e6; padding: 23px; }
