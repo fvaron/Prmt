@@ -4,7 +4,7 @@ $totalPriceProducts = 0;
 $totalPriceItem = 0;
 $notes = "";
 foreach ($_order->getAllItems() as $_item):
-    $totalPriceProducts += ($_item->getProduct()->getPrice() * $_item->getQty());
+    $totalPriceProducts += ($_item->getProduct()->getFinalPrice() * $_item->getQty());
     $totalPriceItem += $_item->getRowTotal();
     $notes .= "<br /><br />" . $_item->getR4qNote();
 endforeach;
