@@ -23,7 +23,12 @@ class Promethean_Request4quote_Model_Quote extends ITwebexperts_Request4quote_Mo
 
     public function getValideDate()
     {
-        $timestamp = Mage::getModel('core/date')->timestamp(strtotime($this->getCreatedAt() . ' + 1 month'));
+        if($this->getExpirationDate()) {
+            $date = $this->getExpirationDate();
+        } else {
+            $date = $this->getCreatedAt() . ' + 1 month';
+        }
+        $timestamp = Mage::getModel('core/date')->timestamp(strtotime($date));
         return date('d/m/Y', $timestamp);
     }
 }

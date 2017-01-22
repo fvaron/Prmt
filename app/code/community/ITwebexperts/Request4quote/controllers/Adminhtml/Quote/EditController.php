@@ -1,6 +1,7 @@
 <?php
-require_once('CreateController.php');
-class ITwebexperts_Request4quote_Adminhtml_Quote_EditController extends ITwebexperts_Request4quote_Adminhtml_Quote_CreateController {
+require_once 'Promethean/Request4quote/controllers/Adminhtml/Quote/CreateController.php';
+
+class ITwebexperts_Request4quote_Adminhtml_Quote_EditController extends Promethean_Request4quote_Adminhtml_Quote_CreateController {
 
     protected function _isAllowed(){
         return Mage::getSingleton('admin/session')->isAllowed('admin/request4quote/quotes');

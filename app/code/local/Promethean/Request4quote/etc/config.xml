@@ -13,7 +13,7 @@
 <config>
     <modules>
         <Promethean_Request4quote>
-            <version>0.1.0</version>
+            <version>1.0.0</version>
         </Promethean_Request4quote>
     </modules>
     <global>
@@ -60,6 +60,17 @@
                 </rewrite>
             </request4quote>
         </models>
+        <resources>
+            <promethean_request4quote_setup>
+                <setup>
+                    <module>Promethean_Request4quote</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </promethean_request4quote_setup>
+        </resources>
     </global>
     <frontend>
         <layout>
@@ -86,4 +97,15 @@
             </pdf>
         </request4quote>
     </default>
+    <admin>
+        <routers>
+            <request4quote>
+                <args>
+                    <modules>
+                        <promethean_request4quote before="ITwebexperts_Request4quote">Promethean_Request4quote_Adminhtml</promethean_request4quote>
+                    </modules>
+                </args>
+            </request4quote>
+        </routers>
+    </admin>
 </config>
