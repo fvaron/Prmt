@@ -13,7 +13,7 @@
     <?php if ($this->canSendNewOrderConfirmationEmail()): ?>
     <p>
         <label for="send_confirmation" class="normal"><?php echo Mage::helper('request4quote')->__('Email Quote') ?></label>
-        <input type="checkbox" id="send_confirmation" name="order[send_confirmation]" value="1" checked="checked"/>
+        <input type="checkbox" id="send_confirmation" name="order[send_confirmation]" value="1"/>
     </p>
     <?php endif; ?>
     <!--

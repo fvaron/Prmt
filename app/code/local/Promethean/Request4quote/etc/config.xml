@@ -57,6 +57,7 @@
                 <rewrite>
                     <quote>Promethean_Request4quote_Model_Quote</quote>
                     <quotepdf>Promethean_Request4quote_Model_Quotepdf</quotepdf>
+                    <adminhtml_quote_create>Promethean_Request4quote_Model_Rewrite_Adminhtml_Quote_Create</adminhtml_quote_create>
                 </rewrite>
             </request4quote>
         </models>

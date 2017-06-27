@@ -1,62 +1,57 @@
 <?php
 /**
- * This file is part of Promethean_Request4quote for Magento.
- *
- * @license All rights reserved
- * @author Caroline Framery <framery.caroline@laposte.net> <t>
- * @category Promethean
- * @package Promethean_Request4quote
- * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ * Created by PhpStorm.
+ * User: cframery
+ * Date: 27/06/17
+ * Time: 23:28
  */
 require_once 'ITwebexperts/Request4quote/controllers/Adminhtml/Quote/CreateController.php';
 
-class Promethean_Request4quote_Adminhtml_Quote_CreateController extends ITwebexperts_Request4quote_Adminhtml_Quote_CreateController
+
+class Promethean_Request4quote_Adminhtml_Adminhtml_Quote_CreateController extends ITwebexperts_Request4quote_Adminhtml_Quote_CreateController
 {
     /**
      * @override
      */
     public function saveAction()
     {
+        Mage::log('test', null, 'test.log', true);
         try {
             $quote = $this->_getQuote();
             if (count($this->_getQuote()->getAllItems())) {
                 // Override set date
                 $datas = $this->getRequest()->getPost();
                 $datas = $this->_filterDates($datas, array('created_at', 'expiration_date'));
-
                 $data = $this->getRequest()->getPost('order');
                 $comment = $this->getRequest()->getPost('comment');
                 $commentForm = isset($comment['comment']) ? $comment['comment'] : '';
                 $accountData = $data['account'];
                 $status = $this->getRequest()->getPost('r4q_status');
-                // $status = Mage::getModel('request4quote/quote_status')->load($status, 'label');
                 $appendComments = isset($data['comment']['customer_note_notify']) ? $data['comment']['customer_note_notify'] : '';
                 $visibleFront = isset($comment['is_visible_on_front']) ? $comment['is_visible_on_front'] : '';
                 $notifyCustomer = isset($comment['is_customer_notified']) ? $comment['is_customer_notified'] : '';
                 $salesrep = $this->getRequest()->getPost('salesrep');
-
                 if (isset($data['billing_address'])){
                     $accountData = array_merge($data['account'], $data['billing_address']);
                 }
                 $this->_getOrderCreateModel()->setData('account', $accountData);
+                if (!$this->_getQuote()->getR4qToken()) {
+                    $this->_getQuote()->setR4qToken(sha1(time() . rand(1000000000, 9999999999) . rand(1000000000, 9999999999)));
+                }
+                if(!$this->getRequest()->getPost('shipping_same_as_billing') || Mage::helper('request4quote')->canShowBillingAddressAdmin() == 0)
+                {
+                    $syncFlag = 0;
+                } else {
+                    $syncFlag = $this->getRequest()->getPost('shipping_same_as_billing') == 'on'?1:0;
+                }
+                $this->_getOrderCreateModel()->setShippingAsBilling($syncFlag);
+                $quote->setR4qShippingAsBilling((int)$syncFlag);
+                $quote->setShippingAsBilling((int)$syncFlag);
                 $this->_getOrderCreateModel()->saveCustomer();
                 $quote->setCustomerFirstname($accountData['firstname']);
                 $quote->setCustomerLastname($accountData['lastname']);
                 $quote->setCustomerEmail($accountData['email']);
                 $quote->save();
-
-                if (!$this->_getQuote()->getR4qToken()) {
-                    $this->_getQuote()->setR4qToken(sha1(time() . rand(1000000000, 9999999999) . rand(1000000000, 9999999999)));
-                }
-
-                if(!$this->getRequest()->getPost('shipping_same_as_billing' || Mage::helper('request4quote')->canShowBillingAddressAdmin() == 0)){
-                    $syncFlag = 0;
-                }else{
-                    $syncFlag = $this->getRequest()->getPost('shipping_same_as_billing') == 'on'?1:0;
-                }
-
-                $quote->setR4qShippingAsBilling((int)$syncFlag);
-
                 //save item data
                 $r4qData = $this->getRequest()->getPost('item');
                 foreach ($r4qData as $itemId => $itemData) {
@@ -79,12 +74,9 @@ class Promethean_Request4quote_Adminhtml_Quote_CreateController extends ITwebexp
                 foreach($this->_getQuote()->getAllItems() as $item){
                     Mage::helper('request4quote')->saveStartEndDatesToQuote($quote, $item);
                 }
-
                 $quote->setSalesrep($salesrep);
                 $quote->setR4qPhone($accountData['telephone']);
                 $quote->setR4qStatus($status);
-
-
                 /** Save quote comments */
                 if($appendComments){
                     $commentItem = Mage::getModel('request4quote/comments');
@@ -103,12 +95,10 @@ class Promethean_Request4quote_Adminhtml_Quote_CreateController extends ITwebexp
                         Mage::log($e);
                     }
                 }
-
                 // Override set date
                 if(isset($datas['created_at']) && !empty($datas['created_at'])) {
                     $quote->setCreatedAt($datas['created_at']);
                 }
-
                 if(isset($datas['expiration_date']) && !empty($datas['expiration_date'])) {
                     $quote->setExpirationDate($datas['expiration_date']);
                 } elseif(isset($datas['created_at']) && !empty($datas['created_at'])) {
@@ -121,10 +111,8 @@ class Promethean_Request4quote_Adminhtml_Quote_CreateController extends ITwebexp
                     $quote->setExpirationDate($expirationDate);
                 }
                 $quote->save();
-
-
                 /** Send Email */
-                if ($data['send_confirmation'] == 1) {
+                if (isset($data['send_confirmation'])) {
                     $emailComments = null;
                     if($appendComments && $notifyCustomer){
                         $emailComments = $commentForm;
