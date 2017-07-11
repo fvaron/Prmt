@@ -1,0 +1,189 @@
+<div class="news-item-content">
+    <?php $item = $this->getNewsitem(); ?>
+    <div class="title">
+        <h1><?php echo $item->getTitle() ?></h1>
+    </div>
+    <div class="top">
+        <?php if (Mage::helper('clnews')->showDate()): ?>
+            <div class="date"><?php echo Mage::helper('clnews')->formatDate($item->getNewsTime()) ?></div>
+        <?php endif; ?>
+        <?php if($item->getCommentsEnabled()): ?>
+            <div class="nbcomments"><?php echo count($this->getComments()); ?> <?php echo $this->__('Comment(s)') ?></div>
+        <?php endif; ?>
+        <?php if (Mage::helper('clnews')->showCategory()): ?>
+            <?php if ($this->getCategoryByNews($item->getID())->getData('title') != ''): ?>
+                <div class="category"><?php echo $this->getCategoryByNews($item->getID())->getData('title'); ?></div>
+            <?php endif; ?>
+        <?php endif; ?>
+    </div>
+    
+    <div class="news">
+        <?php if ($item->getImageFullContentShow() && $item->getImageFullContent()): ?>
+            <div class="news_image">
+                <?php $imageSize = $this->getFullImageSize($item) ?>
+                <img src="<?php echo Mage::helper('clnews')->resizeImage(str_replace('clnews/', '', $item->getImageFullContent()), $imageSize['width'], $imageSize['height'], 'clnews'); ?>" />
+            </div>
+        <?php endif; ?>
+        <?php echo Mage::helper('clnews')->contentFilter($item->getFullContent()) ?>
+        <?php if ($item->getDocument()!=''): ?>
+            <p class="loadfile"><a href="<?php echo Mage::Helper('clnews')->getFileUrl($item) ?>"><?php if ($item->getLink()): echo $item->getLink(); else: echo $this->__('Download attached document'); endif; ?></a></p>
+        <?php endif ?>
+        <?php if (Mage::helper('clnews')->showAuthor()): ?>
+            <?php if ($item->getAuthor()): ?>
+                <span><?php echo $this->__('Author: ').$item->getAuthor(); ?></span>
+            <?php endif; ?>
+        <?php endif; ?>
+    </div>
+
+    <div class="other-news">
+        <?php if($this->getPreviousNews()): ?>
+            <a class="previous" href="<?php echo $this->getPreviousNews()->getUrl(); ?>">
+                <span class="slick-prev slick-arrow"></span><?php echo $this->getPreviousNews()->getTitle(); ?>
+            </a>
+        <?php else: ?>
+            <a class="previous" href="javascript:void(0);"></a>
+        <?php endif; ?>
+        <?php if($this->getNextNews()): ?>
+            <a class="next" href="<?php echo $this->getNextNews()->getUrl(); ?>">
+                <?php echo $this->getNextNews()->getTitle(); ?><span class="slick-next slick-arrow"></span>
+            </a>
+        <?php else: ?>
+            <a class="next" href="javascript:void(0);"></a>
+        <?php endif; ?>
+
+    </div>
+
+    <?php if (Mage::helper('clnews')->getTagsAccess()): ?>
+        <p>
+            <?php if ($item->getTags()): ?>
+                <?php $arr = preg_split('/,/', $item->getTags()); ?>
+                <?php $tags = ''; ?>
+                <?php $count = count($arr); ?>
+                <?php $k = 1; ?>
+                <?php foreach ($arr as $val): ?>
+                    <?php if ($k == $count): ?>
+                        <?php $tags .= '<a href="' . $this->getUrl(Mage::helper('clnews')->getRoute() . '/index/index/q/' . urlencode(trim($val)) . '/') . '" >' . trim($val) . '</a> '; ?>
+                    <?php else: ?>
+                        <?php $tags .= '<a href="' . $this->getUrl(Mage::helper('clnews')->getRoute() . '/index/index/q/' . urlencode(trim($val)) . '/') . '" >' . trim($val) . '</a>, '; ?>
+                    <?php endif; ?>
+                    <?php $k++; ?>
+                <?php endforeach; ?>
+                <img src="<?php echo $this->getSkinUrl('css/clnews/images/i-tags.gif')?>"/>&nbsp;<?php echo $tags; ?>
+            <?php endif; ?>
+        </p>
+    <?php endif; ?>
+    
+    <?php echo $this->getMessagesBlock()->getGroupedHtml(); ?>
+    
+    <div class="news-item-comment">
+    <?php if($item->getCommentsEnabled()): ?>
+        <?php $comments = $this->getComments(); ?>
+        <div class="title">
+            <h2><?php echo $this->__('Comments'); ?></h2>
+        </div>
+        <div id="clloader" style="display:none;"><img src="<?php echo $this->getSkinUrl('images/clnews/ajax-loader.gif')?>"/></div>
+        <div id="comment_block">
+            <?php $k = 0;?>
+            <?php foreach ($comments as $comment):  ?>
+                <div id="comment_item_<?php echo $k;?>" class="comment-item">
+                    <h3 class="username"><?php echo $comment->getUser();?></h3>
+                    <?php echo $this->__("Posted on:")?> <?php echo Mage::helper('clnews')->formatDate($comment->getCreatedTime());?>
+                    <div class="comment-text"><?php echo $comment->getComment();?></div>
+                </div>
+                <?php $k++;?>
+            <?php endforeach; ?>
+        </div>
+        <?php if (!$this->getRequireLogin() || ($this->getRequireLogin()&&$this->helper('customer')->isLoggedIn())): ?>
+            <form id="postComment" method="post" action="">
+                <div class="title">
+                    <h2><?php echo Mage::helper('clnews')->__('Leave a comment') ?></h2>
+                    <?php if($this->getLastPageNum()>1): ?>
+                        <div class="pager">
+                            <p class="pages">
+                                <span id="prev"></span>
+                                <?php foreach ($this->getPages() as $_page): ?>
+                                    <?php if ($this->isPageCurrent($_page)): ?>
+                                        <a href="javascript:void(0);" id="page_<?php echo $_page ?>" class="page current" onclick="AjaxSend(<?php echo $_page ?>, <?php echo $item->getId() ?>, true);"><?php echo $_page ?></a>
+                                    <?php else: ?>
+                                        <a href="javascript:void(0);" id="page_<?php echo $_page ?>" class="page" onclick="AjaxSend(<?php echo $_page ?>, <?php echo $item->getId() ?>, true);"><?php echo $_page ?></a>
+                                    <?php endif ?>
+                                    <?php $lastPage = $_page; ?>
+                                <?php endforeach; ?>
+                                <span id="next"><a href="javascript:void(0);" onclick="AjaxSend(<?php echo $lastPage; ?>, <?php echo $item->getId() ?>, true);" class="next i-next" title="<?php echo $this->__('Next') ?>"></a></span>
+                            </p>
+                        </div>
+                    <?php endif;?>
+                </div>
+                <ul>
+                    <?php if (!$this->helper('customer')->isLoggedIn()): ?>
+                        <li>
+                            <div class="input-box">
+                                <input name="user" id="user" value="<?php echo $this->getCommentName(); ?>" title="<?php echo $this->__('Name') ?>" placeholder="<?php echo Mage::helper('clnews')->__('Name') ?>" value="<?php echo $this->htmlEscape($this->helper('clnews')->getUserName()) ?>" class="required-entry form-control input-text" type="text" />
+                            </div>
+                            <div class="input-box">
+                                <input name="email" id="email" value="<?php echo $this->getCommentEmail(); ?>" title="<?php echo $this->__('Email') ?>" placeholder="<?php echo Mage::helper('clnews')->__('Email') ?>" value="<?php echo $this->htmlEscape($this->helper('clnews')->getUserEmail()) ?>" class="required-entry form-control input-text validate-email" type="text" />
+                                <small><?php echo $this->__('(will not be displayed)') ?></small>
+                            </div>
+                        </li>
+                        <?php else: ?>
+                            <input name="post_id" type="hidden" value="<?php echo $item->getPostId();?>" />
+                            <input name="email" type="hidden" value="<?php echo $this->htmlEscape($this->helper('clnews')->getUserEmail()) ?>"/><br/>
+                            <input name="user" type="hidden" value="<?php echo $this->htmlEscape($this->helper('clnews')->getUserName()) ?>"/><br/>
+                        <?php endif ?>
+                        <li>
+                            <textarea name="comment" id="comment" title="<?php echo Mage::helper('clnews')->__('Your question') ?>" placeholder="<?php echo Mage::helper('clnews')->__('Your question') ?>" class="required-entry input-text" cols="50" rows="5"><?php echo $this->getCommentText(); ?></textarea>
+                        </li>
+                    <?php if (Mage::getStoreConfig('clnews/captcha/enabled')): ?>
+                        <!-- - -->
+                    <?php endif ?>
+                    </li>
+                </ul>
+                <div class="button-set">
+                    <input name="news_id" type="hidden" value="<?php echo $item->getId() ?>" />
+                    <button class="button btn btn-success" type="submit"><span><span><?php echo Mage::helper('clnews')->__('Submit Comment') ?></span></span></button>
+                </div>
+            </form>
+        
+            <script type="text/javascript">
+            var contactForm = new VarienForm('postComment', false);
+            </script>
+        <?php else: ?>
+            <p><?php echo Mage::helper('clnews')->__('You must be logged in to post a comment.');?></p>
+            <p><a href="<?php echo Mage::helper('customer')->getLoginUrl(); ?>"><?php echo Mage::helper('clnews')->__('click here');?></a> <?php echo Mage::helper('clnews')->__('to log in');?></p>
+        <?php endif; ?>
+    <?php endif; ?>
+    </div>
+</div>
+<script type="text/javascript">
+    function AjaxSend(page, id, showLoader)
+    {
+        var url = "<?php echo Mage::getBaseUrl()?>clnews/newsitem/ajax/id/" + id + "/page/" + page + "/";
+        if (showLoader) {
+            jQuery("#clloader").css("display","block");
+        }
+        jQuery.ajax({
+            url: url,
+            dataType: 'json',
+            success: function(data) {
+                var content = '';
+                jQuery(".comment-item").remove();
+                for(var i = 0; i < data['dat'].cnt; i++) {
+                    content = '<div id="comment_item_'+ i +'" class="comment-item"><h4 class="username">'+ data['collection'][i].user +'</h4> <?php echo $this->__("posted on:")?> ' + data['collection'][i].created_time + '<div>' + data['collection'][i].comment + '</div></div>';
+                    jQuery('#comment_block').append(content);
+                }
+                jQuery("#prev .previous").remove();
+                if (typeof(data['dat'].back_url) != 'undefined') {
+                    jQuery("#prev").append('<a href="javascript:void(0);" id="prev" class="previous i-previous" title="<?php echo $this->__('Previous') ?>" ' + data['dat'].back_url + '></a>');
+                }
+                jQuery("#next .next").remove();
+                if (typeof(data['dat'].fovard_url) != 'undefined') {
+                    jQuery("#next").append('<a href="javascript:void(0);" id="next" class="next i-next" title="<?php echo $this->__('Next') ?>" ' + data['dat'].fovard_url + '></a>');
+                }
+                jQuery("#clloader").css("display","none");
+            }
+        });
+        jQuery(".page").removeClass("current");
+        var cl = 'page_' + page;
+        jQuery("#" + cl).addClass("current");
+    }
+</script>

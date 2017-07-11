@@ -28,9 +28,9 @@ class Promethean_Request4quote_Model_Quotepdf extends ITwebexperts_Request4quote
         $pdf->setPrintHeader(false);
         $pdf->setPrintFooter(false);
         $pdf->AddPage();
-        $pdf->SetAutoPageBreak(true,30);
-        $pdf->setHeaderMargin(20);
-        $pdf->setFooterMargin(20);
+        $pdf->SetAutoPageBreak(true, 0);
+        $pdf->setHeaderMargin(0);
+        $pdf->setFooterMargin(0);
         $pdf->setImageScale(1.5);
         $emailtext = Mage::helper('request4quote/email')->sendRequestProposalNotification($quote, false, true);
         // echo $emailtext;

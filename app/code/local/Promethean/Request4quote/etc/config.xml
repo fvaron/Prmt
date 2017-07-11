@@ -13,7 +13,7 @@
 <config>
     <modules>
         <Promethean_Request4quote>
-            <version>0.1.0</version>
+            <version>1.0.0</version>
         </Promethean_Request4quote>
     </modules>
     <global>
@@ -29,6 +29,11 @@
                     <product_view_type_virtual>Promethean_Request4quote_Block_Catalog_Product_View_Type_Virtual</product_view_type_virtual>
                 </rewrite>
             </catalog>
+            <request4quote>
+                <rewrite>
+                    <cart_totals>Promethean_Request4quote_Block_Rewrite_Cart_Totals</cart_totals>
+                </rewrite>
+            </request4quote>
         </blocks>
         <helpers>
             <request4quote>
@@ -40,7 +45,7 @@
         </helpers>
         <template>
             <email>
-                <request4quote_emails_quote_pdf module="Promethean_Request4quote">
+                <request4quote_emails_quote_pdf>
                     <label>Quote request pdf</label>
                     <file>rfq/quote_request_processed_pdf.html</file>
                     <type>html</type>
@@ -52,9 +57,21 @@
                 <rewrite>
                     <quote>Promethean_Request4quote_Model_Quote</quote>
                     <quotepdf>Promethean_Request4quote_Model_Quotepdf</quotepdf>
+                    <adminhtml_quote_create>Promethean_Request4quote_Model_Rewrite_Adminhtml_Quote_Create</adminhtml_quote_create>
                 </rewrite>
             </request4quote>
         </models>
+        <resources>
+            <promethean_request4quote_setup>
+                <setup>
+                    <module>Promethean_Request4quote</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </promethean_request4quote_setup>
+        </resources>
     </global>
     <frontend>
         <layout>
@@ -81,4 +98,15 @@
             </pdf>
         </request4quote>
     </default>
+    <admin>
+        <routers>
+            <request4quote>
+                <args>
+                    <modules>
+                        <promethean_request4quote before="ITwebexperts_Request4quote">Promethean_Request4quote_Adminhtml</promethean_request4quote>
+                    </modules>
+                </args>
+            </request4quote>
+        </routers>
+    </admin>
 </config>

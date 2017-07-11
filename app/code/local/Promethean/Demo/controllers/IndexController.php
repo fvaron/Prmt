@@ -86,7 +86,7 @@ class Promethean_Demo_IndexController extends Mage_Core_Controller_Front_Action
                 $translate->setTranslateInline(true);
 
                 Mage::getSingleton('customer/session')->addSuccess(Mage::helper('demo')->__('Your inquiry was submitted and will be responded to as soon as possible. Thank you for contacting us.'));
-                $this->_redirect('*/*/');
+                $this->_redirect('*/*/', array('success' => '1'));
 
                 return;
             } catch (Exception $e) {

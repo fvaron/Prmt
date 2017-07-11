@@ -23,7 +23,48 @@
  * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
+$createdAt = date('d/m/Y', Mage::getModel('core/date')->timestamp(strtotime($this->getQuote()->getCreatedAt())));
+$expirationDate = date('d/m/Y', Mage::getModel('core/date')->timestamp(strtotime($this->getQuote()->getExpirationDate())));
 ?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head fieldset-legend head-account"><?php echo $this->__('Date') ?></h4>
+    </div>
+
+    <div class="fieldset" id="main-date">
+        <div class="input-box">
+            <label for="__datecreate"><?php echo $this->__('Date Created'); ?></label>
+            <input name="created_at" id="_datecreate" value="<?php if(!empty($this->getQuote()->getCreatedAt())): echo $createdAt; endif; ?>" class="input-text" style="width:110px !important;" type="text"/>
+            <img src="<?php echo $this->getSkinUrl('images/grid-cal.gif') ?>" alt="" class="v-middle" id="__datecreate_trig" title="Select Date" style="">
+            <script type="text/javascript">
+                Calendar.setup({
+                    inputField: "_datecreate",
+                    ifFormat: "%d/%m/%Y",
+                    showsTime: false,
+                    button: "__datecreate_trig",
+                    align: "Bl",
+                    singleClick : true
+                });
+            </script>
+        </div>
+        <br/><br/>
+        <div class="input-box">
+            <label for="__datevalid"><?php echo $this->__('Expiration Date'); ?></label>
+            <input name="expiration_date" id="__datevalid" value="<?php if(!empty($this->getQuote()->getExpirationDate())): echo $expirationDate; endif; ?>" class="input-text" style="width:110px !important;" type="text"/>
+            <img src="<?php echo $this->getSkinUrl('images/grid-cal.gif') ?>" alt="" class="v-middle" id="__datevalid_trig" title="Select Date" style="">
+            <script type="text/javascript">
+                Calendar.setup({
+                    inputField: "__datevalid",
+                    ifFormat: "%d/%m/%Y",
+                    showsTime: false,
+                    button: "__datevalid_trig",
+                    align: "Bl",
+                    singleClick : true
+                });
+            </script>
+        </div>
+    </div>
+</div>
 <div class="entry-edit">
     <div class="entry-edit-head">
         <h4 class="icon-head fieldset-legend head-account"><?php echo $this->getHeaderText() ?></h4>

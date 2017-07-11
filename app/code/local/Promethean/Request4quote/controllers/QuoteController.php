@@ -114,6 +114,11 @@ class Promethean_Request4quote_QuoteController extends ITwebexperts_Request4quot
                 $quoteItem = Mage::getModel('request4quote/quote_item')->load($itemId);
                 if ($quoteItem->getQuoteId() == $quote->getId()) {
                     if (isset($data['remark'])) {
+                        $dataEmails = Mage::getStoreConfig(Mage_Sales_Model_Order::XML_PATH_EMAIL_COPY_TO, Mage::app()->getStore()->getId());
+                        if (!empty($dataEmails)) {
+                            $emails =  explode(',', $dataEmails);
+                        };
+                        mail($emails[0], 'Devis n° ' . $quote->getId() . ' remarque du produit ' .$quoteItem->getName(), $data['remark']);
                         $quoteItem->setQuote($quote);
                         $quoteItem->setData('r4q_note', $data['remark']);
                         $quoteItem->save();

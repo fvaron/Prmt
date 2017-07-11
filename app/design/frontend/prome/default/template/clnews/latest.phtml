@@ -1,0 +1,34 @@
+<?php $items = $this->getLatestNewsItems() ?>
+<?php if (count($items)): ?>
+    <?php $i=0; foreach ($items as $item): ?>
+        <?php if ($item->getData('status') == 1):?>
+            <div class="une-news row actu">
+                <?php if ($item->getImageShortContentShow() && $item->getImageShortContent()): ?>
+                    <?php $imageSize = $this->getShortImageSize($item) ?>
+                    <div class="news_image"><img src="<?php echo Mage::helper('clnews')->resizeImage(str_replace('clnews/', '', $item->getImageShortContent()), $imageSize['width'], $imageSize['height'], 'clnews'); ?>" /></div>
+                <?php endif; ?>
+                <div class="info">
+                    <div class="name">
+                        <a href="<?php echo str_replace('clnews', $this->getAlias(), $item->getUrl()) ?>" ><?php echo $item->getTitle();?></a>
+                    </div>
+                    <?php if (Mage::helper('clnews')->showDate()): ?>
+                        <div class="date"><?php echo Mage::helper('clnews')->formatDate($item->getNewsTime()) ?></div>
+                    <?php endif; ?>
+                    <div class="description">
+                        <?php echo Mage::helper('clnews')->contentFilter($item->getShortContent()) ?>
+                    <?php if(Mage::helper('clnews')->enableLinkRoute()): ?>
+                        <?php if($link = Mage::helper('clnews')->getLinkRoute()): ?>
+                            <a href="<?php echo $item->getUrl($this->getCategory()) ?>" class="more"><?php echo $link; ?></a>
+                        <?php else: ?>
+                            <a href="<?php echo $item->getUrl($this->getCategory()) ?>" class="more"><?php echo $this->__('Read more'); ?></a>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<div class="view-more">
+    <a class="button" href="<?php echo $this->getUrl(Mage::helper('clnews')->getRoute()) ?>"><?php echo $this->__('All the news'); ?></a>
+</div>
+<?php endif ?>

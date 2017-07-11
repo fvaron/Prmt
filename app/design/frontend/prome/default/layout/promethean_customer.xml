@@ -19,6 +19,7 @@
         <block type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
             <action method="addLink" translate="label" module="customer"><name>account</name><path>customer/account/</path><label>Account Dashboard</label></action>
             <action method="addLink" translate="label" module="customer"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
+            <action method="addLink" translate="label" module="newsletter"><name>newsletter</name><path>newsletter/manage/</path><label>Newsletter Subscriptions</label></action>
             <action method="addLink" translate="label" module="customer"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
             <action method="addLink" translate="label" module="sales"><name>orders</name><path>sales/order/history/</path><label>My Orders</label></action>
             <action method="addLink" translate="label" module="sales"><name>quotes</name><path>request4quote_front/customer_quote/history</path><label>My Quotes</label></action>

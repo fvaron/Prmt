@@ -1,0 +1,40 @@
+<?php
+/**
+ * GoogleTagManager plugin for Magento
+ *
+ * @package     Yireo_GoogleTagManager
+ * @author      Yireo (https://www.yireo.com/)
+ * @copyright   Copyright (c) 2016 Yireo (https://www.yireo.com/)
+ * @license     Open Software License
+ */
+
+if ($this->isEnabled()) {
+
+    /** @var Mage_Catalog_Model_Product $product */
+    $product = $this->getProduct();
+
+    if (!empty($product) && $product->getId() > 0) {
+        $this->addAttribute('productId', $product->getId());
+        $this->addAttribute('productName', $product->getName());
+        $this->addAttribute('productSku', $product->getSku());
+        $this->addAttribute('productFullPrice', $product->getPrice());
+        $this->addAttribute('productPrice', $product->getFinalPrice());
+
+        $category = $product->getCategory();
+        $categoryName = (is_object($category)) ? $category->getName() : null;
+
+        if (!empty($categoryName)) {
+            $this->getModuleHelper()->addEcommerceData('actionField', array('list' => $categoryName));
+        }
+
+        $productData = array(
+            'name' => $product->getName(),
+            'id' => $product->getId(),
+            'fullPrice' => $product->getPrice(),
+            'price' => $product->getFinalPrice(),
+            'brand' => $product->getManufacturer(),
+            'category' => $categoryName,
+        );
+        $this->getModuleHelper()->addEcommerceData('detail', array($productData));
+    }
+}

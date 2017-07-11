@@ -1,0 +1,57 @@
+<div class="page-news">
+    <?php $items = $this->getNewsItems(); ?>
+    <ul id="grid-masonry">
+        <?php foreach ($items as $item): ?>
+            <li class="grid-item">
+                <div class="actu">
+                    <div class="news_image">
+                        <?php if ($item->getImageShortContentShow() && $item->getImageShortContent()): ?>
+                            <?php $imageSize = $this->getShortImageSize($item) ?>
+                            <img src="<?php echo Mage::helper('clnews')->resizeImage(str_replace('clnews/', '', $item->getImageShortContent()), $imageSize['width'], $imageSize['height'], 'clnews'); ?>" />
+                            <?php if (Mage::helper('clnews')->showDate()): ?>
+                                <div class="date"><?php echo Mage::helper('clnews')->formatDate($item->getNewsTime()) ?></div><i class="triangle-bottom-left"></i>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
+                    <div class="info">
+                        <div class="name">
+                            <a href="<?php echo str_replace('clnews', $this->getAlias(), $item->getUrl()) ?>" ><?php echo $item->getTitle();?></a>
+                        </div>
+                        <div class="description">
+                            <div class="short"><?php echo strip_tags(Mage::helper('clnews')->contentFilter($item->getShortContent())) ?></div>
+                            <?php if(Mage::helper('clnews')->enableLinkRoute()): ?>
+                                <?php if($link = Mage::helper('clnews')->getLinkRoute()): ?>
+                                    <a href="<?php echo $item->getUrl($this->getCategory()) ?>" class="more"><?php echo $link; ?></a>
+                                <?php else: ?>
+                                    <a href="<?php echo $item->getUrl($this->getCategory()) ?>" class="more"><?php echo $this->__('Read more'); ?></a>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="actu-footer"></div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php if($this->getLastPageNum()>1): ?>
+        <div class="pager">
+            <div class="pages">
+                <ol>
+                    <?php if (!$this->isFirstPage()): ?>
+                        <li><a href="<?php echo $this->getPreviousPageUrl() ?>" title="<?php echo $this->__('Previous') ?>" class="previous i-previous"></a></li>
+                    <?php endif;?>
+                    <?php foreach ($this->getPages() as $_page): ?>
+                        <?php if ($this->isPageCurrent($_page)): ?>
+                            <li class="current"><span><?php echo $_page ?></span></li>
+                        <?php else: ?>
+                            <li><a href="<?php echo $this->getPageUrl($_page) ?>"><?php echo $_page ?></a></li>
+                        <?php endif ?>
+                    <?php endforeach; ?>
+                    <?php if (!$this->isLastPage()): ?>
+                        <li><a href="<?php echo $this->getNextPageUrl() ?>" title="<?php echo $this->__('Next') ?>" class="next i-next"></a></li>
+                    <?php endif ?>
+                </ol>
+            </div>
+        </div>
+    <?php endif;?>
+</div>

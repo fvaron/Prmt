@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * This file is part of Promethean_News for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_News
+ * @copyright Copyright (c) 2016 Caroline Framery (http://)
+ */
+-->
+<config>
+    <modules>
+        <Promethean_News>
+            <version>0.1.0</version>
+        </Promethean_News>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <promethean_news module="Promethean_News">
+                    <file>news.xml</file>
+                </promethean_news>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <promethean_news>
+                <class>Promethean_News_Block</class>
+            </promethean_news>
+            <clnews>
+                <rewrite>
+                    <news>Promethean_News_Block_Rewrite_News</news>
+                    <newsitem>Promethean_News_Block_Rewrite_Newsitem</newsitem>
+                </rewrite>
+            </clnews>
+        </blocks>
+    </global>
+</config>

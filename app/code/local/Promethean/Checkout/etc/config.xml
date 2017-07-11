@@ -24,15 +24,6 @@
                 </promethean_checkout>
             </updates>
         </layout>
-        <routers>
-            <checkout>
-                <args>
-                    <modules>
-                        <promethean_checkout before="Mage_Checkout">Promethean_Checkout</promethean_checkout>
-                    </modules>
-                </args>
-            </checkout>
-        </routers>
     </frontend>
     <admin>
         <fieldsets>
@@ -46,12 +37,12 @@
             <promethean_checkout>
                 <class>Promethean_Checkout_Block</class>
             </promethean_checkout>
-            <checkout>
-                <rewrite>
-                    <onepage>Promethean_Checkout_Block_Onepage</onepage>
-                </rewrite>
-            </checkout>
         </blocks>
+        <models>
+            <promethean_checkout>
+                <class>Promethean_Checkout_Model</class>
+            </promethean_checkout>
+        </models>
         <resources>
             <promethean_checkout_setup>
                 <setup>

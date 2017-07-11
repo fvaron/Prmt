@@ -82,7 +82,7 @@ class Promethean_Phonereminder_IndexController extends Mage_Core_Controller_Fron
                 $translate->setTranslateInline(true);
 
                 Mage::getSingleton('customer/session')->addSuccess(Mage::helper('phonereminder')->__('Your inquiry was submitted and will be responded to as soon as possible. Thank you for contacting us.'));
-                $this->_redirect('*/*/');
+                $this->_redirect('*/*/', array('success' => '1'));
 
                 return;
             } catch (Exception $e) {

@@ -1,0 +1,21 @@
+<?php
+$_order = $this->getOrder();
+$totalPriceProducts = 0;
+$totalPriceItem = 0;
+$notes = "";
+foreach ($_order->getAllItems() as $_item):
+    $totalPriceProducts += ($_item->getProduct()->getFinalPrice() * $_item->getQty());
+    $totalPriceItem += $_item->getRowTotal();
+    $notes .= "<br /><br />" . $_item->getR4qNote();
+endforeach;
+?>
+<?php if($totalPriceProducts != 0 && ($totalPriceProducts != $totalPriceItem)): ?>
+<tr>
+    <td>
+        <br /><br /><strong><?php echo $this->__('Total price discounts:'); ?> <?php echo  $_order->formatPrice($totalPriceProducts - $totalPriceItem); ?> HT</strong>
+        <?php if($notes != ""): ?>
+            <?php echo  $notes; ?>
+        <?php endif; ?>
+    </td>
+</tr>
+<?php endif; ?>
