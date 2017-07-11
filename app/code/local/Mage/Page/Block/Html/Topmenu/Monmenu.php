@@ -69,6 +69,9 @@ class Mage_Page_Block_Html_Topmenu_Monmenu extends Mage_Page_Block_Html_Topmenu{
         switch ($name) {
             case 'ACTIVPANEL':
                 $nom = 'Ecrans interactifs';
+                break; 
+            case 'VIDEOPROJECTEUR':
+                $nom = 'Supports';
                 break;            
             case 'ACTIVBOARD':
                 $nom = 'Tableaux interactifs';
