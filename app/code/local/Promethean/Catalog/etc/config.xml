@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * This file is part of Promethean_Catalog for Magento.
+ *
+ * @license All rights reserved
+ * @author Caroline Framery <framery.caroline@laposte.net> <t>
+ * @category Promethean
+ * @package Promethean_Catalog
+ * @copyright Copyright (c) 2017 Caroline Framery (http://)
+ */
+-->
+<config>
+    <modules>
+        <Promethean_Catalog>
+            <version>1.0.0</version>
+        </Promethean_Catalog>
+    </modules>
+    <global>
+        <resources>
+            <promethean_catalog_setup>
+                <setup>
+                    <module>Promethean_Catalog</module>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </promethean_catalog_setup>
+        </resources>
+    </global>
+</config>
