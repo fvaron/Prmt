@@ -32,6 +32,7 @@
             <request4quote>
                 <rewrite>
                     <cart_totals>Promethean_Request4quote_Block_Rewrite_Cart_Totals</cart_totals>
+                    <adminhtml_quote_create>Promethean_Request4quote_Block_Rewrite_Adminhtml_Quote_Create</adminhtml_quote_create>
                 </rewrite>
             </request4quote>
         </blocks>

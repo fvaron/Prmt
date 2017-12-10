@@ -26,16 +26,14 @@ class Promethean_Request4quote_Model_Quotepdf extends ITwebexperts_Request4quote
         }
         $pdf = new TCPDF();
         $pdf->setPrintHeader(false);
-        $pdf->setPrintFooter(false);
-        $pdf->AddPage();
-        $pdf->SetAutoPageBreak(true, 0);
+        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->setHeaderMargin(0);
-        $pdf->setFooterMargin(0);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+        $pdf->SetAutoPageBreak(true, 10);
         $pdf->setImageScale(1.5);
+        $pdf->AddPage();
         $emailtext = Mage::helper('request4quote/email')->sendRequestProposalNotification($quote, false, true);
-        // echo $emailtext;
-        $pdf->writeHTML($emailtext, false);
-        $pdf->endPage();
+        $pdf->writeHTMLCell(0, 0, '', '', $emailtext, 0, 1, 0, true, '', true);
         if ($storeid) {
             $appEmulation->stopEnvironmentEmulation($initial);
         }
