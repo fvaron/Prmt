@@ -28,8 +28,8 @@ class Promethean_Request4quote_Model_Quotepdf extends ITwebexperts_Request4quote
         $pdf->setPrintHeader(false);
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->setHeaderMargin(0);
-        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-        $pdf->SetAutoPageBreak(true, 10);
+        $pdf->SetFooterMargin(5);
+        $pdf->SetAutoPageBreak(true, 5);
         $pdf->setImageScale(1.5);
         $pdf->AddPage();
         $emailtext = Mage::helper('request4quote/email')->sendRequestProposalNotification($quote, false, true);
