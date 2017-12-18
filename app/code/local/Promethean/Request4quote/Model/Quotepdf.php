@@ -8,6 +8,8 @@
  * @package Promethean_Request4quote
  * @copyright Copyright (c) 2016 Caroline Framery (http://)
  */
+require_once(BP . DS . 'lib' . DS . 'tcpdf' . DS . 'mypdf.php');
+
 class Promethean_Request4quote_Model_Quotepdf extends ITwebexperts_Request4quote_Model_Quotepdf
 {
     /**
@@ -24,12 +26,12 @@ class Promethean_Request4quote_Model_Quotepdf extends ITwebexperts_Request4quote
                 $storeid, Mage_Core_Model_App_Area::AREA_FRONTEND, true
             );
         }
-        $pdf = new TCPDF();
+        $pdf = new MYPDF();
         $pdf->setPrintHeader(false);
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->setHeaderMargin(0);
         $pdf->SetFooterMargin(5);
-        $pdf->SetAutoPageBreak(true, 5);
+        $pdf->SetAutoPageBreak(true, 30);
         $pdf->setImageScale(1.5);
         $pdf->AddPage();
         $emailtext = Mage::helper('request4quote/email')->sendRequestProposalNotification($quote, false, true);
