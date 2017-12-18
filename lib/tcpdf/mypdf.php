@@ -42,7 +42,7 @@ class MYPDF extends TCPDF
         $this->SetX($this->original_rMargin);
         // Page number
         $textFooter = '<p style="font-size:11px;font-style:italic;color:grey;text-align: center">TSR INFORMATIQUE se réserve la propriété des produits vendus jusqu\'au paiement intégral de leur prix en principal et accessoire. Tout retard de paiement donnera lieu à l\'application des frais plafonnés à 15 euros ainsi que des intérêts au taux égal à 3 fois le taux d\'intérêt légal en vigueur.</p>
-                        <p style="font-size:12px;color:orange;text-align: center">Écran intéractif - 40, rue Baudin - 92400 COURBEVOIE - http://www.ecran-interactif.net<br />
+                        <p style="font-size:12px;color:orange;text-align: center">TSR INFORMATIQUE - 40, rue Baudin - 92400 COURBEVOIE - www.prointeractive.fr<br />
                                 Tél. 01 70 79 07 66 - Fax : 09 72 22 99 25 –<br />
                                 SIRET : 788 573 475 00019 - INTRACOM : FR47788573475</p>';
         $textFooter .= '<p style="text-align:center;">Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages() . '</p>';
