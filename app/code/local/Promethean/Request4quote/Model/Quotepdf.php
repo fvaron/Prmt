@@ -27,6 +27,7 @@ class Promethean_Request4quote_Model_Quotepdf extends ITwebexperts_Request4quote
             );
         }
         $pdf = new MYPDF();
+        $pdf->setNumber($quote->getId());
         $pdf->setPrintHeader(false);
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf->setHeaderMargin(0);

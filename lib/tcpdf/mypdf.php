@@ -3,6 +3,16 @@ require_once(BP . DS . 'lib' . DS . 'tcpdf' . DS . 'tcpdf.php');
 
 class MYPDF extends TCPDF
 {
+    public $number;
+
+    /**
+     * @param $number
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+    }
+
     /**
      * Rewrite footer TCPDF
      */
@@ -45,7 +55,7 @@ class MYPDF extends TCPDF
                         <p style="font-size:12px;color:orange;text-align: center">TSR INFORMATIQUE - 40, rue Baudin - 92400 COURBEVOIE - www.prointeractive.fr<br />
                                 Tél. 01 70 79 07 66 - Fax : 09 72 22 99 25 –<br />
                                 SIRET : 788 573 475 00019 - INTRACOM : FR47788573475</p>';
-        $textFooter .= '<p style="text-align:center;">Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages() . '</p>';
+        $textFooter .= '<p style="text-align:center;">Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages() . ' Devis n°'. $this->number . '</p>';
         $this->writeHTMLCell(0, 0, '', '', $textFooter, 0, 1, 0, true, '', true);
     }
 }

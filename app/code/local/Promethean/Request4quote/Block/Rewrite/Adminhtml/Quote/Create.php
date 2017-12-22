@@ -20,7 +20,7 @@ class Promethean_Request4quote_Block_Rewrite_Adminhtml_Quote_Create extends ITwe
         $quote = $this->_getSession()->getQuote();
         $this->_addButton('quote_duplicate', array(
             'label' => Mage::helper('request4quote')->__('Duplicate'),
-            'onclick' => "window.location.href = '" . $this->getUrl('adminhtml/quote/duplicate', array('quote_id' => $quote->getId())) . "'; return false;"
+            'onclick' => "window.location.href = '" . $this->getUrl('*/adminhtml_quote/duplicate', array('quote_id' => $quote->getId())) . "'; return false;"
         ));
     }
 }
