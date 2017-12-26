@@ -15,7 +15,6 @@ class Promethean_Request4quote_Adminhtml_Adminhtml_Quote_CreateController extend
      */
     public function saveAction()
     {
-        Mage::log('test', null, 'test.log', true);
         try {
             $quote = $this->_getQuote();
             if (count($this->_getQuote()->getAllItems())) {
